@@ -32,6 +32,9 @@
             <!-- register -->
             <form name="register" id="register" class="input-group" method="POST" action="/dangkitk">
                 {{ csrf_field() }}
+                @if (Session::has('message'))
+                    <p class="message-txt"><i class="fas fa-info-circle"></i>{{Session::get('message')}}</p>
+                @endif
                 <input type="text" name="name" class="input-field" placeholder="Nhập họ tên...">
                 @if ($errors->has('name'))
                     <span class="error">{{ $errors->first('name') }}</span>
@@ -49,7 +52,7 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src=""></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src=""></script>
 </body>
 </html>

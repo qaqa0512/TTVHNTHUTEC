@@ -32,6 +32,9 @@
             <!-- login -->
             <form id="login" class="input-group" method="POST" action="dangnhaptk">
                 {{ csrf_field() }}
+                @if (Session::has('message'))
+                    <p class="message-txt"><i class="fas fa-info-circle"></i>{{Session::get('message')}}</p>
+                @endif
                 <input type="text" name="email" class="input-field" placeholder="Nhập email...">
                 @if ($errors->has('email'))
                     <span class="error">{{ $errors->first('email') }}</span>
@@ -46,7 +49,7 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src=""></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src=""></script>
 </body>
 </html>

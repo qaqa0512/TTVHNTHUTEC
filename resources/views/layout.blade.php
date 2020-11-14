@@ -83,7 +83,7 @@
         <p>© <a href="#">Nguyễn Quốc Anh</a> 2020</p>
     </footer>
     {{-- Javascript --}}
-    <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>

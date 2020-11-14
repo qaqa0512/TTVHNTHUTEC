@@ -34,3 +34,5 @@ searchBtn.onclick = () => {
     searchInput.classList.add("active-width");
     searchBtn.classList.add("back");
 }
+
+// --------- Jquery test ----------//

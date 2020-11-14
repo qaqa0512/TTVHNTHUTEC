@@ -230,3 +230,17 @@
     margin-bottom: 20px;
     text-transform: capitalize;
 }
+
+
+/* message-txt */
+
+.message-txt {
+    color: #E1306C;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.message-txt>i {
+    margin-right: 7px;
+}
