@@ -17,4 +17,8 @@ class PagesController extends Controller
     {
         return view('pages.courses');
     }
+    public function detailcourses()
+    {
+        return view('pages.details');
+    }
 }

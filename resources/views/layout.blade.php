@@ -15,7 +15,7 @@
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/courses.css">
-    {{-- <link rel="stylesheet" href="/css/details.css"> --}}
+    <link rel="stylesheet" href="/css/details.css">
 
     
     {{-- Boostrap --}}
