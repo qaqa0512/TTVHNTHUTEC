@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Trang chủ')
 @section('content')
 {{-- <!-- Menu --> --}}
 <div class="home">

@@ -20,7 +20,7 @@
     
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title></title>
+    <title>@yield('title')</title>
 </head>
 <body>
     {{-- Header HomeMusic --}}

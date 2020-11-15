@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title','Khóa học')
 @section('content')
 <div class="Home">
     <div class="Home-container">
