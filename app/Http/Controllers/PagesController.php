@@ -11,14 +11,4 @@ class PagesController extends Controller
     {
         return view('pages.home');
     }
-
-    // Khóa học
-    public function course()
-    {
-        return view('pages.courses');
-    }
-    public function detailcourses()
-    {
-        return view('pages.details');
-    }
 }

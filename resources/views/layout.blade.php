@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;469;500;600;700&display=swap" rel="stylesheet">
     
     {{-- CSS --}}
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/courses.css">
     <link rel="stylesheet" href="/css/details.css">
 

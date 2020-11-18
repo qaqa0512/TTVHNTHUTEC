@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Client
 Route::get('/','App\Http\Controllers\PagesController@homepage');
-Route::get('/khoahoc','App\Http\Controllers\PagesController@course');
-Route::get('/khoahoc/chitiet','App\Http\Controllers\PagesController@detailcourses');
+
+// Courses
+Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
+Route::get('/khoahoc/chitiet','App\Http\Controllers\CourseController@detailcourses');
 
 
 
@@ -30,3 +32,8 @@ Route::post('/dangnhaptk','App\Http\Controllers\Authentication@postLogin');
 Route::post('/dangkitk','App\Http\Controllers\Authentication@postRegister');
 // Logout
 Route::get('/dangxuat','App\Http\Controllers\Authentication@Logout');
+
+// Admin
+Route::get('/quantri','App\Http\Controllers\AdminController@showDasboard');
+Route::get('/quantri/dangnhapad','App\Http\Controllers\AdminController@loginAdmin');
+Route::get('/quantri/dangkiad','App\Http\Controllers\AdminController@registerAdmin');
