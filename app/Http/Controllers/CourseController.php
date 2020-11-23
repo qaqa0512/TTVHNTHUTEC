@@ -33,6 +33,7 @@ class CourseController extends Controller
         $data['course_description'] = $request->course_description;
         $data['course_category'] = $request->course_category;
         $data['course_image'] = $request->course_image;
+        
         DB::table('course')->insert($data);
         $request->session()->put('mes', 'Thêm khóa học thành công!');
         return Redirect::to('/quantri/cackhoahoc');
@@ -40,6 +41,8 @@ class CourseController extends Controller
 
     public function all_courses()
     {
-        return view('admin.allcourse');
+        $course = DB::table('course')->get();
+        $manger_course = view('admin.allcourse')->with('course',$course);
+        return view('admin')->with('admin.allcourse', $manger_course);
     }
 }

@@ -37,26 +37,31 @@
               </th>
               <th>Tên khóa học</th>
               <th>Người hướng dẫn</th>
-              <th>Ngày thêm</th>
+              <th>Mô tả</th>
+              <th>Thể loại</th>
+              <th>Hình ảnh</th>
               <th style="width:30px;"></th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($course as $key => $cate_cou)
             <tr>
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>Thanh nhạc</td>
-              <td><span class="text-ellipsis">Nguyễn Quốc Anh</span></td>
-              <td><span class="text-ellipsis">20/11/2020</span></td>
+              <td>{{$cate_cou->course_title}}</td>
+              <td><span class="text-ellipsis">{{$cate_cou->course_name}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_cou->course_description}}</span></td>
+              <td><span class="text-ellipsis">{{$cate_cou->course_category}}</span></td>
+              <td><img src="/admin/img/{{$cate_cou->course_image}}" alt=""></td>
               <td>
                 <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
       <footer class="panel-footer">
         <div class="row">
-          
           <div class="col-sm-5 text-center">
             <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
           </div>

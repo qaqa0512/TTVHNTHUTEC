@@ -15,7 +15,7 @@
             ?>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="/themkh" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="/themkh" method="POST">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="txt_label">Tiêu đề</label>
