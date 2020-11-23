@@ -51,7 +51,7 @@
               <td><span class="text-ellipsis">{{$cate_cou->course_name}}</span></td>
               <td><span class="text-ellipsis">{{$cate_cou->course_description}}</span></td>
               <td><span class="text-ellipsis">{{$cate_cou->course_category}}</span></td>
-              <td><img src="/admin/img/{{$cate_cou->course_image}}" alt=""></td>
+              <td><img src="/admin/img/{{$cate_cou->course_image}}" alt="" width="50px" height="50px"></td>
               <td>
                 <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
               </td>
