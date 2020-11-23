@@ -24,9 +24,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h2>Đăng Nhập</h2>
-		<form action="#" method="post">
-			<input type="email" class="ggg" name="email" placeholder="Nhập vào email..." required="">
-			<input type="password" class="ggg" name="password" placeholder="Nhập vào password..." required="">
+	<?php
+		$mess = Session::get('message');
+		if($mess){
+			echo '<p class="error">'.'<i class="fa fa-exclamation-triangle"></i>'.' '.$mess.'</p>';
+			Session::put('message',null);
+		}
+	?>
+		<form action="/quantri/admin-dashboard" method="post">
+			{{ csrf_field() }}
+			<input type="text" class="ggg" name="admin_email" placeholder="Nhập vào email..." required="">
+			<input type="password" class="ggg" name="admin_password" placeholder="Nhập vào password..." required="">
 			<span><input type="checkbox" /> Ghi nhớ tui!!</span>
 			<div class="clearfix"></div>
 			<input type="submit" value="Đăng nhập" name="login">

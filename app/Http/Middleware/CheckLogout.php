@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class CheckLogedOut
+class CheckLogout
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,13 @@ class CheckLogedOut
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::guest()){
-            return redirect()->intended('/dangnhap');
-        }
-        return $next($request);
+        // if(Auth::check()){
+        //     $user = Auth::user();
+        //     if($user ->quyen==1)
+        //         return $next($request);
+        //     else
+        //         return redirect('/quantri/dangnhapad');
+        // }
+        // return redirect('/quantri/dangnhapad');
     }
 }

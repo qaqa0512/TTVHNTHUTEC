@@ -36,4 +36,13 @@ Route::get('/dangxuat','App\Http\Controllers\Authentication@Logout');
 // Admin
 Route::get('/quantri','App\Http\Controllers\AdminController@showDasboard');
 Route::get('/quantri/dangnhapad','App\Http\Controllers\AdminController@loginAdmin');
+Route::post('/quantri/admin-dashboard','App\Http\Controllers\AdminController@dashboard');
+
 Route::get('/quantri/dangkiad','App\Http\Controllers\AdminController@registerAdmin');
+Route::get('/quantri/dangxuatad','App\Http\Controllers\AdminController@dashboard_logout');
+
+//Course
+Route::get('/quantri/themkhoahoc','App\Http\Controllers\CourseController@add_course');
+Route::post('/themkh','App\Http\Controllers\CourseController@saveCourse');
+
+Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');

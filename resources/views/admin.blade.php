@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="#" class="logo">
+    <a href="/quantri" class="logo">
         <img src="/img/your-logo.png" alt="">
     </a>
     <div class="sidebar-toggle-box">
@@ -57,13 +57,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="/admin/img/2.png">
-                <span class="username">Quốc Anh</span>
+            <span class="username">
+                <?php
+                    $name = Session::get('admin_name');
+                    if($name)
+                    {
+                        echo $name;
+                    }
+                ?>
+            </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i> Thông tin cá nhân</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                <li><a href="/quantri/dangxuatad"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -90,8 +98,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Khóa học</span>
                     </a>
                     <ul class="sub">
-						<li><a href="">Thêm khóa học</a></li>
-                        <li><a href="">Liệt kê khóa học</a></li>
+						<li><a href="/quantri/themkhoahoc">Thêm khóa học</a></li>
+                        <li><a href="/quantri/cackhoahoc">Liệt kê khóa học</a></li>
                     </ul>
                 </li>
                 <li>

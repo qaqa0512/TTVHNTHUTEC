@@ -18,26 +18,24 @@
         <div class="music-title">
             <h2>Với niềm đam mê và sự cố gắng sẽ giúp bạn vượt qua tất cả</h2>
         </div>
-
         <div class="music-flex">
-            @foreach ($courselist as $course)
             <div class="music-body">
                 <div class="music-image">
-                    <img src="{{$course->image}}" alt="">
+                    <img src="./img/course_1.jpg" alt="">
                 </div>
                 <div class="music-position">
                     <div class="music-text">
-                        <h2><a href="/khoahoc/chitiet">{{$course->title}}</a></h2>
+                        <h2><a href="/khoahoc/chitiet">Thanh Nhạc</a></h2>
                     </div>
                     <div class="music-info">
                         <ul>
-                            <li><a href="#">{{$course->name}}</a></li>
+                            <li><a href="#">Quốc Anh Nguyễn</a></li>
                             <li><i class="fa fa-caret-right icon-lane"></i></li>
-                            <li><a href="">{{$course->title}}</a></li>
+                            <li><a href="">Thanh Nhạc</a></li>
                         </ul>
                     </div>
                     <div class="music-content">
-                        <span>{{$course->description}}</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla.</span>
                     </div>
                 </div>
                 <div class="music-footer">
@@ -56,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="music-body">
+                <div class="music-body">
                     <div class="music-image">
                         <img src="./img/course_1.jpg" alt="">
                     </div>
@@ -342,12 +340,10 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
-                @endforeach
-                {{-- <div class="load-more">
+                </div>
+                <div class="load-more">
                     <a href="">Tải thêm</a>
-                </div> --}}
+                </div>
             </div>
-
 </div>
 @endsection

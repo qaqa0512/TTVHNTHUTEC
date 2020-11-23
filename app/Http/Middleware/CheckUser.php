@@ -3,10 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CheckLogedIn
+class CheckUser
 {
     /**
      * Handle an incoming request.
@@ -17,9 +18,9 @@ class CheckLogedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){
-            return redirect()->intended('/');
-        }
+        // if(Auth::check()){
+        //     return redirect()->intended('/quantri');
+        // }
         return $next($request);
     }
 }

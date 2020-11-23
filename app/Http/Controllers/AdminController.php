@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Session;
+session_start();
 
 class AdminController extends Controller
 {
@@ -14,6 +18,29 @@ class AdminController extends Controller
     public function loginAdmin()
     {
         return view('admin_login');
+    }
+
+    public function dashboard(Request $request)
+    {
+        $admin_email = $request->admin_email;
+        $admin_password = $request->admin_password;
+        
+        $result = DB::table('admin_login')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
+        if($result){
+            Session::put('admin_name',$result->admin_name);
+            Session::put('admin_id',$result->admin_id);
+            return Redirect::to('/quantri');
+        }else{
+            Session::put('message','Tài khoản và mật khẩu bị sai hoặc không tồn tại');
+            return Redirect::to('/quantri/dangnhapad');
+        }
+    }
+
+    public function dashboard_logout()
+    {
+        Session::put('admin_name',null);
+        Session::put('admin_id',null);
+        return Redirect::to('/quantri/dangnhapad');
     }
 
     public function registerAdmin()
