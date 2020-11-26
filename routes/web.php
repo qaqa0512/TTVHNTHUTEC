@@ -41,8 +41,14 @@ Route::post('/quantri/admin-dashboard','App\Http\Controllers\AdminController@das
 Route::get('/quantri/dangkiad','App\Http\Controllers\AdminController@registerAdmin');
 Route::get('/quantri/dangxuatad','App\Http\Controllers\AdminController@dashboard_logout');
 
-//Course
+//Course - Create
 Route::get('/quantri/themkhoahoc','App\Http\Controllers\CourseController@add_course');
 Route::post('/themkh','App\Http\Controllers\CourseController@saveCourse');
+//Course - Edit
+Route::get('/quantri/capnhatkhoahoc/{course_id}','App\Http\Controllers\CourseController@edit_course');
+Route::post('/capnhatkh/{course_id}','App\Http\Controllers\CourseController@editCourse');
+//Course - Delete
+Route::get('/quantri/xoakhoahoc/{course_id}','App\Http\Controllers\CourseController@delete_course');
 
+// Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');

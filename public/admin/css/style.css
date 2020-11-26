@@ -3158,8 +3158,10 @@ div#chartContainer8 {
     width: 100%;
     height: 100%;
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     color: #E1306C !important;
+    margin-top: 20px;
+    text-transform: capitalize;
 }
 
 canvas.canvasjs-chart-canvas {}

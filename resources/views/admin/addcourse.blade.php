@@ -1,4 +1,5 @@
 @extends('admin')
+@section('title','Thêm khóa học')
 @section('admin_content')
 <div class="row">
     <div class="col-lg-12">
@@ -6,16 +7,9 @@
             <header class="panel-heading">
                 Thêm Khóa Học
             </header>
-            <?php
-                $mess = Session::get('mes');
-                if($mess){
-                    echo '<p class="error">'.'<i class="fa fa-exclamation-triangle"></i>'.' '.$mess.'</p>';
-                    Session::put('mes',null);
-                }
-            ?>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="/themkh" method="POST">
+                    <form role="form" action="/themkh" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="txt_label">Tiêu đề</label>

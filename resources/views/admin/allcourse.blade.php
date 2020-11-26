@@ -1,19 +1,27 @@
 @extends('admin')
+@section('title','Danh sách khóa học')
 @section('admin_content')
 <div class="table-agile-info">
     <div class="panel panel-default">
     <div class="panel-heading">
         Liệt kê các khóa học
     </div>
+    <?php
+    $mess = Session::get('mes');
+    if($mess){
+        echo '<p class="error">'.'<i class="fa fa-info-circle"></i>'.' '.$mess.'</p>';
+        Session::put('mes',null);
+    }
+    ?>
     <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
           <select class="input-sm form-control w-sm inline v-middle">
-            <option value="0">Bulk action</option>
-            <option value="1">Delete selected</option>
-            <option value="2">Bulk edit</option>
-            <option value="3">Export</option>
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
           </select>
-          <button class="btn btn-sm btn-default">Apply</button>                
+          <button class="btn btn-sm btn-default">Sắp xếp</button>                
         </div>
         <div class="col-sm-4">
         </div>
@@ -51,9 +59,15 @@
               <td><span class="text-ellipsis">{{$cate_cou->course_name}}</span></td>
               <td><span class="text-ellipsis">{{$cate_cou->course_description}}</span></td>
               <td><span class="text-ellipsis">{{$cate_cou->course_category}}</span></td>
-              <td><img src="/admin/img/{{$cate_cou->course_image}}" alt="" width="50px" height="50px"></td>
+              <td><img src="/public/upload/course/{{$cate_cou->course_image}}" alt="" width="50px" height="50px"></td>
               <td>
-                <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                <a href="/quantri/capnhatkhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="">
+                  {{-- <i class="fa fa-check text-success text-active"></i> --}}
+                  <i class="fa fa-edit text-success text-active"></i>
+                </a>
+                <a href="/quantri/xoakhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
+                  <i class="fa fa-times text-danger text"></i>
+                </a>
               </td>
             </tr>
             @endforeach
@@ -62,9 +76,9 @@
       </div>
       <footer class="panel-footer">
         <div class="row">
-          <div class="col-sm-5 text-center">
-            <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-          </div>
+          {{-- <div class="col-sm-5 text-center">
+            <small class="text-muted inline m-t-sm m-b-sm"></small>
+          </div> --}}
           <div class="col-sm-7 text-right text-center-xs">                
             <ul class="pagination pagination-sm m-t-none m-b-none">
               <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
