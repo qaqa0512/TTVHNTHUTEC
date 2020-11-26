@@ -10,6 +10,19 @@ use Session;
 
 class CourseController extends Controller
 {
+    
+    // Check login
+    public function AuthLogin()
+    {
+        $admin_id = session()->get('admin_id');
+        if($admin_id)
+        {
+            return Redirect::to('/quantri');
+        }else{
+            return Redirect::to('/quantri/dangnhapad')->send();
+        }
+    }
+
     // Khóa học
     public function course()
     {
@@ -23,6 +36,7 @@ class CourseController extends Controller
     // Create Course - get
     public function add_course()
     {
+        $this->AuthLogin();
         return view('admin.addcourse');
     }
     // Create Course - post
@@ -54,6 +68,7 @@ class CourseController extends Controller
     // Edit Course - get
     public function edit_course($course_id)
     {
+        $this->AuthLogin();
         $edit_course = DB::table('course')->where('course_id',$course_id)->get();
         $manger_course = view('admin.editcourse')->with('edit_course',$edit_course);
         return view('admin')->with('admin.editcourse', $manger_course);
@@ -86,6 +101,7 @@ class CourseController extends Controller
     // Delete Course - get
     public function delete_course($course_id)
     {
+        $this->AuthLogin();
         DB::table('course')->where('course_id',$course_id)->delete();
         session()->put('mes', 'Xoá khóa học thành công!');
         return Redirect::to('/quantri/cackhoahoc');

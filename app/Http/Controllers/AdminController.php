@@ -10,8 +10,20 @@ session_start();
 
 class AdminController extends Controller
 {
+    public function AuthLogin()
+    {
+        $admin_id = session()->get('admin_id');
+        if($admin_id)
+        {
+            return Redirect::to('/quantri');
+        }else{
+            return Redirect::to('/quantri/dangnhapad')->send();
+        }
+    }
+
     public function showDasboard()
     {
+        $this->AuthLogin();
         return view('admin.dashboard');
     }
 
@@ -27,19 +39,20 @@ class AdminController extends Controller
         
         $result = DB::table('admin_login')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         if($result){
-            Session::put('admin_name',$result->admin_name);
-            Session::put('admin_id',$result->admin_id);
+            session()->put('admin_name',$result->admin_name);
+            session()->put('admin_id',$result->admin_id);
             return Redirect::to('/quantri');
         }else{
-            Session::put('message','Tài khoản và mật khẩu bị sai hoặc không tồn tại');
+            session()->put('message','Tài khoản và mật khẩu bị sai hoặc không tồn tại');
             return Redirect::to('/quantri/dangnhapad');
         }
     }
 
     public function dashboard_logout()
     {
-        Session::put('admin_name',null);
-        Session::put('admin_id',null);
+        $this->AuthLogin();
+        session()->put('admin_name',null);
+        session()->put('admin_id',null);
         return Redirect::to('/quantri/dangnhapad');
     }
 
