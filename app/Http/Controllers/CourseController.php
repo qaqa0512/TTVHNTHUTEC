@@ -132,7 +132,7 @@ class CourseController extends Controller
     {
         $this->AuthLogin();
         $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
-        $manger_course = view('admin.editDescription')->with('edit_Description',$edit_des);
+        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des);
         return view('admin')->with('admin.editDescription', $manger_course);
     }
     public function editDescription(Request $request, $detail_id)
@@ -149,13 +149,21 @@ class CourseController extends Controller
         return Redirect::to('/quantri/motakhoahoc');
     }
 
-
-
-
-    public function all_Detail()
+    // Delete Admin Course - get
+    public function delete_description($detail_id)
     {
+        $this->AuthLogin();
+        DB::table('detail_course')->where('detail_id',$detail_id)->delete();
+        session()->put('mes', 'Xoá mô tả khóa học thành công!');
+        return Redirect::to('/quantri/motakhoahoc');
+    }
+
+
+    public function all_Detail($course_id)
+    {
+        $course = DB::table('course')->where('course_id',$course_id)->get();
         $detail = DB::table('detail_course')->get();
-        $manger_course = view('admin.allDescription')->with('detailCourse',$detail);
+        $manger_course = view('admin.allDescription')->with('detailCourse',$detail)->with('Course',$course);
         return view('admin')->with('admin.allDescription', $manger_course);
     }
 

@@ -61,10 +61,10 @@
                 <td><span class="text-ellipsis">{{$detail->detail_des_request}}</span></td>
                 <td><span class="text-ellipsis">{{$detail->detail_des_rate}}</span></td>
                 <td>
-                  <a href="/quantri/capnhatmotakhoahoc/{detail_id}" class="active" ui-toggle-class="">
+                  <a href="/quantri/capnhatmotakhoahoc/{{$detail->detail_id}}" class="active" ui-toggle-class="">
                     <i class="fa fa-edit text-success text-active"></i>
                   </a>
-                  <a href="" class="active" ui-toggle-class="">
+                  <a href="/quantri/xoamotakhoahoc/{{$detail->detail_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
                     <i class="fa fa-times text-danger text"></i>
                   </a>
                 </td>

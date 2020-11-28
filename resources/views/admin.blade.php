@@ -150,5 +150,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/admin/js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="/admin/js/jquery.scrollTo.js"></script>
+<script src="/admin/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace( 'desCourse' );
+    CKEDITOR.replace( 'desIns' );
+    CKEDITOR.replace( 'desRes' );
+    CKEDITOR.replace( 'desRate' );
+</script>
 </body>
 </html>

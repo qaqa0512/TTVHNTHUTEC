@@ -54,10 +54,10 @@ Route::post('/themmotakh','App\Http\Controllers\CourseController@saveDescription
 Route::get('/quantri/capnhatmotakhoahoc/{detail_id}','App\Http\Controllers\CourseController@edit_description');
 Route::post('/capnhatmotakh/{detail_id}','App\Http\Controllers\CourseController@editDescription');
 // //Course - Delete
-// Route::get('/quantri/xoakhoahoc/{course_id}','App\Http\Controllers\CourseController@delete_course');
+Route::get('/quantri/xoamotakhoahoc/{detail_id}','App\Http\Controllers\CourseController@delete_description');
 
 
 
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');
-Route::get('/quantri/motakhoahoc','App\Http\Controllers\CourseController@all_Detail');
+Route::get('/quantri/motakhoahoc/{course_id}','App\Http\Controllers\CourseController@all_Detail');

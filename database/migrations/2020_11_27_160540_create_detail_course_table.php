@@ -15,7 +15,7 @@ class CreateDetailCourseTable extends Migration
     {
         Schema::create('detail_course', function (Blueprint $table) {
             $table->increments('detail_id');
-            $table->text('detail_des_name');
+            $table->string('detail_des_name');
             $table->text('detail_des_course');
             $table->text('detail_des_instructor');
             $table->text('detail_des_request');
