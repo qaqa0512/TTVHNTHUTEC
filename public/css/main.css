@@ -16,7 +16,7 @@ body {
 
 /* Header*/
 
-.header {
+.header-home {
     width: 100%;
     position: fixed;
     top: 0;
@@ -39,7 +39,7 @@ body {
     width: 80%;
     height: 35px;
     margin: auto;
-    padding: 10px 0;
+    padding: 6px 0px;
     display: flex;
     position: relative;
     position: sticky;
@@ -77,7 +77,7 @@ body {
 }
 
 .lane {
-    margin: 15px 100px;
+    margin: 25px 100px;
     border: 1px solid #ce9fba;
 }
 
@@ -86,10 +86,10 @@ body {
 
 .headcontainer {
     width: 80%;
-    height: 65px;
-    margin: 0 auto;
+    height: 75px;
+    margin: auto;
     display: flex;
-    padding-top: 15px;
+    padding-top: 0px;
 }
 
 .brand-name {
@@ -110,10 +110,13 @@ body {
 .list-tile {
     list-style: none;
     display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .list-tile>li {
     margin-left: 20px;
+    padding-top: 7px;
 }
 
 .list-tile>li a {
@@ -136,6 +139,7 @@ body {
     height: 38px;
     position: relative;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-top: 5px;
 }
 
 .active {
@@ -203,6 +207,7 @@ input.active-width {
     margin-right: -20px;
     position: relative;
     margin-left: 27px;
+    margin-top: 5px;
 }
 
 .background {
@@ -294,7 +299,7 @@ input.active-width {
     margin-left: 25px;
 }
 
-.home-btn>a {
+.home-btn .bt {
     display: inline-block;
     text-decoration: none;
     border: 1px solid #FAACA8;
@@ -317,7 +322,7 @@ input.active-width {
 
 .course {
     width: 80%;
-    height: 630px;
+    height: auto;
     margin: 30px auto;
 }
 
@@ -327,6 +332,7 @@ input.active-width {
 
 .course-intro>h2 {
     margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
     font-size: 30px;
     color: #AE4CA4;
@@ -422,7 +428,7 @@ input.active-width {
     margin: 0px 80px;
 }
 
-.price>a {
+.price .p_btn {
     display: inline-block;
     text-decoration: none;
     font-size: 17px;
@@ -435,7 +441,7 @@ input.active-width {
     background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
 }
 
-.price>a:hover {
+.price .p_btn:hover {
     box-shadow: 0 0 10px 1px #aeb1bb;
     transition: all 0.2s linear;
 }
@@ -511,7 +517,7 @@ input.active-width {
     margin-left: 80px;
 }
 
-.event-btn>a {
+.event-btn .join {
     display: inline-block;
     border: 1px solid #fff;
     padding: 5px 35px;
@@ -524,7 +530,7 @@ input.active-width {
     outline: none;
 }
 
-.event-btn>a:hover {
+.event-btn .join:hover {
     box-shadow: 0 0 15px 1px #b6bbcb;
     transition: all 0.3s linear;
 }

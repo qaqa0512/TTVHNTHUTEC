@@ -8,7 +8,7 @@
             <h2>Được Sống Với Đam Mê Của Chính Bạn</h2>
         </div>
         <div class="home-btn">
-            <a href="#">Bắt Đầu Thôi</a>
+            <a href="#" class="bt">Bắt Đầu Thôi</a>
         </div>
     </div>
 </div>
@@ -46,7 +46,7 @@
                             <span>10</span>
                         </div>
                         <div class="price">
-                            <a href="#">Free</a>
+                            <a href="#" class="p_btn">Free</a>
                         </div>
                         <div class="vote">
                             <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
@@ -82,7 +82,7 @@
                             <span>10</span>
                         </div>
                         <div class="price">
-                            <a href="#">Free</a>
+                            <a href="#" class="p_btn">Free</a>
                         </div>
                         <div class="vote">
                             <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
@@ -118,7 +118,7 @@
                             <span>10</span>
                         </div>
                         <div class="price">
-                            <a href="#">Free</a>
+                            <a href="#" class="p_btn">Free</a>
                         </div>
                         <div class="vote">
                             <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
@@ -163,7 +163,7 @@
                                     <a href="#">Networking Day</a>
                                 </div>
                                 <div class="event-btn">
-                                    <a href="#">Join</a>
+                                    <a href="#" class="join">Join</a>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                                     <a href="#">Networking Day</a>
                                 </div>
                                 <div class="event-btn">
-                                    <a href="#">Join</a>
+                                    <a href="#" class="join">Join</a>
                                 </div>
                             </div>
                         </div>

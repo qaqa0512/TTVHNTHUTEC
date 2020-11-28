@@ -20,6 +20,7 @@ class CreateCourseTable extends Migration
             $table->longText('course_description');
             $table->longText('course_category');
             $table->string('course_image');
+            $table->string('course_slug');
             $table->timestamps();
         });
     }

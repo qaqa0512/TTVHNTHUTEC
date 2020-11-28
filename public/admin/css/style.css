@@ -997,6 +997,18 @@ ul.top-menu>li>a:focus {
     border: none ! important;
 }
 
+.text-ellipsis {
+    width: 100px;
+}
+
+.list-content {
+    list-style: none;
+}
+
+.list-content>li {
+    line-height: 40px;
+}
+
 .agileinfo-grap {
     padding: 2em;
     background: rgb(238, 249, 240);

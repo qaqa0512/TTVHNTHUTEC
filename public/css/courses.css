@@ -21,7 +21,6 @@
 .breadcrumbs {
     width: 80%;
     margin: auto;
-    padding: 10px 0;
 }
 
 .breadcrumbs>ul {
@@ -57,14 +56,9 @@
     margin-top: 30px;
 }
 
-.music-container {
-    width: 80%;
-    height: 100%;
-    margin: auto;
-}
-
 .music-title {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .music-title>h2 {
@@ -74,42 +68,22 @@
     text-align: center;
 }
 
-.music-flex {
-    display: flex;
-    padding-left: 45px;
-}
-
-.music-body {
-    width: 370px;
-    height: 435px;
-    border: 1px solid #EBEBEB;
-    margin-top: 35px;
-    margin-right: 50px;
-    border-radius: 23px;
-    overflow: hidden;
-}
-
-.music-body img {
-    width: 370px;
-}
-
-.music-position {
-    padding: 20px;
-    margin-bottom: 15px;
-}
-
-.music-text {
-    margin-top: 5px;
-}
-
-.music-text>h2>a {
+.card-title {
     color: #E1306C;
+    font-size: 25px !important;
+}
+
+.card-title:hover {
+    color: #AE4CA4;
+}
+
+.card-body .title-cou {
     text-decoration: none;
 }
 
-.music-text>h2>a:hover {
-    color: #AE4CA4;
-    transition: all 0.3s li;
+.course_box {
+    border-radius: 20px !important;
+    overflow: hidden;
 }
 
 .music-info {
@@ -133,48 +107,37 @@
     transition: all 0.3s linear;
 }
 
-.music-content {
-    width: 275px;
-}
-
-.music-content>span {
-    font-size: 17px;
-    line-height: 1.5rem;
-}
-
 .music-footer {
     width: 100%;
-    height: 45px;
-    border-top: 1px solid #EBEBEB;
+}
+
+.music-footer>ul {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 
-.padding-music {
-    padding-top: 10px;
-    display: flex;
-    margin: 0 auto;
+.music-footer>ul>li {
+    line-height: 40px;
 }
 
-.price-music {
-    margin: 0px 80px;
-}
-
-.price-music>a {
+.music-footer .course_btn {
     display: inline-block;
-    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 5px 35px;
+    border-radius: 10px;
     font-size: 17px;
-    border: 1px solid #FEE140;
-    padding: 0px 25px;
-    font-weight: bold;
-    border-radius: 30px;
-    color: #AE4CA4;
-    background-color: #FEE140;
-    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    font-weight: 700;
+    color: #E1306C;
+    text-decoration: none;
+    background-color: #F8F8F8;
+    outline: none;
 }
 
-.price-music>a:hover {
-    box-shadow: 0 0 10px 1px #aeb1bb;
-    transition: all 0.2s linear;
+.course_btn:hover {
+    box-shadow: 0 0 15px 1px #b6bbcb;
+    transition: all 0.3s linear;
 }
 
 
@@ -187,7 +150,7 @@
     justify-content: center;
 }
 
-.load-more>a {
+.load-more .loadd {
     display: inline-block;
     border: 1px solid #EBEBEB;
     text-decoration: none;
@@ -200,7 +163,7 @@
     text-transform: capitalize;
 }
 
-.load-more>a:hover {
+.load-more .loadd:hover {
     color: #fff;
     background-color: #E1306C;
 }

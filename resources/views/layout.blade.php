@@ -19,12 +19,13 @@
 
     
     {{-- Boostrap --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
 </head>
 <body>
     {{-- Header HomeMusic --}}
-    <header class="header">
+    <header class="header-home">
         {{-- top-navbar --}}
         <div class="topbar_container">
             <div class="topbar">
@@ -50,6 +51,7 @@
                     <li><a href="#">Giới Thiệu</a></li>
                     <li><a href="#">Câu Lạc Bộ</a></li>
                     <li><a href="/khoahoc">Khoá Học Online</a></li>
+                    <li><a href="#">Sự kiện</a></li>
                     <li><a href="#">Liên kết đào tạo</a></li>
                     <li><a href="#">Tin Tức</a></li>
                     <li><a href="#">Liên hệ</a></li>
@@ -84,6 +86,9 @@
     </footer>
     {{-- Javascript --}}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>

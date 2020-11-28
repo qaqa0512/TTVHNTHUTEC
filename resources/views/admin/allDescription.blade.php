@@ -4,7 +4,7 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
     <div class="panel-heading">
-        Liệt kê các khóa học
+        Mô tả khóa học
     </div>
     <?php
     $mess = Session::get('mes');
@@ -44,35 +44,31 @@
                 </label>
               </th>
               <th>Tên khóa học</th>
-              <th>Người hướng dẫn</th>
-              <th>Mô tả</th>
-              <th>Thể loại</th>
-              <th>Hình ảnh</th>
+              <th>Tổng quan khóa học</th>
+              <th>Thông tin người hướng dẫn</th>
+              <th>Yêu cầu</th>
+              <th>Đánh giá</th>
               <th style="width:30px;"></th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($course as $key => $cate_cou)
+            @foreach ($detailCourse as $key => $detail)
             <tr>
-              <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>{{$cate_cou->course_title}}</td>
-              <td><span class="text-ellipsis">{{$cate_cou->course_name}}</span></td>
-              <td><span class="text-ellipsis">{{$cate_cou->course_description}}</span></td>
-              <td><span class="text-ellipsis">{{$cate_cou->course_category}}</span></td>
-              <td><img src="/public/upload/course/{{$cate_cou->course_image}}" alt="" width="50px" height="50px"></td>
-              <td>
-                <a href="/quantri/motakhoahoc" class="active" ui-toggle-class="">
-                  <i class="fa fa-eye text-info"></i>
-                </a>
-                <a href="/quantri/capnhatkhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="">
-                  {{-- <i class="fa fa-check text-success text-active"></i> --}}
-                  <i class="fa fa-edit text-success text-active"></i>
-                </a>
-                <a href="/quantri/xoakhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
-                  <i class="fa fa-times text-danger text"></i>
-                </a>
-              </td>
-            </tr>
+                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                <td><span class="text-ellipsis">{{$detail->detail_des_name}}</span></td>
+                <td><span class="text-ellipsis">{{$detail->detail_des_course}}</span></td>
+                <td><span class="text-ellipsis">{{$detail->detail_des_instructor}}</span></td>
+                <td><span class="text-ellipsis">{{$detail->detail_des_request}}</span></td>
+                <td><span class="text-ellipsis">{{$detail->detail_des_rate}}</span></td>
+                <td>
+                  <a href="/quantri/capnhatmotakhoahoc/{detail_id}" class="active" ui-toggle-class="">
+                    <i class="fa fa-edit text-success text-active"></i>
+                  </a>
+                  <a href="" class="active" ui-toggle-class="">
+                    <i class="fa fa-times text-danger text"></i>
+                  </a>
+                </td>
+              </tr>
             @endforeach
           </tbody>
         </table>

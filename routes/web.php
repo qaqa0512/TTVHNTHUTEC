@@ -18,10 +18,7 @@ Route::get('/','App\Http\Controllers\PagesController@homepage');
 
 // Courses
 Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
-Route::get('/khoahoc/chitiet','App\Http\Controllers\CourseController@detailcourses');
-
-
-
+Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
 
 
 // Authentication - get
@@ -50,5 +47,17 @@ Route::post('/capnhatkh/{course_id}','App\Http\Controllers\CourseController@edit
 //Course - Delete
 Route::get('/quantri/xoakhoahoc/{course_id}','App\Http\Controllers\CourseController@delete_course');
 
+//Course - Add detail
+Route::get('/quantri/themmotakhoahoc','App\Http\Controllers\CourseController@add_Detail');
+Route::post('/themmotakh','App\Http\Controllers\CourseController@saveDescription');
+//Course - Edit detail
+Route::get('/quantri/capnhatmotakhoahoc/{detail_id}','App\Http\Controllers\CourseController@edit_description');
+Route::post('/capnhatmotakh/{detail_id}','App\Http\Controllers\CourseController@editDescription');
+// //Course - Delete
+// Route::get('/quantri/xoakhoahoc/{course_id}','App\Http\Controllers\CourseController@delete_course');
+
+
+
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');
+Route::get('/quantri/motakhoahoc','App\Http\Controllers\CourseController@all_Detail');

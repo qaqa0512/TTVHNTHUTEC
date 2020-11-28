@@ -23,23 +23,13 @@ class CourseController extends Controller
         }
     }
 
-    // Khóa học
-    public function course()
-    {
-        return view('pages.courses');
-    }
-    public function detailcourses()
-    {
-        return view('pages.details');
-    }
-
     // Create Course - get
     public function add_course()
     {
         $this->AuthLogin();
         return view('admin.addcourse');
     }
-    // Create Course - post
+    // Create Admin Course - post
     public function saveCourse(Request $request)
     {
         $data = array();
@@ -47,7 +37,7 @@ class CourseController extends Controller
         $data['course_name'] = $request->course_name;
         $data['course_description'] = $request->course_description;
         $data['course_category'] = $request->course_category;
-
+        $data['course_slug'] = str_slug($request->course_title);
         $get_img = $request->file('course_image');
         if($get_img){
             $get_name_img = $get_img->getClientOriginalName();
@@ -60,12 +50,13 @@ class CourseController extends Controller
             return Redirect::to('/quantri/cackhoahoc');
         }
         $data['course_image'] = '';
+
         DB::table('course')->insert($data);
         $request->session()->put('mes', 'Thêm khóa học thành công!');
         return Redirect::to('/quantri/cackhoahoc');
     }
 
-    // Edit Course - get
+    // Edit Admin Course - get
     public function edit_course($course_id)
     {
         $this->AuthLogin();
@@ -80,7 +71,6 @@ class CourseController extends Controller
         $data['course_name'] = $request->course_name;
         $data['course_description'] = $request->course_description;
         $data['course_category'] = $request->course_category;
-        // $data['course_image'] = $request->course_image;
 
         $get_img = $request->file('course_image');
         if($get_img){
@@ -98,7 +88,7 @@ class CourseController extends Controller
         return Redirect::to('/quantri/cackhoahoc');
     }
 
-    // Delete Course - get
+    // Delete Admin Course - get
     public function delete_course($course_id)
     {
         $this->AuthLogin();
@@ -113,4 +103,79 @@ class CourseController extends Controller
         $manger_course = view('admin.allcourse')->with('course',$course);
         return view('admin')->with('admin.allcourse', $manger_course);
     }
+
+
+    
+    //Add detail course
+    public function add_Detail()
+    {
+        return view('admin.addDescription');
+    }
+
+    // Create Admin detail Course - post
+    public function saveDescription(Request $request)
+    {
+        $data = array();
+        $data['detail_des_name'] = $request->detail_des_name;
+        $data['detail_des_course'] = $request->detail_des_course;
+        $data['detail_des_instructor'] = $request->detail_des_instructor;
+        $data['detail_des_request'] = $request->detail_des_request;
+        $data['detail_des_rate'] = $request->detail_des_rate;
+
+        DB::table('detail_course')->insert($data);
+        $request->session()->put('mes', 'Thêm mô tả chi tiết khóa học thành công!');
+        return Redirect::to('/quantri/motakhoahoc');
+    }
+
+    // Edit Admin Course - get
+    public function edit_description($detail_id)
+    {
+        $this->AuthLogin();
+        $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
+        $manger_course = view('admin.editDescription')->with('edit_Description',$edit_des);
+        return view('admin')->with('admin.editDescription', $manger_course);
+    }
+    public function editDescription(Request $request, $detail_id)
+    {
+        $data = array();
+        $data['detail_des_name'] = $request->detail_des_name;
+        $data['detail_des_course'] = $request->detail_des_course;
+        $data['detail_des_instructor'] = $request->detail_des_instructor;
+        $data['detail_des_request'] = $request->detail_des_request;
+        $data['detail_des_rate'] = $request->detail_des_rate;
+
+        DB::table('detail_course')->where('detail_id',$detail_id)->update($data);
+        $request->session()->put('mes', 'Cập nhật mô tả khóa học thành công!');
+        return Redirect::to('/quantri/motakhoahoc');
+    }
+
+
+
+
+    public function all_Detail()
+    {
+        $detail = DB::table('detail_course')->get();
+        $manger_course = view('admin.allDescription')->with('detailCourse',$detail);
+        return view('admin')->with('admin.allDescription', $manger_course);
+    }
+
+    // End Admin Page
+
+
+
+    // Client Course Page
+    public function course()
+    {
+        $course = DB::table('course')->get();
+        return view('pages.courses')->with('displayCourse',$course);
+    }
+
+    // Detail Course
+    public function detailcourses($course_slug)
+    {
+        $detail = DB::table('course')->where('course_slug',$course_slug)->first();
+        return view('pages.details',compact('detail'));
+    }
 }
+
+
