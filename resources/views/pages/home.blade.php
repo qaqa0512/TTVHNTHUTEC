@@ -16,116 +16,39 @@
 <div class="course">
     <div class="course-background"></div>
     <div class="course-online">
-        <div class="course-intro">
-            <h2>Các Khóa Học Online</h2>
-        </div>
-        <div class="course-flex">
-            <div class="course-body">
-                <div class="course-image">
-                    <img src="/img/course_1.jpg" alt="">
-                </div>
-                <div class="course-position">
-                    <div class="course-title">
-                        <h2><a href="#">Thanh Nhạc</a></h2>
-                    </div>
-                    <div class="course-info">
-                        <ul>
-                            <li><a href="#">Quốc Anh Nguyễn</a></li>
-                            <li><i class="fa fa-caret-right icon-lane"></i></li>
-                            <li><a href="#">Thanh Nhạc</a></li>
-                        </ul>
-                    </div>
-                    <div class="course-text">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla.</span>
-                    </div>
-                </div>
-                <div class="course-footer">
-                    <div class="padding-course">
-                        <div class="viewer">
-                            <i class="fa fa-user" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>10</span>
-                        </div>
-                        <div class="price">
-                            <a href="#" class="p_btn">Free</a>
-                        </div>
-                        <div class="vote">
-                            <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>5</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="music-title">
+                <h2>Các Khóa Học Online Nổi Bật</h2>
             </div>
-
-            <div class="course-body">
-                <div class="course-image">
-                    <img src="/img/course_1.jpg" alt="">
-                </div>
-                <div class="course-position">
-                    <div class="course-title">
-                        <h2><a href="#">Guitar</a></h2>
-                    </div>
-                    <div class="course-info">
-                        <ul>
-                            <li><a href="#">Quốc Anh Nguyễn</a></li>
-                            <li><i class="fa fa-caret-right icon-lane"></i></li>
-                            <li><a href="#">Thanh Nhạc</a></li>
-                        </ul>
-                    </div>
-                    <div class="course-text">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla.</span>
-                    </div>
-                </div>
-                <div class="course-footer">
-                    <div class="padding-course">
-                        <div class="viewer">
-                            <i class="fa fa-user" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>10</span>
+            <div class="row course_row">
+                @foreach ($showCourse as $key => $show)
+                <div class="col-lg-4 course_col mb-4">
+                    <div class="card course_box">
+                        <img src="/public/upload/course/{{$show->course_image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <a href="/khoahoc/{{$show->course_slug}}" class="title-cou"><h5 class="card-title">{{$show->course_title}}</h5></a>
+                          <div class="music-info">
+                            <ul>
+                                <li><a href="#">{{$show->course_name}}</a></li>
+                                <li><i class="fa fa-caret-right icon-lane"></i></li>
+                                <li><a href="">{{$show->course_title}}</a></li>
+                            </ul>
+                          </div>
+                          <p class="card-text mb-4">{{$show->course_description}}</p>
+                          <div class="music-footer">
+                            <ul>
+                                <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">10</span></li>
+                                <li><a href="/khoahoc/{{$show->course_slug}}" class="btn course_btn">Học ngay</a></li>
+                                <li><i class="fa fa-star" style="margin-right: 10px;color: #AE4CA4;"></i><span>5</span></li>
+                            </ul>
                         </div>
-                        <div class="price">
-                            <a href="#" class="p_btn">Free</a>
-                        </div>
-                        <div class="vote">
-                            <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>5</span>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-
-            <div class="course-body">
-               <div class="course-image">
-                    <img src="/img/course_1.jpg" alt="">
-                </div>
-                <div class="course-position">
-                    <div class="course-title">
-                        <h2><a href="#">Piano</a></h2>
-                    </div>
-                    <div class="course-info">
-                        <ul>
-                            <li><a href="#">Quốc Anh Nguyễn</a></li>
-                            <li><i class="fa fa-caret-right icon-lane"></i></li>
-                            <li><a href="#">Thanh Nhạc</a></li>
-                        </ul>
-                    </div>
-                    <div class="course-text">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla.</span>
-                    </div>
-                </div>
-                <div class="course-footer">
-                    <div class="padding-course">
-                        <div class="viewer">
-                            <i class="fa fa-user" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>10</span>
-                        </div>
-                        <div class="price">
-                            <a href="#" class="p_btn">Free</a>
-                        </div>
-                        <div class="vote">
-                            <i class="fa fa-star" style="margin-right: 5px;color: #AE4CA4;"></i>
-                            <span>5</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="load-more">
+                <a href="/khoahoc" class="loadd">Xem thêm</a>
             </div>
         </div>
         
