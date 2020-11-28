@@ -61,14 +61,10 @@
               <td><span class="text-ellipsis">{{$cate_cou->course_category}}</span></td>
               <td><img src="/public/upload/course/{{$cate_cou->course_image}}" alt="" width="50px" height="50px"></td>
               <td>
-                <a href="/quantri/motakhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="">
-                  <i class="fa fa-eye text-info"></i>
-                </a>
-                <a href="/quantri/capnhatkhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="">
-                  {{-- <i class="fa fa-check text-success text-active"></i> --}}
+                <a href="/quantri/capnhatkhoahoc/{{$cate_cou->id}}" class="active" ui-toggle-class="">
                   <i class="fa fa-edit text-success text-active"></i>
                 </a>
-                <a href="/quantri/xoakhoahoc/{{$cate_cou->course_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
+                <a href="/quantri/xoakhoahoc/{{$cate_cou->id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

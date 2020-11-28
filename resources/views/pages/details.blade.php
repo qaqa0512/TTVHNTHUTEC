@@ -60,15 +60,14 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="course-tab-title">
                             <h5>Về khóa học</h5>
-                            <p>Nhiếp Ảnh 360 Cơ Bản là series giúp những người mới chơi máy ảnh có thể học chụp ảnh một cách nhanh nhất thông qua từng video hướng dẫn của 50mm Vietnam. Mỗi video, 50mm Vietnam sẽ cung cấp một chủ đề riêng biệt và giải thích chi tiết về chủ đề đó.
-                                Đây là kiến thức chung, áp dụng đúng với mọi máy ảnh của Canon, Nikon, Fujifilm, Sony, Pentax, Leica, Olympus</p>
+                            <p>{!! $allDescription->detail_des_course!!}</p>
                         </div>
                         <div class="course-tab-instructor">
                             <h5>Người hướng dẫn</h5>
                             <div class="instructor-info">
                                 <ul>
-                                    <li><i class="fas fa-hand-point-right"></i>Hoàn thành khóa học Nhiếp ảnh chuyên nghiệp</li>
-                                    <li><i class="fas fa-hand-point-right"></i>Có 5 năm kinh nghiệm nhiếp ảnh</li>
+                                    <li>{!!$allDescription->detail_des_instructor!!}</li>
+                                    {{-- <li><i class="fas fa-hand-point-right"></i>Có 5 năm kinh nghiệm nhiếp ảnh</li> --}}
                                     {{-- <li><i class="fas fa-hand-point-right"></i>Tốt nghiệp ĐH Công nghệ TPHCM -> kỹ sư phần mềm</li> --}}
                                 </ul>
                             </div>
@@ -77,8 +76,7 @@
                             <h5>Yêu cầu</h5>
                             <div class="instructor-info">
                                 <ul>
-                                    <li><i class="fas fa-hand-point-right"></i>Có tinh thần học hỏi</li>
-                                    <li><i class="fas fa-hand-point-right"></i>Có sự sáng tạo trong quá trình học</li>
+                                    <li>{!! $allDescription->detail_des_request !!}</li>
                                 </ul>
                             </div>
                         </div>
@@ -155,8 +153,9 @@
                       <a href="#" class="btn btn-right mb-3">Học ngay</a>
                       <div class="list-txt">
                           <ul>
-                              <li><i class="fas fa-stopwatch"></i> Trình độ học cơ bản</li>
-                              <li><i class="fas fa-book"></i> Học mọi lúc mọi nơi</li>
+                            <li>{!! $allDescription->detail_des_rate !!}</li>
+                              {{-- <li><i class="fas fa-stopwatch"></i> Trình độ học cơ bản</li>
+                              <li><i class="fas fa-book"></i> Học mọi lúc mọi nơi</li> --}}
                           </ul>
                       </div>
                     </div>

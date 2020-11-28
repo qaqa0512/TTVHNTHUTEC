@@ -12,8 +12,12 @@
                     <form role="form" action="/themmotakh" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="txt_label">Tên khóa học</label>
-                            <input type="text" class="form-control" name="detail_des_name" id="exampleInputEmail1" placeholder="Nhập vào tiêu đề....">
+                            <label for="exampleInputPassword1" class="txt_label">Mã Khóa học</label>
+                            <select class="form-control input-lg m-bot15" name="description_course_id">
+                                @foreach ($course as $cou)
+                                    <option value="{{$cou->id}}">{{$cou->course_title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="txt_label">Tổng quan về khóa học</label>

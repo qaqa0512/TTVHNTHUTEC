@@ -194,7 +194,7 @@
 }
 
 .course-tab-title>h5 {
-    padding-left: 30px;
+    padding-left: 40px;
     color: #c52896;
     text-transform: capitalize;
     font-size: 25px;
@@ -203,10 +203,11 @@
 .course-tab-title>p {
     padding: 5px 25px !important;
     line-height: 40px;
+    margin: 0 !important;
 }
 
 .course-tab-instructor>h5 {
-    padding-left: 30px;
+    padding-left: 40px;
     color: #c52896;
     font-size: 25px;
     text-transform: capitalize;
@@ -225,7 +226,7 @@
 }
 
 .course-tab-recommend>h5 {
-    padding-left: 30px;
+    padding-left: 40px;
     color: #c52896;
     font-size: 25px;
     text-transform: capitalize;
@@ -266,6 +267,10 @@
     font-size: 17px;
     color: #E1306C;
     line-height: 35px;
+}
+
+.list-txt>ul>li>p {
+    margin-bottom: 0 !important;
 }
 
 .list-txt>ul>li>i {

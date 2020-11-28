@@ -42,10 +42,10 @@ Route::get('/quantri/dangxuatad','App\Http\Controllers\AdminController@dashboard
 Route::get('/quantri/themkhoahoc','App\Http\Controllers\CourseController@add_course');
 Route::post('/themkh','App\Http\Controllers\CourseController@saveCourse');
 //Course - Edit
-Route::get('/quantri/capnhatkhoahoc/{course_id}','App\Http\Controllers\CourseController@edit_course');
-Route::post('/capnhatkh/{course_id}','App\Http\Controllers\CourseController@editCourse');
+Route::get('/quantri/capnhatkhoahoc/{id}','App\Http\Controllers\CourseController@edit_course');
+Route::post('/capnhatkh/{id}','App\Http\Controllers\CourseController@editCourse');
 //Course - Delete
-Route::get('/quantri/xoakhoahoc/{course_id}','App\Http\Controllers\CourseController@delete_course');
+Route::get('/quantri/xoakhoahoc/{id}','App\Http\Controllers\CourseController@delete_course');
 
 //Course - Add detail
 Route::get('/quantri/themmotakhoahoc','App\Http\Controllers\CourseController@add_Detail');
@@ -60,4 +60,4 @@ Route::get('/quantri/xoamotakhoahoc/{detail_id}','App\Http\Controllers\CourseCon
 
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');
-Route::get('/quantri/motakhoahoc/{course_id}','App\Http\Controllers\CourseController@all_Detail');
+Route::get('/quantri/motakhoahoc','App\Http\Controllers\CourseController@all_Detail');

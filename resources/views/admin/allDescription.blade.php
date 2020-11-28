@@ -43,7 +43,7 @@
                   <input type="checkbox"><i></i>
                 </label>
               </th>
-              <th>Tên khóa học</th>
+              <th>Mã khóa học</th>
               <th>Tổng quan khóa học</th>
               <th>Thông tin người hướng dẫn</th>
               <th>Yêu cầu</th>
@@ -55,7 +55,7 @@
             @foreach ($detailCourse as $key => $detail)
             <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td><span class="text-ellipsis">{{$detail->detail_des_name}}</span></td>
+                <td><span class="text-ellipsis">{{$detail->course_title}}</span></td>
                 <td><span class="text-ellipsis">{{$detail->detail_des_course}}</span></td>
                 <td><span class="text-ellipsis">{{$detail->detail_des_instructor}}</span></td>
                 <td><span class="text-ellipsis">{{$detail->detail_des_request}}</span></td>

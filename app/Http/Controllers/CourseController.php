@@ -57,14 +57,14 @@ class CourseController extends Controller
     }
 
     // Edit Admin Course - get
-    public function edit_course($course_id)
+    public function edit_course($id)
     {
         $this->AuthLogin();
-        $edit_course = DB::table('course')->where('course_id',$course_id)->get();
+        $edit_course = DB::table('course')->where('id',$id)->get();
         $manger_course = view('admin.editcourse')->with('edit_course',$edit_course);
         return view('admin')->with('admin.editcourse', $manger_course);
     }
-    public function editCourse(Request $request, $course_id)
+    public function editCourse(Request $request, $id)
     {
         $data = array();
         $data['course_title'] = $request->course_title;
@@ -79,20 +79,20 @@ class CourseController extends Controller
             $new_img = $name_img.rand(0,99).'.'.$get_img->getClientOriginalExtension();
             $get_img->move('public/upload/course',$new_img);
             $data['course_image'] = $new_img;
-            DB::table('course')->where('course_id',$course_id)->update($data);
+            DB::table('course')->where('id',$id)->update($data);
             $request->session()->put('mes', 'Cập nhật khóa học thành công!');
             return Redirect::to('/quantri/cackhoahoc');
         }
-        DB::table('course')->where('course_id',$course_id)->update($data);
+        DB::table('course')->where('id',$id)->update($data);
         $request->session()->put('mes', 'Cập nhật khóa học thành công!');
         return Redirect::to('/quantri/cackhoahoc');
     }
 
     // Delete Admin Course - get
-    public function delete_course($course_id)
+    public function delete_course($id)
     {
         $this->AuthLogin();
-        DB::table('course')->where('course_id',$course_id)->delete();
+        DB::table('course')->where('id',$id)->delete();
         session()->put('mes', 'Xoá khóa học thành công!');
         return Redirect::to('/quantri/cackhoahoc');
     }
@@ -109,18 +109,19 @@ class CourseController extends Controller
     //Add detail course
     public function add_Detail()
     {
-        return view('admin.addDescription');
+        $course = DB::table('course')->get();
+        return view('admin.addDescription')->with('course',$course);
     }
 
     // Create Admin detail Course - post
     public function saveDescription(Request $request)
     {
         $data = array();
-        $data['detail_des_name'] = $request->detail_des_name;
         $data['detail_des_course'] = $request->detail_des_course;
         $data['detail_des_instructor'] = $request->detail_des_instructor;
         $data['detail_des_request'] = $request->detail_des_request;
         $data['detail_des_rate'] = $request->detail_des_rate;
+        $data['course_id'] = $request->description_course_id;
 
         DB::table('detail_course')->insert($data);
         $request->session()->put('mes', 'Thêm mô tả chi tiết khóa học thành công!');
@@ -131,18 +132,20 @@ class CourseController extends Controller
     public function edit_description($detail_id)
     {
         $this->AuthLogin();
+
+        $course = DB::table('course')->get();
         $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
-        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des);
+        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des)->with('course',$course);
         return view('admin')->with('admin.editDescription', $manger_course);
     }
     public function editDescription(Request $request, $detail_id)
     {
         $data = array();
-        $data['detail_des_name'] = $request->detail_des_name;
         $data['detail_des_course'] = $request->detail_des_course;
         $data['detail_des_instructor'] = $request->detail_des_instructor;
         $data['detail_des_request'] = $request->detail_des_request;
         $data['detail_des_rate'] = $request->detail_des_rate;
+        $data['course_id'] = $request->description_course_id;
 
         DB::table('detail_course')->where('detail_id',$detail_id)->update($data);
         $request->session()->put('mes', 'Cập nhật mô tả khóa học thành công!');
@@ -159,11 +162,11 @@ class CourseController extends Controller
     }
 
 
-    public function all_Detail($course_id)
+    public function all_Detail()
     {
-        $course = DB::table('course')->where('course_id',$course_id)->get();
-        $detail = DB::table('detail_course')->get();
-        $manger_course = view('admin.allDescription')->with('detailCourse',$detail)->with('Course',$course);
+
+        $alldetail = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->get();
+        $manger_course = view('admin.allDescription')->with('detailCourse',$alldetail);
         return view('admin')->with('admin.allDescription', $manger_course);
     }
 
@@ -182,7 +185,8 @@ class CourseController extends Controller
     public function detailcourses($course_slug)
     {
         $detail = DB::table('course')->where('course_slug',$course_slug)->first();
-        return view('pages.details',compact('detail'));
+        $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->where('course_slug',$course_slug)->first();
+        return view('pages.details',compact('detail','allDescription'));
     }
 }
 

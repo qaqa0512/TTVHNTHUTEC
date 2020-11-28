@@ -15,11 +15,11 @@ class CreateDetailCourseTable extends Migration
     {
         Schema::create('detail_course', function (Blueprint $table) {
             $table->increments('detail_id');
-            $table->string('detail_des_name');
             $table->text('detail_des_course');
             $table->text('detail_des_instructor');
             $table->text('detail_des_request');
             $table->text('detail_des_rate');
+            $table->integer('course_id');
             $table->timestamps();
         });
     }

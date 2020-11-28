@@ -10,7 +10,7 @@
             <div class="panel-body">
                 @foreach ($edit_course as $key => $edit_value)
                 <div class="position-center">
-                <form role="form" action="/capnhatkh/{{$edit_value->course_id}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="/capnhatkh/{{$edit_value->id}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="txt_label">Tiêu đề</label>

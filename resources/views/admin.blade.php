@@ -100,6 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         <li><a href="/quantri/themkhoahoc">Thêm khóa học</a></li>
                         <li><a href="/quantri/themmotakhoahoc">Thêm mô tả khóa học</a></li>
+                        <li><a href="/quantri/motakhoahoc">Mô tả khóa học</a></li>
                         <li><a href="/quantri/cackhoahoc">Liệt kê khóa học</a></li>
                     </ul>
                 </li>
