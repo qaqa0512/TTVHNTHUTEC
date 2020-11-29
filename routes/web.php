@@ -64,11 +64,12 @@ Route::get('/quantri/xoamotakhoahoc/{detail_id}','App\Http\Controllers\CourseCon
 // Lesson - Add
 Route::get('/quantri/thembaihoc','App\Http\Controllers\VideoController@add_lesson');
 Route::post('/thembh','App\Http\Controllers\VideoController@saveLesson');
-// //// Lesson - Edit
-// Route::get('/quantri/capnhatkhoahoc/{id}','App\Http\Controllers\CourseController@edit_course');
-// Route::post('/capnhatkh/{id}','App\Http\Controllers\CourseController@editCourse');
-// //// Lesson- Delete
-// Route::get('/quantri/xoakhoahoc/{id}','App\Http\Controllers\CourseController@delete_course');
+
+//// Lesson - Edit
+Route::get('/quantri/capnhatbaihoc/{lesson_id}','App\Http\Controllers\VideoController@edit_lesson');
+Route::post('/capnhatbh/{lesson_id}','App\Http\Controllers\VideoController@editLesson');
+//// Lesson- Delete
+Route::get('/quantri/xoabaihoc/{lesson_id}','App\Http\Controllers\VideoController@delete_lesson');
 
 
 // Part_Content - Add

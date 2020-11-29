@@ -107,6 +107,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
+                        <span>Bài học</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/quantri/themphanhoc">Thêm phần bài học</a></li>
+                        <li><a href="/quantri/thembaihoc">Thêm bài học</a></li>
+                        <li><a href="/quantri/phanhoc">Phần bài học</a></li>
+                        <li><a href="/quantri/cacbaihoc">Danh sách bài học</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
                         <span>Câu lạc bộ</span>
                     </a>
                     <ul class="sub">
@@ -122,18 +134,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="">Thêm sự kiện</a></li>
                         <li><a href="">Liệt kê sự kiện</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Bài học</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="/quantri/themphanhoc">Thêm phần bài học</a></li>
-                        <li><a href="/quantri/thembaihoc">Thêm bài học</a></li>
-                        <li><a href="/quantri/phanhoc">Phần bài học</a></li>
-                        <li><a href="/quantri/cacbaihoc">Danh sách bài học</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -175,12 +175,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/admin/js/jquery.scrollTo.js"></script>
 <script src="/admin/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-    // Replace the <textarea id="editor1"> with a CKEditor 4
-    // instance, using default configuration.
+    //Description
     CKEDITOR.replace( 'desCourse' );
     CKEDITOR.replace( 'desIns' );
     CKEDITOR.replace( 'desRes' );
     CKEDITOR.replace( 'desRate' );
+
+    //Lesson 
+    CKEDITOR.replace( 'videoLesson',{
+    });
 </script>
 </body>
 </html>
