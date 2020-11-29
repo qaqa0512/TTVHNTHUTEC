@@ -20,6 +20,11 @@ Route::get('/','App\Http\Controllers\PagesController@homepage');
 Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
 
+// Video
+Route::get('/video','App\Http\Controllers\VideoController@Video');
+
+
+
 
 // Authentication - get
 Route::get('/dangnhap','App\Http\Controllers\Authentication@getLogin');
@@ -56,8 +61,27 @@ Route::post('/capnhatmotakh/{detail_id}','App\Http\Controllers\CourseController@
 // //Course - Delete
 Route::get('/quantri/xoamotakhoahoc/{detail_id}','App\Http\Controllers\CourseController@delete_description');
 
+// Lesson - Add
+Route::get('/quantri/thembaihoc','App\Http\Controllers\VideoController@add_lesson');
+Route::post('/thembh','App\Http\Controllers\VideoController@saveLesson');
+// //// Lesson - Edit
+// Route::get('/quantri/capnhatkhoahoc/{id}','App\Http\Controllers\CourseController@edit_course');
+// Route::post('/capnhatkh/{id}','App\Http\Controllers\CourseController@editCourse');
+// //// Lesson- Delete
+// Route::get('/quantri/xoakhoahoc/{id}','App\Http\Controllers\CourseController@delete_course');
 
+
+// Part_Content - Add
+Route::get('/quantri/themphanhoc','App\Http\Controllers\VideoController@add_part_content');
+Route::post('/themph','App\Http\Controllers\VideoController@savePart');
+// Part_Content - Edit
+Route::get('/quantri/capnhatphanhoc/{part_id}','App\Http\Controllers\VideoController@edit_part_content');
+Route::post('/capnhatph/{part_id}','App\Http\Controllers\VideoController@editPart');
+// Part_Content - Delete
+Route::get('/quantri/xoaphanhoc/{part_id}','App\Http\Controllers\VideoController@delete_part');
 
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');
 Route::get('/quantri/motakhoahoc','App\Http\Controllers\CourseController@all_Detail');
+Route::get('/quantri/phanhoc','App\Http\Controllers\VideoController@all_part_content');
+Route::get('/quantri/cacbaihoc','App\Http\Controllers\VideoController@all_lesson');

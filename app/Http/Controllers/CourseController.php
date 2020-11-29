@@ -131,8 +131,7 @@ class CourseController extends Controller
     // Edit Admin Course - get
     public function edit_description($detail_id)
     {
-        $this->AuthLogin();
-
+        // $this->AuthLogin();
         $course = DB::table('course')->get();
         $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
         $manger_course = view('admin.editDescription')->with('edit_description',$edit_des)->with('course',$course);

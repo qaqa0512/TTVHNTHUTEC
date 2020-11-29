@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.videoCourse {
+    width: 100%;
+    height: auto;
+}
+
+.videoTitle {
+    margin: 30px 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: #E1306C;
+}
+
+.card-list-video {
+    border-radius: 14px !important;
+}
+
+.listVideoContent {
+    border-radius: 14px !important;
+}
+
+.vid-tit {
+    padding: 10px !important;
+}
+
+.listVideo-title {
+    padding: 10px !important;
+    background-color: #f7f7f7;
+}
+
+.listVideo-title>h5 {
+    margin: 0;
+}
+
+#accordionExample {
+    padding: 10px;
+    margin: 0;
+}

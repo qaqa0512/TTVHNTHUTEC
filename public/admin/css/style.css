@@ -997,6 +997,14 @@ ul.top-menu>li>a:focus {
     border: none ! important;
 }
 
+.panel-extra {
+    padding-bottom: 200px;
+}
+
+.panel-body-extra {
+    padding-top: 50px;
+}
+
 .text-ellipsis {
     width: 100px;
 }

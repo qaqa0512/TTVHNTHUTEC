@@ -53,7 +53,7 @@
                       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nội dung khóa học</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Thành viên</a>
+                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Đánh giá</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -67,8 +67,6 @@
                             <div class="instructor-info">
                                 <ul>
                                     <li>{!!$allDescription->detail_des_instructor!!}</li>
-                                    {{-- <li><i class="fas fa-hand-point-right"></i>Có 5 năm kinh nghiệm nhiếp ảnh</li> --}}
-                                    {{-- <li><i class="fas fa-hand-point-right"></i>Tốt nghiệp ĐH Công nghệ TPHCM -> kỹ sư phần mềm</li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -142,7 +140,6 @@
                           </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        Members
                     </div>
                   </div>
             </div>
@@ -150,12 +147,10 @@
                 <div class="card style-card" style="width: 100%;">
                     <iframe width="100%" height="250px" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="card-body">
-                      <a href="#" class="btn btn-right mb-3">Học ngay</a>
+                      <a href="/video" class="btn btn-right mb-3">Học ngay</a>
                       <div class="list-txt">
                           <ul>
                             <li>{!! $allDescription->detail_des_rate !!}</li>
-                              {{-- <li><i class="fas fa-stopwatch"></i> Trình độ học cơ bản</li>
-                              <li><i class="fas fa-book"></i> Học mọi lúc mọi nơi</li> --}}
                           </ul>
                       </div>
                     </div>

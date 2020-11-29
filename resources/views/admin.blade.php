@@ -124,6 +124,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="">Liệt kê sự kiện</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Bài học</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/quantri/themphanhoc">Thêm phần bài học</a></li>
+                        <li><a href="/quantri/thembaihoc">Thêm bài học</a></li>
+                        <li><a href="/quantri/phanhoc">Phần bài học</a></li>
+                        <li><a href="/quantri/cacbaihoc">Danh sách bài học</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Video</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="">Thêm video</a></li>
+                        <li><a href="">Danh sách video</a></li>
+                    </ul>
+                </li>
  		</div>
         <!-- sidebar menu end-->
     </div>
