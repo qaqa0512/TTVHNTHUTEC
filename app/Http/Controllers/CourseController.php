@@ -110,7 +110,8 @@ class CourseController extends Controller
     public function add_Detail()
     {
         $course = DB::table('course')->get();
-        return view('admin.addDescription')->with('course',$course);
+        $lesson = DB::table('lesson')->get();
+        return view('admin.addDescription')->with('course',$course)->with('lesson',$lesson);
     }
 
     // Create Admin detail Course - post
@@ -122,6 +123,7 @@ class CourseController extends Controller
         $data['detail_des_request'] = $request->detail_des_request;
         $data['detail_des_rate'] = $request->detail_des_rate;
         $data['course_id'] = $request->description_course_id;
+        $data['lesson_id'] = $request->description_lesson_id;
 
         DB::table('detail_course')->insert($data);
         $request->session()->put('mes', 'Thêm mô tả chi tiết khóa học thành công!');
@@ -134,7 +136,8 @@ class CourseController extends Controller
         // $this->AuthLogin();
         $course = DB::table('course')->get();
         $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
-        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des)->with('course',$course);
+        $lesson = DB::table('lesson')->get();
+        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des)->with('course',$course)->with('lesson',$lesson);
         return view('admin')->with('admin.editDescription', $manger_course);
     }
     public function editDescription(Request $request, $detail_id)
@@ -145,6 +148,7 @@ class CourseController extends Controller
         $data['detail_des_request'] = $request->detail_des_request;
         $data['detail_des_rate'] = $request->detail_des_rate;
         $data['course_id'] = $request->description_course_id;
+        $data['lesson_id'] = $request->description_lesson_id;
 
         DB::table('detail_course')->where('detail_id',$detail_id)->update($data);
         $request->session()->put('mes', 'Cập nhật mô tả khóa học thành công!');
@@ -184,9 +188,20 @@ class CourseController extends Controller
     public function detailcourses($course_slug)
     {
         $detail = DB::table('course')->where('course_slug',$course_slug)->first();
-        $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->where('course_slug',$course_slug)->first();
-        return view('pages.details',compact('detail','allDescription'));
+        $lesson = DB::table('lesson')->get();
+        $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')
+        ->join('lesson','lesson.lesson_id','=','detail_course.lesson_id')
+        ->where('course_slug',$course_slug)->first();
+        return view('pages.details',compact('detail','lesson','allDescription'));
     }
+
+    // public function detail_lesson_id($lesson_slug)
+    // {
+    //     $video_lesson = DB::table('detail_course')->join('lesson','lesson.lesson_id','=','detail_course.lesson_id')->where('lesson_slug',$lesson_slug)->first();
+        
+    //     $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->where('course_slug',$course_slug)->first();
+    //     return view('pages.details',compact('video_lesson'));
+    // }
 }
 
 

@@ -145,9 +145,10 @@
             </div>
             <div class="col-lg-4">
                 <div class="card style-card" style="width: 100%;">
-                    <iframe width="100%" height="250px" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p>{!!$allDescription->lesson_video!!}</p>
+                    {{-- <iframe width="100%" height="250px" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                     <div class="card-body">
-                      <a href="/video" class="btn btn-right mb-3">Học ngay</a>
+                      <a href="/video/{{$allDescription->lesson_slug}}" class="btn btn-right mb-3">Học ngay</a>
                       <div class="list-txt">
                           <ul>
                             <li>{!! $allDescription->detail_des_rate !!}</li>

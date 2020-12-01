@@ -22,10 +22,12 @@
         <div class="row">
             <div class="col-lg-8 left">
                 <div class="card card-list-video" style="width: 100%;">
-                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="vid-tit">
-                        <h5>Nhiếp ảnh 360 [CƠ BẢN] Tập 1: Tại sao chúng ta cần mua máy ảnh?</h5>
-                    </div>
+                    @foreach ($videoName as $name)
+                        <p>{!!$name->lesson_video!!}</p>
+                        <div class="vid-tit">
+                        <h5>{{$name->lesson_title}}</h5>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-4 right">
@@ -35,24 +37,26 @@
                     </div>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Phần 1: Giới thiệu
-                            </button>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                            <div class="list-video">
-                                <ul>
-                                    <li><a href="#">Bài 1: Tại sao chúng ta cần mua máy ảnh?</a></li>
-                                </ul>
+                            @foreach ($relate as $rela)
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    {{$rela->part_title}}
+                                </button>
+                                </h2>
                             </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                <div class="list-video">
+                                    <ul>
+                                        <li><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
+                                    </ul>
+                                </div>
+                                </div>
                             </div>
+                            @endforeach
                         </div>
-                        </div>
-                        <div class="card">
+                        {{-- <div class="card">
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                             <button class="btn btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -88,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

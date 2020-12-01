@@ -45,7 +45,7 @@
               </th>
               <th>Mã khóa học</th>
               <th>Tiêu đề học phần</th>
-              <th>Mã mô tả</th>
+              {{-- <th>Mã mô tả</th> --}}
               <th style="width:30px;"></>
             </tr>
           </thead>
@@ -55,7 +55,7 @@
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
               <td><span class="text-ellipsis">{{$part->course_title}}</span></td>
               <td><span class="text-ellipsis">{{$part->part_title}}</span></td>
-              <td><span class="text-ellipsis">{{$part->detail_id}}</span></td>
+              {{-- <td><span class="text-ellipsis">{{$part->detail_id}}</span></td> --}}
               <td></td>
               <td>
                 <a href="/quantri/capnhatphanhoc/{{$part->part_id}}" class="active" ui-toggle-class="">

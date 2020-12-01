@@ -19,6 +19,7 @@ class CreateLessonTable extends Migration
             $table->string('lesson_video');
             $table->integer('part_id');
             $table->integer('course_id');
+            $table->string('lesson_slug');
             $table->timestamps();
 
         });

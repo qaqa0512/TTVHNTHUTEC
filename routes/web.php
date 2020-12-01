@@ -21,9 +21,7 @@ Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
 
 // Video
-Route::get('/video','App\Http\Controllers\VideoController@Video');
-
-
+Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
 
 
 // Authentication - get

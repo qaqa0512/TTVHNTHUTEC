@@ -20,6 +20,7 @@ class CreateDetailCourseTable extends Migration
             $table->text('detail_des_request');
             $table->text('detail_des_rate');
             $table->integer('course_id');
+            $table->integer('lesson_id');
             $table->timestamps();
         });
     }

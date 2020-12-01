@@ -23,12 +23,21 @@
                             <label for="exampleInputEmail1" class="txt_label">Tiêu đề của phần học</label>
                             <input type="text" class="form-control" name="part_title" id="exampleInputEmail1" placeholder="Nhập vào tiêu đề....">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="exampleInputPassword1" class="txt_label">Mã mô tả</label>
                             <select class="form-control input-lg m-bot15" name="part_detail_id">
                                 @foreach ($Detail as $del)
                                 <option>{{$del->detail_id}}</option>
                             @endforeach
+                            </select>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="txt_label">Danh mục cha của phần học</label>
+                            <select class="form-control input-lg m-bot15" name="part_parent_id">
+                                        <option value="0">Phần học gốc</option>
+                                    @foreach ($parent as $par)
+                                        <option value="{{$par->part_id}}">{{$par->part_title}}</option>
+                                    @endforeach
                             </select>
                         </div>
                         

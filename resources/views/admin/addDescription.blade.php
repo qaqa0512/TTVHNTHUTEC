@@ -35,6 +35,14 @@
                             <label for="exampleInputPassword1" class="txt_label">Đánh giá</label>
                             <textarea type="text" name="detail_des_rate" class="form-control" style="resize: none" rows="8" id="desRate" placeholder="Nhập vào họ tên...."></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="txt_label">Mã Khóa học</label>
+                            <select class="form-control input-lg m-bot15" name="description_lesson_id">
+                                @foreach ($lesson as $le)
+                                    <option value="{{$le->lesson_id}}">{{$le->lesson_title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-info" name="add-courses">Thêm khóa học</button>
                     </form>
                 </div>

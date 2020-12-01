@@ -18,6 +18,7 @@ class CreatePartContentTable extends Migration
             $table->string('part_title');
             $table->integer('course_id');
             $table->integer('detail_id');
+            $table->integer('parent_id');
             $table->timestamps();
 
         });
