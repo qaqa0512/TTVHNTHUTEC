@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="txt_label">Mã phần học</label>
                             <select class="form-control input-lg m-bot15" name="lesson_part_id">
-                                @foreach ($partContent as $part)
+                                @foreach ($part_Content as $part)
                                     <option value="{{$part->part_id}}">{{$part->part_title}}</option>
                                 @endforeach
                             </select>
