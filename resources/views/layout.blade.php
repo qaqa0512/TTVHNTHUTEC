@@ -39,9 +39,9 @@
                         </ul>
                 </div>
             </div>
-            {{-- Lane --}}
-            <hr class="lane">
         </div>
+        {{-- Lane --}}
+        <hr class="lane">
         {{-- Container of navbar --}}
         <div class="headcontainer">
             <div class="head-tilte">
@@ -65,12 +65,19 @@
                 </div>
             </div>
             <div class="account">
+                
                 @if (Auth::check())
-                    <div class="user-info">
-                        <p>{{Auth::user()->name}}</p>
-                        <a href="/dangxuat" class="logoutt">Đăng xuất</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn_user">{{Auth::user()->name}}</button>
+                        <button type="button" class="btn btn-secondary btn_drop dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                        </div>
                     </div>
-                        
                 @else
                     <div class="background"></div>
                     <a href="/dangnhap" class="user"><i class="fa fa-user"></i></a>

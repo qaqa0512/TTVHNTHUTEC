@@ -11,10 +11,19 @@ use Session;
 
 class VideoController extends Controller
 {
-    public function Video()
-    {
-        return view ('pages.listvideo');
-    }
+   // Check login
+   public function AuthLogin()
+   {
+       $admin_id = session()->get('admin_id');
+       if($admin_id)
+       {
+           return Redirect::to('/quantri');
+       }else{
+           return Redirect::to('/quantri/dangnhapad')->send();
+       }
+   }
+    
+
     // Display Client Page
     public function video_lesson($lesson_slug)
     {
@@ -30,7 +39,7 @@ class VideoController extends Controller
         ->where('lesson_slug',$lesson_slug)->get();
 
         $video_name = DB::table('lesson')->where('lesson_slug',$lesson_slug)->limit(1)->get();
-        
+        $video_name = DB::table('lesson')->where('lesson_slug',$lesson_slug)->limit(1)->get();
         foreach ($video as $value) {
             $course_id = $value->id;
         }
@@ -40,13 +49,13 @@ class VideoController extends Controller
         ->join('part_content','part_content.part_id','=','lesson.part_id')
         ->where('course.id',$course_id)->get();
 
-
         return view ('pages.listvideo')->with('video',$video)->with('partContent',$partContent)->with('videoName',$video_name)->with('relate',$related_video);
     }
 
     //Lesson add -get 
     public function add_lesson()
     {
+        $this->AuthLogin();
         $course = DB::table('course')->get();
         $partContent = DB::table('part_content')->get();
         
@@ -57,6 +66,7 @@ class VideoController extends Controller
     public function saveLesson(Request $request)
     {
         $data = array();
+        $data['lesson_brand'] = $request->lesson_brand;
         $data['lesson_title'] = $request->lesson_title;
         $data['lesson_video'] = $request->lesson_video;
         $data['part_id'] = $request->lesson_part_id;
@@ -71,7 +81,7 @@ class VideoController extends Controller
     //Lesson edit - get 
     public function edit_lesson($lesson_id)
     {
-        // $this->AuthLogin();
+        $this->AuthLogin();
         $course = DB::table('course')->get();
         $partContent = DB::table('part_content')->get();
 
@@ -84,6 +94,7 @@ class VideoController extends Controller
     public function editLesson(Request $request, $lesson_id)
     {
         $data = array();
+        $data['lesson_brand'] = $request->lesson_brand;
         $data['lesson_title'] = $request->lesson_title;
         $data['lesson_video'] = $request->lesson_video;
         $data['part_id'] = $request->lesson_part_id;
@@ -97,7 +108,7 @@ class VideoController extends Controller
     //Lesson delete
     public function delete_lesson($lesson_id)
     {
-        // $this->AuthLogin();
+        $this->AuthLogin();
         DB::table('lesson')->where('lesson_id', $lesson_id)->delete();
         session()->put('mes', 'Xoá bài học thành công!');
         return Redirect::to('/quantri/cacbaihoc');
@@ -106,7 +117,7 @@ class VideoController extends Controller
     //Part_Content Add - get
     public function add_part_content()
     {
-        $parent = DB::table('part_content')->where('parent_id',0)->get();
+        $parent = DB::table('part_content')->get();
         $course = DB::table('course')->get();
         $detail = DB::table('detail_course')->get();
         return view ('admin.addPartLesson')->with('Course',$course)->with('Detail',$detail)->with('parent',$parent);
@@ -119,7 +130,6 @@ class VideoController extends Controller
         $data['part_title'] = $request->part_title;
         $data['course_id'] = $request->part_course_id;
         // $data['detail_id'] = $request->part_detail_id;
-        $data['parent_id'] = $request->part_parent_id;
 
         DB::table('part_content')->insert($data);
         $request->session()->put('mes', 'Thêm phần của bài học thành công!');
@@ -130,7 +140,7 @@ class VideoController extends Controller
     // Part_Content Edit - get
     public function edit_part_content($part_id)
     {
-        // $this->AuthLogin();
+        $this->AuthLogin();
         $course = DB::table('course')->get();
         $detail = DB::table('detail_course')->get();
 
@@ -155,7 +165,7 @@ class VideoController extends Controller
     // Part_content delete - get
     public function delete_part($part_id)
     {
-        // $this->AuthLogin();
+        $this->AuthLogin();
         DB::table('part_content')->where('part_id',$part_id)->delete();
         session()->put('mes', 'Xoá bài học thành công!');
         return Redirect::to('/quantri/phanhoc');
@@ -164,7 +174,7 @@ class VideoController extends Controller
     //Display Admin Page
     public function all_part_content()
     {
-        
+        $this->AuthLogin();
         $course = DB::table('course')->get();
         $detail = DB::table('detail_course')->get();
         $allPartContent = DB::table('part_content')
@@ -176,6 +186,7 @@ class VideoController extends Controller
 
     public function all_lesson()
     {
+        $this->AuthLogin();
         $course = DB::table('course')->get();
         $detail = DB::table('part_content')->get();
 

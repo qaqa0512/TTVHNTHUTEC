@@ -33,20 +33,22 @@
             <div class="col-lg-4 right">
                 <div class="card listVideoContent" style="width: 100%;">
                     <div class="listVideo-title">
-                        <h5 >Nhiếp ảnh 360 Cơ Bản - Học chụp ảnh cho người mới bắt đầu</h5>
+                        @foreach ($videoName as $brand)
+                            <h5>{{$brand->lesson_brand}}</h5>
+                        @endforeach
                     </div>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                         @foreach ($video as $vid)
-                            @foreach ($relate as $rela)
-                                    <div class="card-header" id="headingOne">
+                            @foreach ($relate as $key => $rela)
+                                    <div class="card-header" id="heading-{{$key}}">
                                         <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapse-{{$key}}" aria-expanded="true" aria-controls="collapseOne">
                                             {{$rela->part_title}}
                                         </button>
                                         </h2>
                                     </div>
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div id="collapse-{{$key}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body">
                                         <div class="list-video">
                                             <ul>
@@ -58,43 +60,6 @@
                             @endforeach             
                         @endforeach
                         </div>
-                        {{-- <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                            <button class="btn btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Phần 2: Kiến thức cốt lõi
-                            </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <div class="list-video">
-                                    <ul>
-                                    <li><a href="#">Bài 2: Tìm hiểu về khẩu độ</a></li>
-                                    <li><a href="#">Bài 3: Tìm hiểu về tốc độ chụp</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Phần 3: Tổng kết
-                            </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <div class="list-video">
-                                    <ul>
-                                        <li><a href="#">Bài 3: Lễ tốt nghiệp</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

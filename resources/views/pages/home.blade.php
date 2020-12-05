@@ -57,53 +57,33 @@
 {{-- <!-- Events --> --}}
 <div class="event-background"> 
         <div class="event">
-            <div class="top-events">
+            <div class="container">
                 <div class="event-title"><h2>Những Sự Kiện Sắp Diễn Ra</h2></div>
-                <div class="event-flex">
-                    <div class="event-body">
-                        <div class="event-image">
-                            <img src="/img/event_1.jpg" alt="">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-padding">
-                                <div class="event-info">
-                                    <a href="#">Networking Day</a>
-                                </div>
-                                <div class="event-btn">
-                                    <a href="#" class="join">Join</a>
-                                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-event" style="width: 100%;">
+                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body event-content">
+                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
+                              <a href="#" class="btn_eve">Tham gia</a>
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-                    <div class="event-body">
-                        <div class="event-image">
-                            <img src="/img/event_1.jpg" alt="">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-padding">
-                                <div class="event-info">
-                                    <a href="#">Networking Day</a>
-                                </div>
-                                <div class="event-btn">
-                                    <a href="#" class="join">Join</a>
-                                </div>
+                    <div class="col-lg-4">
+                        <div class="card card-event" style="width: 100%;">
+                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body event-content">
+                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
+                              <a href="#" class="btn_eve">Tham gia</a>
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-                    <div class="event-body">
-                        <div class="event-image">
-                            <img src="/img/event_1.jpg" alt="">
-                        </div>
-                        <div class="event-content">
-                            <div class="event-padding">
-                                <div class="event-info">
-                                    <a href="#">Networking Day</a>
-                                </div>
-                                <div class="event-btn">
-                                    <a href="#" class="join">Join</a>
-                                </div>
+                    <div class="col-lg-4">
+                        <div class="card card-event" style="width: 100%;">
+                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body event-content">
+                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
+                              <a href="#" class="btn_eve">Tham gia</a>
                             </div>
                         </div>
                     </div>
@@ -113,54 +93,67 @@
 </div>
 {{-- <!-- BLog --> --}}
 <div class="blog">
-    <div class="blog-background"></div>
-    <div class="blog-body">
-        <div class="blog-left">
-            <div class="blog-title">
-                <h2>Blog có những thú vị ??</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="blogLeft">
+                    <div class="blog-title">
+                        <h2>Blog có những thú vị ??</h2>
+                    </div>
+                    <div class="blog-text">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor.</span>
+                    </div>
+                    <div class="container blog-show">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="blog-category">
+                                    <div class="layer-blog"></div>
+                                    <div class="blog-list-img">
+                                        <img src="./img/pexels-photo-1173651.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-category-title">
+                                        <h5>Âm nhạc</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-category">
+                                    <div class="layer-blog"></div>
+                                    <div class="blog-list-img">
+                                        <img src="./img/pexels-photo-1192043.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-category-title">
+                                        <h5>Thể thao</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="blog-category">
+                                    <div class="layer-blog"></div>
+                                    <div class="blog-list-img">
+                                        <img src="./img/pexels-photo-1266741.jpeg" alt="">
+                                    </div>
+                                    <div class="blog-category-title">
+                                        <h5>Ẩm thực</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>         
+                </div>
             </div>
-            <div class="blog-text">
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor.</span>
-            </div>
-            <div class="blog-flex">
-                <div class="blog-category">
-                    <div class="layer-blog"></div>
-                    <div class="blog-list-img">
-                        <img src="./img/pexels-photo-1173651.jpeg" alt="">
-                    </div>
-                    <div class="blog-category-title">
-                        <h3>Âm nhạc</h3>
-                    </div>
-                </div>
-                <div class="blog-category">
-                    <div class="layer-blog"></div>
-                    <div class="blog-list-img">
-                        <img src="./img/pexels-photo-1192043.jpeg" alt="">
-                    </div>
-                    <div class="blog-category-title">
-                        <h3>Thể thao</h3>
+            <div class="col-lg-6">
+                <div class="blogRight">
+                    <div class="blog-image"></div>
+                    <div class="blog-title-container">
+                        <div class="blog-right-text"><a href="" class="bloggg">Âm nhạc</a></div>
+                        <div class="blog-right-title"><a href="" class="bloggg-tit">Làm thế nào để có thể hát hay???</a></div>
+                        <div class="blog-right-content">
+                            <p>Tôi có một tình yêu lớn dành cho âm nhạc. Phải có âm nhạc để cuộc sống bớt đi sự căng thẳng, để mình thêm yêu đời hơn. Tôi tìm thấy ở âm nhạc những thanh âm tuyệt vời của cuộc sống.</p>
+                        </div>
+                        <div class="blog-right-details"><a href="" class="bloggg-detail">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
                     </div>
                 </div>
-                <div class="blog-category">
-                    <div class="layer-blog"></div>
-                    <div class="blog-list-img">
-                        <img src="./img/pexels-photo-1266741.jpeg" alt="">
-                    </div>
-                    <div class="blog-category-title1">
-                        <h3>Nấu ăn</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="blog-right">
-            <div class="blog-image"></div>
-            <div class="blog-title-container">
-                <div class="blog-righit-text"><a href="">Âm nhạc</a></div>
-                <div class="blog-right-title"><a href="">Làm thế nào để có thể hát hay???</a></div>
-                <div class="blog-right-content">
-                    <p>Whether it is a signup flow, a multi-view stepper, or a monotonous data entry interface, forms are one of the most important components of digital product design.</p>
-                </div>
-                <div class="blog-right-details"><a href="">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
             </div>
         </div>
     </div>

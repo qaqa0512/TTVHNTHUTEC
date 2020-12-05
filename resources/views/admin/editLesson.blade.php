@@ -26,6 +26,10 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="txt_label">Tiêu đề bài học</label>
+                            <input type="text" value="{{$edit_lesson->lesson_brand}} class="form-control" name="lesson_brand" id="exampleInputEmail1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="txt_label">Tên bài học</label>
                             <input type="text" value="{{$edit_lesson->lesson_title}}" class="form-control" name="lesson_title" id="exampleInputEmail1">
                         </div>
                         <div class="form-group">

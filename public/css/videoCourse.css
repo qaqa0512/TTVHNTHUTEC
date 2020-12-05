@@ -31,6 +31,9 @@
 .listVideo-title {
     padding: 10px !important;
     background-color: #f7f7f7;
+    overflow: hidden !important;
+    border: 1px solid #f7f7f7;
+    border-radius: 15px;
 }
 
 .listVideo-title>h5 {
