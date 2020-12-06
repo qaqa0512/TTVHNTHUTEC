@@ -28,7 +28,6 @@ class VideoController extends Controller
     public function video_lesson($lesson_slug)
     {
         $course = DB::table('course')->get();
-        $detail = DB::table('detail_course')->get();
         $partContent = DB::table('part_content')
         ->join('course','course.id','=','part_content.course_id')
         ->join('detail_course','detail_course.detail_id','=','part_content.detail_id')->get();
@@ -39,17 +38,23 @@ class VideoController extends Controller
         ->where('lesson_slug',$lesson_slug)->get();
 
         $video_name = DB::table('lesson')->where('lesson_slug',$lesson_slug)->limit(1)->get();
-        $video_name = DB::table('lesson')->where('lesson_slug',$lesson_slug)->limit(1)->get();
         foreach ($video as $value) {
             $course_id = $value->id;
         }
+
+        $course = DB::table('course')->where('id',$course_id)->first();
 
         $related_video = DB::table('lesson')
         ->join('course','course.id','=','lesson.course_id')
         ->join('part_content','part_content.part_id','=','lesson.part_id')
         ->where('course.id',$course_id)->get();
 
-        return view ('pages.listvideo')->with('video',$video)->with('partContent',$partContent)->with('videoName',$video_name)->with('relate',$related_video);
+        return view ('pages.listvideo')
+        ->with('video',$video)
+        ->with('partContent',$partContent)
+        ->with('videoName',$video_name)
+        ->with('relate',$related_video)
+        ->with('course',$course);
     }
 
     //Lesson add -get 

@@ -813,8 +813,12 @@ footer>p {
     color: #AE4CA4;
 }
 
-footer>p>a {
+footer>p .foo {
     text-decoration: none;
     color: #E1306C;
     font-weight: bold;
+}
+
+footer>p .foo:hover {
+    color: #AE4CA4;
 }

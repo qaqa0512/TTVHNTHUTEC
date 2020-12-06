@@ -9,14 +9,20 @@
                 <li><i class="fa fa-caret-right icon-lane"></i></li>
                 <li><a href="/khoahoc">Khóa học</a></li>
                 <li><i class="fa fa-caret-right icon-lane"></i></li>
-                <li><p>Nhiếp ảnh</p></li>
+                <li><p>{{$course->course_title}}</p></li>
             </ul>
         </div>
      </div>
 </div>
 <div class="videoCourse mb-4">
     <div class="videoTitle">
-        <h3>Chúc bạn có buổi học vui vẻ</h3>
+        <h3>Chúc <?php 
+            $nameUser = Auth::user()->name;
+            if($nameUser)
+            {
+                echo $nameUser;
+            }
+            ?> có buổi học vui vẻ</h3>
     </div>
     <div class="container">
         <div class="row">

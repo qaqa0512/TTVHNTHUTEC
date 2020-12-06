@@ -82,25 +82,26 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
-                              <div class="card-header" id="headingOne">
+                              @foreach ($lesson as $valu => $le)
+                              <div class="card-header" id="heading-{{$valu}}">
                                 <h2 class="mb-0">
-                                  <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Phần 1: Giới thiệu
+                                  <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapse-{{$valu}}" aria-expanded="true" aria-controls="collapseOne">
+                                    {{$le->part_title}}
                                   </button>
                                 </h2>
                               </div>
-                          
-                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                              <div id="collapse-{{$valu}}" class="collapse show" aria-labelledby="heading-{{$valu}}" data-parent="#accordionExample">
                                 <div class="card-body">
                                   <div class="list-video">
                                       <ul>
-                                        <li><a href="#">Bài 1: Tại sao chúng ta cần mua máy ảnh?</a></li>
+                                        <li><a href="/video/{{$le->lesson_slug}}">{{$le->lesson_title}}</a></li>
                                       </ul>
                                   </div>
                                 </div>
                               </div>
+                              @endforeach
                             </div>
-                            <div class="card">
+                            {{-- <div class="card">
                               <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
                                   <button class="btn btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -136,10 +137,48 @@
                                     </div>
                                 </div>
                               </div>
-                            </div>
+                            </div> --}}
                           </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                      <div class="container review">
+                          <div class="rating-star">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                  <div class="num_comment">
+                                    <p>Số lượt bình luận</p>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="votee d-flex">
+                                    <p>Lượt đánh giá:</p>
+                                    <div class="list_star">
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star"></span>
+                                      <span class="fa fa-star"></span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="comment-review">
+                            <div class="id_comment d-flex">
+                              <div class="id_img">
+                                <img src="/img/tải xuống.png" alt="">
+                              </div>
+                              <div class="comment_box">
+                                <div class="input-group ml-2">
+                                  <input type="text" class="form-control" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                  <div class="input-group-append ml-1">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bình Luận</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
                     </div>
                   </div>
             </div>

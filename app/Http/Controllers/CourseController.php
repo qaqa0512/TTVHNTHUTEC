@@ -188,10 +188,17 @@ class CourseController extends Controller
     public function detailcourses($course_slug)
     {
         $detail = DB::table('course')->where('course_slug',$course_slug)->first();
-        $lesson = DB::table('lesson')->get();
-        $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')
+
+        $lesson = DB::table('lesson')->join('course','course.id','=','lesson.course_id')
+        ->join('part_content','part_content.part_id','=','lesson.part_id')->where('course_slug',$course_slug)->get();
+
+
+        $allDescription = DB::table('detail_course')
+        ->join('course','course.id','=','detail_course.course_id')
         ->join('lesson','lesson.lesson_id','=','detail_course.lesson_id')
         ->where('course_slug',$course_slug)->first();
+
+
         return view('pages.details',compact('detail','lesson','allDescription'));
     }
 

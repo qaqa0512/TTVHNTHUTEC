@@ -90,7 +90,7 @@
     </div>
     {{-- Footer --}}
     <footer>
-        <p>© <a href="#">Nguyễn Quốc Anh</a> 2020</p>
+        <p>© <a href="#" class="foo">Nguyễn Quốc Anh</a> 2020</p>
     </footer>
     {{-- Javascript --}}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
