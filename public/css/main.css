@@ -254,6 +254,10 @@ input.active-width {
     padding: 7px 10px !important;
 }
 
+.dropdown-item:focus {
+    background-color: #f8f9fa !important;
+}
+
 .dropdown-divider {
     margin: .5rem 7px !important;
     border: 1px solid #E1306C;

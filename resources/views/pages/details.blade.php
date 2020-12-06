@@ -101,43 +101,6 @@
                               </div>
                               @endforeach
                             </div>
-                            {{-- <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Phần 2: Kiến thức cốt lõi
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="list-video">
-                                        <ul>
-                                          <li><a href="#">Bài 2: Tìm hiểu về khẩu độ</a></li>
-                                          <li><a href="#">Bài 3: Tìm hiểu về tốc độ chụp</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                  <button class="btn btn-link btn-block text-left collapsed accor-btn" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Phần 3: Tổng kết
-                                  </button>
-                                </h2>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <div class="list-video">
-                                        <ul>
-                                            <li><a href="#">Bài 3: Lễ tốt nghiệp</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                              </div>
-                            </div> --}}
                           </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -178,6 +141,27 @@
                               </div>
                             </div>
                           </div>
+                          <div class="comment_show d-flex">
+                            <div class="img_comment_show">
+                              <img src="/img/tải xuống.png" alt="...">
+                            </div>
+                            <div class="comment_content_show">
+                              <div class="comment_name_id">
+                                <p class="name_id">Quốc Anh</p>
+                                <span id="link__">&nbsp-</span>
+                                <span class="time_id_post">&nbsp10h30</span>
+                              </div>
+                              <div class="comment_name_text">
+                                <span class="text_id">Video rất hay em cảm ơn ad ạ!!!</span>
+                              </div>
+                            </div>
+                            <div class="comment_status_show">
+                              <div class="comment_reply">
+                                  <span id="id_replay">Trả lời</span>
+                              </div>
+                            </div>
+                          </div>
+                          
                       </div>
                     </div>
                   </div>

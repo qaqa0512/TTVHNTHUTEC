@@ -384,7 +384,7 @@
 }
 
 .id_img {
-    width: 50px;
+    width: 57px;
     height: 50px;
 }
 
@@ -410,4 +410,56 @@
 
 #button-addon2:focus {
     box-shadow: none;
+}
+
+.comment_show {
+    margin-top: 50px;
+}
+
+.img_comment_show {
+    width: 55px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.img_comment_show>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.comment_content_show {
+    background-color: #f0efef;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.comment_name_id {
+    display: flex;
+}
+
+.comment_name_id .name_id {
+    font-weight: 700;
+    font-size: 17px;
+    color: #E1306C;
+    margin-bottom: 3px;
+}
+
+.comment_status_show {
+    margin-left: 10px;
+}
+
+.comment_reply {
+    margin-top: 30px;
+}
+
+.comment_reply #id_replay {
+    font-size: 17px;
+    color: #E1306C;
+}
+
+.comment_reply #id_replay:hover {
+    color: #c52896;
+    cursor: pointer;
+    transition: 0.3s linear;
 }
