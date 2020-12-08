@@ -366,6 +366,11 @@
     height: 100%;
 }
 
+#hello {
+    display: inline-flex;
+    width: 100%;
+}
+
 #comment-btn {
     padding: 24px 10px;
     background-color: transparent;
@@ -413,7 +418,8 @@
 }
 
 .comment_show {
-    margin-top: 50px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .img_comment_show {
@@ -443,6 +449,11 @@
     font-size: 17px;
     color: #E1306C;
     margin-bottom: 3px;
+}
+
+.time_id_post {
+    color: #4e4c4c;
+    font-weight: 200;
 }
 
 .comment_status_show {

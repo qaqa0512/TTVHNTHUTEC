@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Comments;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 
@@ -184,6 +186,21 @@ class CourseController extends Controller
         return view('pages.courses')->with('displayCourse',$course);
     }
 
+    //Post Comment
+    public function postComment(Request $request,$course_id)
+    {
+        $this->validate($request,[
+            'comment_content'=>'required'
+        ]);
+        $comment = new Comments;
+        $comment->user_id = Auth::user()->id;
+        $comment->course_id = $course_id;
+        $comment->comment_content = $request->input('comment_content');
+        $comment->save();
+
+        $request->session()->put('mes', 'Đăng bình luận thành công!');
+        return back();
+    }
     // Detail Course
     public function detailcourses($course_slug)
     {
@@ -197,18 +214,15 @@ class CourseController extends Controller
         ->join('course','course.id','=','detail_course.course_id')
         ->join('lesson','lesson.lesson_id','=','detail_course.lesson_id')
         ->where('course_slug',$course_slug)->first();
-
-
-        return view('pages.details',compact('detail','lesson','allDescription'));
-    }
-
-    // public function detail_lesson_id($lesson_slug)
-    // {
-    //     $video_lesson = DB::table('detail_course')->join('lesson','lesson.lesson_id','=','detail_course.lesson_id')->where('lesson_slug',$lesson_slug)->first();
         
-    //     $allDescription = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->where('course_slug',$course_slug)->first();
-    //     return view('pages.details',compact('video_lesson'));
-    // }
+        $comments = DB::table('posts_comments')
+        ->join('users','users.id','=','posts_comments.user_id')
+        ->join('course','course.course_slug','=','posts_comments.course_id')
+        ->where('course_slug',$course_slug)
+        ->get();
+
+        return view('pages.details',compact('detail','lesson','allDescription','comments'));
+    }
 }
 
 

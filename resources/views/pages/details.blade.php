@@ -126,6 +126,7 @@
                                 </div>
                             </div>
                           </div>
+                          @if(Auth::check())
                           <div class="comment-review">
                             <div class="id_comment d-flex">
                               <div class="id_img">
@@ -133,15 +134,49 @@
                               </div>
                               <div class="comment_box">
                                 <div class="input-group ml-2">
-                                  <input type="text" class="form-control" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                  <div class="input-group-append ml-1">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Bình Luận</button>
-                                  </div>
+                                  <form action="/khoahoc/{{$allDescription->course_slug}}" method="post" id="hello">
+                                    {{csrf_field()}}
+                                    <input type="text" class="form-control" name="comment_content" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append ml-1">
+                                      <button type="submit"class="btn btn-outline-secondary" id="button-addon2">Bình Luận</button>
+                                    </div>
+                                  </form>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="comment_show d-flex">
+                          <?php
+                          $mess = Session::get('mes');
+                          if($mess){
+                              echo '<p class="error">'.'<i class="fa fa-info-circle"></i>'.' '.$mess.'</p>';
+                              Session::put('mes',null);
+                          }
+                          ?>
+                          @endif
+                          @foreach ($comments as $comm)
+                            <div class="comment_show d-flex">
+                              <div class="img_comment_show">
+                                <img src="/img/tải xuống.png" alt="...">
+                              </div>
+                              <div class="comment_content_show">
+                                <div class="comment_name_id">
+                                  <p class="name_id">{{$comm->name}}</p>
+                                  <span id="link__">&nbsp-</span>
+                                  <span class="time_id_post">&nbsp10h30</span>
+                                </div>
+                                <div class="comment_name_text">
+                                  <span class="text_id">{{$comm->comment_content}}</span>
+                                </div>
+                              </div>
+                              <div class="comment_status_show">
+                                <div class="comment_reply">
+                                    <span id="id_replay">Trả lời</span>
+                                </div>
+                              </div>
+                            </div>
+                          @endforeach
+                          
+                          {{-- <div class="comment_show d-flex">
                             <div class="img_comment_show">
                               <img src="/img/tải xuống.png" alt="...">
                             </div>
@@ -152,7 +187,7 @@
                                 <span class="time_id_post">&nbsp10h30</span>
                               </div>
                               <div class="comment_name_text">
-                                <span class="text_id">Video rất hay em cảm ơn ad ạ!!!</span>
+                                <span class="text_id">Mãi yêu ad :))) </span>
                               </div>
                             </div>
                             <div class="comment_status_show">
@@ -160,8 +195,7 @@
                                   <span id="id_replay">Trả lời</span>
                               </div>
                             </div>
-                          </div>
-                          
+                          </div> --}}
                       </div>
                     </div>
                   </div>
@@ -169,7 +203,6 @@
             <div class="col-lg-4">
                 <div class="card style-card" style="width: 100%;">
                     <p>{!!$allDescription->lesson_video!!}</p>
-                    {{-- <iframe width="100%" height="250px" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                     <div class="card-body">
                       <a href="/video/{{$allDescription->lesson_slug}}" class="btn btn-right mb-3">Học ngay</a>
                       <div class="list-txt">
