@@ -201,6 +201,18 @@ class CourseController extends Controller
         $request->session()->put('mes', 'Đăng bình luận thành công!');
         return back();
     }
+    public function deleteComment($course_slug,$comment_id)
+    {
+        echo $course_slug.' - '.$comment_id;
+        $comments = DB::table('posts_comments')
+        ->join('users','users.id','=','posts_comments.user_id')
+        ->join('course','course.course_slug','=','posts_comments.course_id')
+        ->where('course_slug',$course_slug)
+        ->where('comment_id',$comment_id)->delete();
+
+        session()->put('mes', 'Xóa bình luận thành công!');
+        return back();
+    }
     // Detail Course
     public function detailcourses($course_slug)
     {

@@ -162,13 +162,23 @@
                                 <div class="comment_name_id">
                                   <p class="name_id">{{$comm->name}}</p>
                                   <span id="link__">&nbsp-</span>
-                                  <span class="time_id_post">&nbsp10h30</span>
+                                  <span class="time_id_post">&nbsp{{date('d/m/Y H:i')}}</span>
                                 </div>
                                 <div class="comment_name_text">
                                   <span class="text_id">{{$comm->comment_content}}</span>
                                 </div>
                               </div>
                               <div class="comment_status_show">
+                                <!-- Default dropright button -->
+                                <div class="btn-group dropright">
+                                  <button type="button" class="btn_comment_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ...
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" >Chỉnh sửa</a>
+                                    <a class="dropdown-item" href="/khoahoc/{{$comm->course_slug}}/{{$comm->comment_id}}" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">Xóa bình luận</a>
+                                  </div>
+                                </div>
                                 <div class="comment_reply">
                                     <span id="id_replay">Trả lời</span>
                                 </div>
@@ -176,26 +186,6 @@
                             </div>
                           @endforeach
                           
-                          {{-- <div class="comment_show d-flex">
-                            <div class="img_comment_show">
-                              <img src="/img/tải xuống.png" alt="...">
-                            </div>
-                            <div class="comment_content_show">
-                              <div class="comment_name_id">
-                                <p class="name_id">Quốc Anh</p>
-                                <span id="link__">&nbsp-</span>
-                                <span class="time_id_post">&nbsp10h30</span>
-                              </div>
-                              <div class="comment_name_text">
-                                <span class="text_id">Mãi yêu ad :))) </span>
-                              </div>
-                            </div>
-                            <div class="comment_status_show">
-                              <div class="comment_reply">
-                                  <span id="id_replay">Trả lời</span>
-                              </div>
-                            </div>
-                          </div> --}}
                       </div>
                     </div>
                   </div>

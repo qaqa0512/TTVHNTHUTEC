@@ -29,7 +29,7 @@
                         <ul>
                             <li><a href="#">{{$display->course_name}}</a></li>
                             <li><i class="fa fa-caret-right icon-lane"></i></li>
-                            <li><a href="">{{$display->course_title}}</a></li>
+                            <li><a href="/khoahoc/{{$display->course_slug}}">{{$display->course_title}}</a></li>
                         </ul>
                       </div>
                       <p class="card-text mb-4">{{$display->course_description}}</p>

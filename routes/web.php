@@ -16,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 // Client
 Route::get('/','App\Http\Controllers\PagesController@homepage');
 
-// Comment
+
 
 // Courses
 Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
+// Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
+Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
 
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
