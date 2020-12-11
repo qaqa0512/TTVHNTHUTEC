@@ -175,7 +175,7 @@
                                     ...
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#" >Chỉnh sửa</a>
+                                    <a class="dropdown-item" href="/khoahoc/capnhatcomment/{{$comm->course_slug}}/{{$comm->comment_id}}" >Chỉnh sửa</a>
                                     <a class="dropdown-item" href="/khoahoc/{{$comm->course_slug}}/{{$comm->comment_id}}" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">Xóa bình luận</a>
                                   </div>
                                 </div>

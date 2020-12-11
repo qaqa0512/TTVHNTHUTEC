@@ -44,6 +44,37 @@
                         @endforeach
                     </div>
                     <div class="accordion" id="accordionExample">
+                        <?php
+                            $partal_ids = [];
+                        ?>
+                        @foreach ($relate as $key=>$rela)
+                            <?php if (!in_array($rela->part_id, $partal_ids)) {
+
+                                if(!empty($partal_ids)) {
+                                    echo "</ul></div></div></div>";
+                                }
+                                $partal_ids[] = $rela->part_id;
+                            ?>
+                            <div class="card-header" id="headingOne{{$key}}">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne{{$key}}" aria-expanded="true" aria-controls="collapseOne{{$key}}">
+                                    {{$rela->part_title}}
+                                </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne{{$key}}" class="collapse" aria-labelledby="headingOne{{$key}}" data-parent="#accordionExample">
+                                <div class="card-body">
+                                <div class="list-video">
+                                    <ul>
+                                    <li><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
+
+                            <?php } else { ?>
+                                <li><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
+                            <?php } ?>
+                        @endforeach
+                    </div>
+                    {{-- <div class="accordion" id="accordionExample">
                         <div class="card">
                         @foreach ($video as $vid)
                             @foreach ($relate as $key => $rela)
@@ -66,7 +97,7 @@
                             @endforeach             
                         @endforeach
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

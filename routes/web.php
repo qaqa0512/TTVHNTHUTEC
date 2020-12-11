@@ -23,6 +23,8 @@ Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
+
+Route::get('/khoahoc/capnhatcomment/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@editComment');
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
 
 // Video
