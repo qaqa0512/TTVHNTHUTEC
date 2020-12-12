@@ -82,7 +82,11 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
+                              <?php
+                                  $partal_ids = [];
+                              ?>
                               @foreach ($lesson as $valu => $le)
+                              
                               <div class="card-header" id="heading-{{$valu}}">
                                 <h2 class="mb-0">
                                   <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapse-{{$valu}}" aria-expanded="true" aria-controls="collapseOne">
@@ -94,14 +98,14 @@
                                 <div class="card-body">
                                   <div class="list-video">
                                       <ul>
-                                        <li><a href="/video/{{$le->lesson_slug}}">{{$le->lesson_title}}</a></li>
+                                        <li><i class="fas fa-video" style="margin-right: 7px; color: rgb(238, 238, 88);"></i><a href="/video/{{$le->lesson_slug}}">{{$le->lesson_title}}</a></li>
                                       </ul>
                                   </div>
                                 </div>
                               </div>
                               @endforeach
                             </div>
-                          </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                       <div class="container review">
@@ -134,6 +138,7 @@
                               </div>
                               <div class="comment_box">
                                 <div class="input-group ml-2">
+                                  <input type="hidden" value="{{$allDescription->course_slug}}" class="course_slug" name="course_slug">
                                   <form action="/khoahoc/{{$allDescription->course_slug}}" method="post" id="hello">
                                     {{csrf_field()}}
                                     <input type="text" class="form-control" name="comment_content" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -175,7 +180,6 @@
                                     ...
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/khoahoc/capnhatcomment/{{$comm->course_slug}}/{{$comm->comment_id}}" >Chỉnh sửa</a>
                                     <a class="dropdown-item" href="/khoahoc/{{$comm->course_slug}}/{{$comm->comment_id}}" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">Xóa bình luận</a>
                                   </div>
                                 </div>

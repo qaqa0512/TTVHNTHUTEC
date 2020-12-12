@@ -43,7 +43,7 @@
                             <h5>{{$brand->lesson_brand}}</h5>
                         @endforeach
                     </div>
-                    <div class="accordion" id="accordionExample">
+                    {{-- <div class="accordion" id="accordionExample">
                         <?php
                             $partal_ids = [];
                         ?>
@@ -72,32 +72,31 @@
                             <?php } else { ?>
                                 <li><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
                             <?php } ?>
+                            </div>
                         @endforeach
-                    </div>
-                    {{-- <div class="accordion" id="accordionExample">
-                        <div class="card">
-                        @foreach ($video as $vid)
-                            @foreach ($relate as $key => $rela)
-                                    <div class="card-header" id="heading-{{$key}}">
-                                        <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapse-{{$key}}" aria-expanded="true" aria-controls="collapseOne">
-                                            {{$rela->part_title}}
-                                        </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapse-{{$key}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                        <div class="list-video">
-                                            <ul>
-                                                <li><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
-                                            </ul>
-                                        </div>
-                                        </div>
-                                    </div>
-                            @endforeach             
-                        @endforeach
-                        </div>
                     </div> --}}
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                        @foreach ($relate as $key => $rela)
+                                <div class="card-header" id="heading-{{$key}}">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapse-{{$key}}" aria-expanded="true" aria-controls="collapseOne">
+                                        {{$rela->part_title}}
+                                    </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse-{{$key}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                    <div class="list-video">
+                                        <ul>
+                                            <li><i class="fas fa-video" style="margin-right: 7px; color: rgb(238, 238, 88);"></i><a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                        @endforeach             
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -24,7 +24,6 @@ Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detai
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
 
-Route::get('/khoahoc/capnhatcomment/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@editComment');
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
 
 // Video

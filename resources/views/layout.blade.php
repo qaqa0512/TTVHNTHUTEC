@@ -99,5 +99,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
+    {{-- Jquery - Comment --}}
+    {{-- <script type="text/javascript">
+        $(document).ready(function () {
+            var course_slug = $('.course_slug').val();
+            var _token = $('.input[name="_token"]').val();
+            // alert(course_slug)
+           function loadComment() {
+              $.ajax({
+                  method:"POST",  
+                  url: "/khoahoc/{course_slug}",
+                  data: "course_slug: course_slug, _token: _token",
+                  success: function (data) {
+                      
+                  }
+              });
+           }
+        });
+    </script> --}}
 </body>
 </html>

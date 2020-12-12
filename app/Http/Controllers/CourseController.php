@@ -201,12 +201,6 @@ class CourseController extends Controller
         $request->session()->put('mes', 'Đăng bình luận thành công!');
         return back();
     }
-
-    public function editComment($course_slug,$comment_id)
-    {
-        echo $course_slug,' - ',$comment_id;
-    }
-
     public function deleteComment($course_slug,$comment_id)
     {
         echo $course_slug.' - '.$comment_id;
