@@ -1,4 +1,5 @@
 @extends('admin')
+@section('title','Quản Trị')
 @section('admin_content')
     <h3>Chúc  <?php
         $name = Session::get('admin_name');

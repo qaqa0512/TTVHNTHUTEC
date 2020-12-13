@@ -29,7 +29,7 @@
             <div class="col-lg-8 left">
                 <div class="card card-list-video" style="width: 100%;">
                     @foreach ($videoName as $name)
-                        <p>{!!$name->lesson_video!!}</p>
+                        <p id="video">{!!$name->lesson_video!!}</p>
                         <div class="vid-tit">
                         <h5>{{$name->lesson_title}}</h5>
                         </div>

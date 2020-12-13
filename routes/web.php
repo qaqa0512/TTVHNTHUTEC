@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 // Client
 Route::get('/','App\Http\Controllers\PagesController@homepage');
-
+// Contact
+Route::get('/lienhe','App\Http\Controllers\PagesController@contact');
 
 
 // Courses
@@ -28,6 +29,7 @@ Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseCon
 
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
+
 
 
 // Authentication - get

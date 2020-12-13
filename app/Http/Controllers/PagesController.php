@@ -16,4 +16,9 @@ class PagesController extends Controller
         $course = DB::table('course')->limit(3)->get();
         return view('pages.home')->with('showCourse',$course);
     }
+    // Liên hệ 
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 }

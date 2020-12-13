@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/courses.css">
     <link rel="stylesheet" href="/css/details.css">
     <link rel="stylesheet" href="/css/videoCourse.css">
+    <link rel="stylesheet" href="/css/contact.css">
 
     
     {{-- Boostrap --}}
@@ -53,9 +54,9 @@
                     <li><a href="#">Câu Lạc Bộ</a></li>
                     <li><a href="/khoahoc">Khoá Học Online</a></li>
                     <li><a href="#">Sự kiện</a></li>
-                    <li><a href="#">Liên kết đào tạo</a></li>
+                    {{-- <li><a href="#">Liên kết đào tạo</a></li> --}}
                     <li><a href="#">Tin Tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="/lienhe">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="search-box">

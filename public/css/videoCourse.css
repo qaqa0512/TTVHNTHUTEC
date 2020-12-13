@@ -16,6 +16,10 @@
     color: #E1306C;
 }
 
+#video {
+    margin-bottom: 0;
+}
+
 .card-list-video {
     border-radius: 14px !important;
 }
