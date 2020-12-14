@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/details.css">
     <link rel="stylesheet" href="/css/videoCourse.css">
     <link rel="stylesheet" href="/css/contact.css">
-
+    <link rel="stylesheet" href="/css/profile.css">
     
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -74,7 +74,7 @@
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                          <a class="dropdown-item" href="/thongtincanhan"><i class="fas fa-cog"></i> Cài đặt</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                         </div>

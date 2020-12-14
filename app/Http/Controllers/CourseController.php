@@ -233,6 +233,9 @@ class CourseController extends Controller
         ->where('course_slug',$course_slug)
         ->get();
 
+        foreach ($comments as $key => $value) {
+            $comment_id = $value->comment_id;
+        }
         return view('pages.details',compact('detail','lesson','allDescription','comments'));
     }
 }

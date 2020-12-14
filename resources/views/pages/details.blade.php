@@ -82,9 +82,9 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="accordion" id="accordionExample">
                             <div class="card">
-                              <?php
+                              {{-- <?php
                                   $partal_ids = [];
-                              ?>
+                              ?> --}}
                               @foreach ($lesson as $valu => $le)
                               
                               <div class="card-header" id="heading-{{$valu}}">
