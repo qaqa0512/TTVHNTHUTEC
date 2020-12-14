@@ -17,7 +17,7 @@ class CreateProfileTable extends Migration
             $table->increments('profile_id');
             $table->integer('user_id');
             $table->string('profile_name');
-            $table->dateTime('profile_date');
+            $table->date('profile_date');
             $table->string('profile_phone');
             $table->string('profile_avatar');
             $table->timestamps('');

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Thông tin tài khoản')
+@section('title','Cập nhật thông tin')
 @section('content')
 <div class="empty"></div>
 <div class="profile_user">
@@ -9,34 +9,38 @@
                 <div class="user_form">
                   {{-- Title --}}
                     <div class="user_title">
-                        <h4><i class="fas fa-user"></i>Thông tin cá nhân</h4>
-                    </div>
-                    <div class="update_image">
-                            <img src="/img/29TI8147.jpg" alt="">
+                        <h4><i class="fas fa-user"></i>Cập nhật thông tin</h4>
                     </div>
                   {{-- Form Info --}}
-                    <form method="POST" action="/themthongtin" id="user_info_form">
+                    <form method="POST" action="/themthongtin" id="user_info_form" enctype="multipart/form-data">
+                      {{ csrf_field() }}
                       {{-- Profile Name --}}
                         <div class="form-group">
-                          <label for="exampleInputEmail1" class="title_name">Họ tên</label>
-                          <input type="text" class="form-control" id="nameUser" name="profile_name" aria-describedby="emailHelp">
+                          <label for="name" class="title_name">Họ tên</label>
+                          <input type="text" class="form-control" id="nameUser" name="profile_name" aria-describedby="emailHelp" required>
                         </div>
                       {{-- Profile Date --}}
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="title_name">Ngày sinh</label>
-                            <input type="email" class="form-control" id="datelUser" name="profile_date" aria-describedby="emailHelp">
+                            <label for="Date" class="title_name">Ngày sinh</label>
+                            <input type="date" class="form-control" id="datelUser" name="profile_date" aria-describedby="emailHelp" required>
                         </div>
                       {{-- Profile Phone --}}
                         <div class="form-group">
-                          <label for="exampleInputPassword1" class="title_name">Số điện thoại</label>
-                          <input type="password" class="form-control" name="profile_phone" id="numberUser">
+                          <label for="number" class="title_name">Số điện thoại</label>
+                          <input type="text" class="form-control" name="profile_phone" id="numberUser" required>
                         </div>
                       {{-- Profile Avatar --}}
                         <div class="form-group">
-                          <label for="exampleFormControlFile1" class="title_name">Ảnh đại diện</label>
+                          <label for="image" class="title_name">Ảnh đại diện</label>
                           <input type="file" class="form-control-file" name="profile_avatar" id="exampleFormControlFile1">
                         </div>
-                        <button type="submit" class="btn_profile">Cập nhật</button>
+                        <div class="d-flex">
+                          <button type="submit" class="btn_profile">Cập nhật</button>
+                          <div class="viewprofile">
+                            <a href="/thongtincanhan" id="link_profile">Xem thông tin cá nhân <i class="fa fa-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      
                     </form>
                 </div>
             </div>

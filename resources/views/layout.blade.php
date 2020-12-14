@@ -74,7 +74,7 @@
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/thongtincanhan"><i class="fas fa-cog"></i> Cài đặt</a>
+                          <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Cài đặt</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                         </div>

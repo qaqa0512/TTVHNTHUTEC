@@ -46,7 +46,7 @@
 }
 
 #user_info_form {
-    padding: 20px 70px;
+    padding: 20px 70px 50px 70px;
 }
 
 #nameUser,
@@ -122,6 +122,7 @@
     font-weight: 500;
     border-radius: 7px;
     text-transform: capitalize;
+    margin-top: 7px;
 }
 
 .btn_profile:hover {
@@ -132,4 +133,26 @@
 
 .btn_profile:focus {
     outline: 0;
+}
+
+.viewprofile {
+    padding: 7px;
+    margin-left: 68%;
+}
+
+#link_profile {
+    color: #E1306C;
+    font-size: 20px;
+}
+
+#link_profile>i {
+    margin-left: 7px;
+}
+
+#link_profile:hover {
+    text-decoration: none;
+}
+
+#link_profile:hover>i {
+    transform: translateX(5px);
 }
