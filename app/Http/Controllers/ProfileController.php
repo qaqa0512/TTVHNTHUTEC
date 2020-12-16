@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 Use App\Models\User;
+use App\Models\Course;
+use App\Models\Comments;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -15,9 +17,12 @@ use Symfony\Component\Console\Input\Input;
 
 class ProfileController extends Controller
 {
+    
     public function profile()
     {
-        return view('pages.profile');
+        $user_id = Auth::user()->id;
+        $profile_url = DB::table('users')->join('profile','profile.user_id','=','users.id')->where('profile.user_id',$user_id)->first();
+        return view('pages.profile')->with('profile_url',$profile_url);
     }
 
     public function displayProfile()
@@ -48,7 +53,7 @@ class ProfileController extends Controller
         }
         $profile->profile_avatar = $url;
         $profile->save();
-        
+
         return redirect('/thongtincanhan')->with('respone','Cập nhật thông tin thành công');
     }
 }

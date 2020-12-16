@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
 
+use function PHPUnit\Framework\isEmpty;
+
 class Authentication extends Controller
 {
     //Login - Register get
@@ -34,7 +36,6 @@ class Authentication extends Controller
                 // Authentication passed...
                 return redirect()->intended('/');
             }
-
         return redirect('/dangnhap')->with('message','Tài khoản hoặc mật khẩu không chính xác!');
     }
 

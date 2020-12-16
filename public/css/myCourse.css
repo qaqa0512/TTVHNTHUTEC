@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.myCourse {
+    width: 100%;
+    height: auto;
+}
+
+.myCourse_form {
+    width: 100%;
+    height: auto;
+}
+
+.left_info {
+    padding-top: 50px;
+}
+
+.profile_course_top {
+    width: 100%;
+}
+
+.img_log {
+    width: 220px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.img_log>img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+}
+
+.id_favour:hover {
+    text-decoration: none;
+}
+
+.info_user_favouriteCourse {
+    width: 100%;
+}
+
+.img_profilee {
+    width: 140px;
+    height: 140px;
+    margin: 10px 38px;
+}
+
+.img_profilee>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.name_profilee {
+    width: 100%;
+    text-align: center;
+}
+
+.name_profilee>span {
+    font-size: 20px;
+}
+
+.profile_course_bottom {
+    width: 100%;
+}
+
+.active {
+    width: 100% !important;
+}
+
+#v-pills-home-tab,
+#v-pills-profile-tab {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: rgb(129, 128, 128);
+    /* text-align: center; */
+}
+
+#v-pills-home-tab:hover,
+#v-pills-profile-tab:hover {
+    color: #000;
+    background-color: #e7e7e7;
+}
+
+#v-pills-home-tab:focus,
+#v-pills-profile-tab:focus {
+    color: #E1306C;
+    font-weight: 500
+}
+
+#v-pills-home-tab>i,
+#v-pills-profile-tab>i {
+    margin-right: 10px;
+}
+
+.right_course {
+    border: 1px solid #dad4d4;
+    border-radius: 15px;
+    height: 100%;
+}
+
+.title__favourite_course {
+    margin: 20px 30px;
+}
+
+.title__favourite_course>h5 {
+    text-transform: capitalize;
+    color: #E1306C;
+    font-size: 25px;
+}
+
+.serch_box {
+    margin-bottom: 25px;
+}
+
+#serch_bx {
+    padding-right: 50px !important;
+}
+
+.video_favourite {
+    margin-bottom: 0 !important;
+}
+
+.favour_video {
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+
+/* Profile in favourite course*/
+
+.profile_course_favour {
+    width: 100%;
+    height: 530px;
+}
+
+.profile_left {
+    width: 100%;
+}
+
+.img_pro_course {
+    width: 150px;
+    height: 150px;
+    margin: 15px 30px;
+}
+
+.img_pro_course>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.form_user_profile {
+    width: 100%;
+    margin-left: 20px;
+}
+
+.title__profile_favourite_course {
+    margin: 20px 30px;
+}
+
+.title__profile_favourite_course>h5 {
+    text-transform: capitalize;
+    color: #E1306C;
+    font-size: 25px;
+}
+
+.user_info_course {
+    margin-bottom: 40px;
+}
+
+.user_info_course_tilte>h5 {
+    color: #E1306C;
+}
+
+.user_info_course_text>span {
+    margin-left: 25px;
+    font-size: 18px;
+}

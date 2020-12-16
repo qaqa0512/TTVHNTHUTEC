@@ -36,6 +36,9 @@
                           <input type="text" class="form-control" name="profile_phone" id="numberUser" value="{{$profile->profile_phone}}" readonly>
                         </div>
                     </form>
+                    <div class="viewprofile">
+                      <a href="/" id="link_profile">Đi đến trang chủ <i class="fa fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

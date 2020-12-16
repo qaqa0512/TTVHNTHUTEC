@@ -37,7 +37,12 @@
                         <ul>
                             <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">10</span></li>
                             <li><a href="/khoahoc/{{$display->course_slug}}" class="btn course_btn">Học ngay</a></li>
-                            <li><i class="fa fa-star" style="margin-right: 10px;color: #AE4CA4;"></i><span>5</span></li>
+                            <li><form action="">
+                                {{ csrf_field() }}
+                                <button type="submit" id="btn_add_favour">
+                                    <i class="fas fa-heart" style="font-size:17px;color: #ac029b;"></i>
+                                </button>
+                            </form></li>
                         </ul>
                     </div>
                     </div>

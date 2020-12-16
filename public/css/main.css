@@ -499,6 +499,24 @@ input.active-width {
     text-transform: capitalize;
 }
 
+#btn_add_favour {
+    border: 0;
+    background: 0;
+    width: 50px;
+    height: 50px;
+}
+
+#btn_add_favour:hover {
+    outline: 0;
+    border: 1px solid #e8e8e8;
+    border-radius: 50%;
+    background: #e8e8e8;
+}
+
+#btn_add_favour:focus {
+    outline: 0;
+}
+
 
 /* Event */
 

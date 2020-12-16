@@ -362,22 +362,31 @@
         border-right: none;
     }
     
+    #comment-btn:hover {
+        border-bottom: 1px solid #E1306C;
+        transition: 0.5s linear;
+    }
+    
     #comment-btn:focus {
         box-shadow: none;
         border-top: none;
         border-left: none;
         border-right: none;
+        border-bottom: 2px solid #E1306C;
     }
     
     .id_img {
         width: 57px;
-        height: 50px;
+        height: 55px;
     }
     
     .id_img>img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        object-fit: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     
     #button-addon2 {
@@ -405,7 +414,7 @@
     
     .img_comment_show {
         width: 55px;
-        height: 50px;
+        height: 55px;
         margin-right: 15px;
     }
     
@@ -413,6 +422,9 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     
     .comment_content_show {

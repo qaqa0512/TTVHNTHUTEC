@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/css/videoCourse.css">
     <link rel="stylesheet" href="/css/contact.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/myCourse.css">
     
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -50,7 +51,7 @@
             </div>
             <div class="list-bar">
                 <ul class="list-tile">
-                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="/gioithieu">Giới Thiệu</a></li>
                     <li><a href="#">Câu Lạc Bộ</a></li>
                     <li><a href="/khoahoc">Khoá Học Online</a></li>
                     <li><a href="#">Sự kiện</a></li>
@@ -66,15 +67,17 @@
                 </div>
             </div>
             <div class="account">
-                
                 @if (Auth::check())
                     <div class="btn-group">
+                        <div class="img_userr"><img src="" alt=""></div>
                         <button type="button" class="btn_user">{{Auth::user()->name}}</button>
                         <button type="button" class="btn btn-secondary btn_drop dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Cài đặt</a>
+                          <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Quản lý tài khoản</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/khoahoccuatoi"><i class="fas fa-bookmark"></i> Khóa học của tôi</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                         </div>

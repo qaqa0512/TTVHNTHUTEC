@@ -19,6 +19,7 @@ class CreatePostsCommentsTable extends Migration
             $table->integer('user_id');
             $table->string('course_id');
             $table->string('comment_content');
+            // $table->integer('profile_id');
             $table->timestamps();
         });
     }

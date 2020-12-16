@@ -133,9 +133,9 @@
                           @if(Auth::check())
                           <div class="comment-review">
                             <div class="id_comment d-flex">
-                              <div class="id_img">
+                              {{-- <div class="id_img">
                                 <img src="/img/tải xuống.png" alt="">
-                              </div>
+                              </div> --}}
                               <div class="comment_box">
                                 <div class="input-group ml-2">
                                   <input type="hidden" value="{{$allDescription->course_slug}}" class="course_slug" name="course_slug">
@@ -160,9 +160,9 @@
                           @endif
                           @foreach ($comments as $comm)
                             <div class="comment_show d-flex">
-                              <div class="img_comment_show">
+                              {{-- <div class="img_comment_show">
                                 <img src="/img/tải xuống.png" alt="...">
-                              </div>
+                              </div> --}}
                               <div class="comment_content_show">
                                 <div class="comment_name_id">
                                   <p class="name_id">{{$comm->name}}</p>

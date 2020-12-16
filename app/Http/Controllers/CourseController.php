@@ -24,7 +24,6 @@ class CourseController extends Controller
             return Redirect::to('/quantri/dangnhapad')->send();
         }
     }
-
     // Create Course - get
     public function add_course()
     {
@@ -182,6 +181,7 @@ class CourseController extends Controller
     // Client Course Page
     public function course()
     {
+        // $this->AuthLoginUser();
         $course = DB::table('course')->get();
         return view('pages.courses')->with('displayCourse',$course);
     }
@@ -201,9 +201,8 @@ class CourseController extends Controller
         $request->session()->put('mes', 'Đăng bình luận thành công!');
         return back();
     }
-    public function deleteComment($course_slug,$comment_id)
+    public function deleteComment($course_slug, $comment_id)
     {
-        echo $course_slug.' - '.$comment_id;
         $comments = DB::table('posts_comments')
         ->join('users','users.id','=','posts_comments.user_id')
         ->join('course','course.course_slug','=','posts_comments.course_id')
@@ -233,11 +232,18 @@ class CourseController extends Controller
         ->where('course_slug',$course_slug)
         ->get();
 
-        foreach ($comments as $key => $value) {
-            $comment_id = $value->comment_id;
-        }
-        return view('pages.details',compact('detail','lesson','allDescription','comments'));
+
+        return view('pages.details',compact('detail','lesson','allDescription','comments',));
     }
+
+
+    //My course
+    public function myCourse()
+    {
+        return view('pages.myCourse');
+    }
+
+
 }
 
 

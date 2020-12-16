@@ -20,18 +20,25 @@ Route::get('/capnhatthongtin','App\Http\Controllers\ProfileController@profile');
 Route::post('/themthongtin','App\Http\Controllers\ProfileController@addProfile');
 
 Route::get('/thongtincanhan','App\Http\Controllers\ProfileController@displayProfile');
+
+
 // Contact
 Route::get('/lienhe','App\Http\Controllers\PagesController@contact');
 
+//About
+Route::get('/gioithieu','App\Http\Controllers\PagesController@about');
 
 // Courses
 Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
+
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
+
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
-
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
 
+// My course
+Route::get('/khoahoccuatoi','App\Http\Controllers\CourseController@myCourse');
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
 
@@ -91,6 +98,7 @@ Route::get('/quantri/capnhatphanhoc/{part_id}','App\Http\Controllers\VideoContro
 Route::post('/capnhatph/{part_id}','App\Http\Controllers\VideoController@editPart');
 // Part_Content - Delete
 Route::get('/quantri/xoaphanhoc/{part_id}','App\Http\Controllers\VideoController@delete_part');
+
 
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');
