@@ -28,8 +28,16 @@ class Authentication extends Controller
         $user = Auth::user();
         request()->validate([
             'email' => 'required',
-            'password' => 'required',
-            ]);
+            'password' => 'required|min:6|max:32',
+        ],
+        [
+            'email.required' => 'Bạn chưa nhập email',
+            'email.email' => 'Email chưa đúng định dạng',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'email.required' => 'Bạn chưa nhập email',
+            'password.min' => 'Mật khẩu phải ít nhất 6 ký tự',
+            'password.max' => 'Mật khẩu phải không quá 32 ký tự'
+        ]);
      
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
@@ -45,6 +53,14 @@ class Authentication extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+        ],
+        [
+            'email.required' => 'Bạn chưa nhập email',
+            'email.email' => 'Email chưa đúng định dạng',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
+            'email.required' => 'Bạn chưa nhập email',
+            'password.min' => 'Mật khẩu phải ít nhất 6 ký tự',
+            'password.max' => 'Mật khẩu phải không quá 32 ký tự'
         ]);
         $data = $request->all();
         $check = $this->create($data);

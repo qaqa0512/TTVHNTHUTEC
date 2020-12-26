@@ -12,4 +12,6 @@ class Course extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['id','title','name','description','category','image','slug'];
     protected $guard = [];
+
+    
 }

@@ -12,4 +12,9 @@ class Comments extends Model
     protected $primaryKey = 'comment_id';
     protected $fillable = ['comment_id','user_id','course_id','comment_content'];
     protected $guard = [];
+
+    public function description()
+    {
+        return $this->belongsTo(Description::class);
+    }
 }

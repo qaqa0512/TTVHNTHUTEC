@@ -42,6 +42,11 @@
                                 <li>
                                     <form action="">
                                         {{ csrf_field() }}
+                                        {{-- <input class="course_id_{{$show->id}}" type="hidden" value="{{$show->id}}">
+                                        <input class="course_title_{{$show->course_title}}" type="hidden" value="{{$show->course_title}}">
+                                        <input class="course_name_{{$show->course_name}}" type="hidden" value="{{$show->course_name}}">
+                                        <input class="course_image_{{$show->course_image}}" type="hidden" value="{{$show->course_image}}"> --}}
+
                                         <button type="submit" id="btn_add_favour">
                                             <i class="fas fa-heart" style="font-size:17px;color: #ac029b;"></i>
                                         </button>
@@ -54,11 +59,10 @@
                 </div>
                 @endforeach
             </div>
-            <div class="load-more">
-                <a href="/khoahoc" class="loadd">Xem thêm</a>
-            </div>
         </div>
-        
+        <div class="load-more">
+            <a href="/khoahoc" class="loadd">Xem thêm</a>
+        </div>
     </div>
 </div>
 {{-- <!-- Events --> --}}
@@ -66,35 +70,33 @@
         <div class="event">
             <div class="container">
                 <div class="event-title"><h2>Những Sự Kiện Sắp Diễn Ra</h2></div>
-                <div class="row">
-                    <div class="col-lg-4">
+                <div class="row eve_top_list">
+                    @foreach ($showEvent as $show_eve)
+                    <div class="col-sm-4">
                         <div class="card card-event" style="width: 100%;">
-                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
+                            <img src="/public/upload/course/{{$show_eve->event_image}}" class="card-img-top" alt="...">
                             <div class="card-body event-content">
-                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
-                              <a href="#" class="btn_eve">Tham gia</a>
+                                <span class="eve_date">{!!$show_eve->event_date_time!!}</span>
+                                <a href="/chitietsukien/{{$show_eve->event_id}}" class="link_eve"><h5 class="card-title card_eve">{!!$show_eve->event_title!!}</h5></a>
+                                <span class="eve_txt">{!!$show_eve->event_name!!}</span>
+                                <ul class="list_options">
+                                  <li><a href="/chitietsukien/{{$show_eve->event_id}}" class="btn_eve_1">Xem chi tiết</a></li>
+                                  <li><form action="">
+                                    {{ csrf_field() }}
+                                    <button type="submit"class="btn_eve">
+                                        Tham gia
+                                    </button>
+                                  </form></li>
+                                  <li><button class="btn_viewer"><span><i class="fas fa-user"></i>10</span></button></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card card-event" style="width: 100%;">
-                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body event-content">
-                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
-                              <a href="#" class="btn_eve">Tham gia</a>
-                            </div>
-                        </div>
+                    @endforeach
+                    <div class="blog-right-details">
+                        <a href="/sukien" class="bloggg-detail">Xem thêm sự kiện <i class="fa fa-arrow-right"></i></a>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card card-event" style="width: 100%;">
-                            <img src="/img/event_1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body event-content">
-                              <h5 class="card-title card_eve">Đêm nhạc giao lưu với sinh viên k20</h5>
-                              <a href="#" class="btn_eve">Tham gia</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>  
             </div>
         </div>
 </div>

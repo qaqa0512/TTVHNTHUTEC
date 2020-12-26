@@ -17,7 +17,7 @@
                       {{-- Profile Name --}}
                         <div class="form-group">
                           <label for="name" class="title_name">Họ tên</label>
-                          <input type="text" class="form-control" id="nameUser" value="{{$profile_url->name}}" name="profile_name" aria-describedby="emailHelp" required>
+                          <input type="text" class="form-control" id="nameUser" name="profile_name" aria-describedby="emailHelp" required>
                         </div>
                       {{-- Profile Date --}}
                         <div class="form-group">

@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="/css/contact.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/myCourse.css">
-    
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/event.css">
+    <link rel="stylesheet" href="/css/sweetalert.css">
+
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,63 +32,64 @@
 <body>
     {{-- Header HomeMusic --}}
     <header class="header-home">
-        {{-- top-navbar --}}
-        <div class="topbar_container">
-            <div class="topbar">
-                <div class="phone"><span>Phone: 0966853790</span></div>
-                <div class="social">
-                    <span>Follow Me: </span>
+        <div class="container">
+            <div class="topbar_container">
+                <div class="topbar">
+                    <div class="phone">
+                        <span>Phone: 0966853790</span>
+                    </div>
+                    <div class="social">
+                        <span>Follow Me: </span>
                         <ul class="icons">
                             <li><a href="#"><i class="fab fa-facebook-f fb"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram ins"></i></a></li>
                         </ul>
-                </div>
-            </div>
-        </div>
-        {{-- Lane --}}
-        <hr class="lane">
-        {{-- Container of navbar --}}
-        <div class="headcontainer">
-            <div class="head-tilte">
-                <h2><a href="/" class="brand-name"><img src="/img/your-logo.png" alt="brand"></a></h2>
-            </div>
-            <div class="list-bar">
-                <ul class="list-tile">
-                    <li><a href="/gioithieu">Giới Thiệu</a></li>
-                    <li><a href="#">Câu Lạc Bộ</a></li>
-                    <li><a href="/khoahoc">Khoá Học Online</a></li>
-                    <li><a href="#">Sự kiện</a></li>
-                    {{-- <li><a href="#">Liên kết đào tạo</a></li> --}}
-                    <li><a href="#">Tin Tức</a></li>
-                    <li><a href="/lienhe">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="search-box">
-                <input class="form-control" type="text" name="" placeholder="Search....">
-                <div class="search-btn">
-                    <i class="fa fa-search"></i>
-                </div>
-            </div>
-            <div class="account">
-                @if (Auth::check())
-                    <div class="btn-group">
-                        <div class="img_userr"><img src="" alt=""></div>
-                        <button type="button" class="btn_user">{{Auth::user()->name}}</button>
-                        <button type="button" class="btn btn-secondary btn_drop dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Quản lý tài khoản</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="/khoahoccuatoi"><i class="fas fa-bookmark"></i> Khóa học của tôi</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
-                        </div>
                     </div>
-                @else
-                    <div class="background"></div>
-                    <a href="/dangnhap" class="user"><i class="fa fa-user"></i></a>
-                @endif
+                </div>
+            </div>
+            <hr class="lane">
+            <div class="headcontainer">
+                <div class="head-tilte">
+                    <a href="/" class="brand-name"><img src="/img/your-logo.png" alt="brand"></a>
+                </div>
+                <div class="list-bar">
+                    <ul class="list-tile">
+                        <li><a href="/gioithieu">Giới Thiệu</a></li>
+                        <li><a href="#">Câu Lạc Bộ</a></li>
+                        <li><a href="/khoahoc">Khoá Học Online</a></li>
+                        <li><a href="/sukien">Sự kiện</a></li>
+    
+                        <li><a href="#">Tin Tức</a></li>
+                        <li><a href="/lienhe">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <form class="search-box" method="POST" action="">
+                    <input class="form-control" type="text" name="" placeholder="Search....">
+                    <div class="search-btn">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </form>
+                <div class="account">
+                    @if (Auth::check())
+                        <div class="btn-group">
+                            <div class="img_userr"><img src="" alt=""></div>
+                            <button type="button" class="btn_user">{{Auth::user()->name}}</button>
+                            <button type="button" class="btn btn-secondary btn_drop dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Quản lý tài khoản</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/khoahoccuatoi"><i class="fas fa-bookmark"></i> Khóa học của tôi</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/dangxuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="background"></div>
+                        <a href="/dangnhap" class="user"><i class="fa fa-user"></i></a>
+                    @endif
+                </div>
             </div>
         </div>
     </header>
@@ -103,22 +107,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- Jquery - Comment --}}
     {{-- <script type="text/javascript">
         $(document).ready(function () {
-            var course_slug = $('.course_slug').val();
-            var _token = $('.input[name="_token"]').val();
-            // alert(course_slug)
-           function loadComment() {
-              $.ajax({
-                  method:"POST",  
-                  url: "/khoahoc/{course_slug}",
-                  data: "course_slug: course_slug, _token: _token",
-                  success: function (data) {
-                      
-                  }
-              });
-           }
+            $('#btn_add_favour').click(function () { 
+                var id = $(this).data('id_course');
+                var course_id = $('.course_id_'+ id).val();
+                var course_title = $('.course_title_'+ id).val();
+                alert(course_title);
+            });;
         });
     </script> --}}
 </body>

@@ -12,4 +12,9 @@ class DescriptionDetailCourse extends Model
     protected $primaryKey = 'detail_id';
     protected $fillable = ['detail_id','detail_des_name','detail_des_course','detail_des_instructor','detail_des_request','detail_des_rate','course_id'];
     protected $guard = [];
+
+    // public function comment()
+    // {
+    //     return $this->hasMany(Comments::class);
+    // }
 }

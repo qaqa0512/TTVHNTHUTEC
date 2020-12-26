@@ -7,6 +7,7 @@
 .myCourse {
     width: 100%;
     height: auto;
+    margin-bottom: 35px;
 }
 
 .myCourse_form {
@@ -128,6 +129,15 @@
 
 .video_favourite {
     margin-bottom: 0 !important;
+    width: 100%;
+    height: 200px;
+}
+
+.img_cou {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-repeat: no-repeat;
 }
 
 .favour_video {
@@ -187,4 +197,18 @@
 .user_info_course_text>span {
     margin-left: 25px;
     font-size: 18px;
+}
+
+.list_favourite_course {
+    padding-bottom: 40px;
+}
+
+.delete_ic {
+    margin-left: 7px;
+    font-size: 20px;
+    color: #e7e7e7;
+}
+
+.delete_ic:hover {
+    color: #ada7a7;
 }

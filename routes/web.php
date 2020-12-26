@@ -33,12 +33,23 @@ Route::get('/khoahoc','App\Http\Controllers\CourseController@course');
 
 Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detailcourses');
 
+
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
 
+//Event
+Route::get('/sukien','App\Http\Controllers\EventController@event');
+
+// Event - details
+Route::get('/chitietsukien/{event_id}','App\Http\Controllers\EventController@detail_event');
+
 // My course
-Route::get('/khoahoccuatoi','App\Http\Controllers\CourseController@myCourse');
+Route::get('/khoahoccuatoi','App\Http\Controllers\MyCourseController@myCourse');
+
+Route::post('/themvaokhoahoccuatoi','App\Http\Controllers\MyCourseController@addFavouriteCourse');
+
+Route::get('/xoakhoahoccuatoi/{rowId}','App\Http\Controllers\MyCourseController@deleteFavouriteCourse');
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
 
@@ -99,6 +110,20 @@ Route::post('/capnhatph/{part_id}','App\Http\Controllers\VideoController@editPar
 // Part_Content - Delete
 Route::get('/quantri/xoaphanhoc/{part_id}','App\Http\Controllers\VideoController@delete_part');
 
+
+// Event
+Route::get('/quantri/themsukien','App\Http\Controllers\EventController@add_event');
+Route::post('/themsk','App\Http\Controllers\EventController@addEvent');
+
+//Update event
+Route::get('/quantri/capnhatsukien/{event_id}','App\Http\Controllers\EventController@edit_event');
+Route::post('/capnhatsk/{event_id}','App\Http\Controllers\EventController@ediEvent');
+
+// Delete event
+Route::get('/quantri/xoasukien/{event_id}','App\Http\Controllers\EventController@delete_event');
+
+
+Route::get('/quantri/cacsukien','App\Http\Controllers\EventController@all_event');
 
 // Display Course
 Route::get('/quantri/cackhoahoc','App\Http\Controllers\CourseController@all_courses');

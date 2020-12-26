@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="/quantri/cacbaihoc">Danh sách bài học</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
+                {{-- <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
                         <span>Câu lạc bộ</span>
@@ -125,25 +125,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="">Thêm câu lạc bộ</a></li>
                         <li><a href="">Liệt kê câu lạc bộ</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
                         <span>Sự Kiện</span>
                     </a>
                     <ul class="sub">
-						<li><a href="">Thêm sự kiện</a></li>
-                        <li><a href="">Liệt kê sự kiện</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Video</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="">Thêm video</a></li>
-                        <li><a href="">Danh sách video</a></li>
+						<li><a href="/quantri/themsukien">Thêm sự kiện</a></li>
+                        <li><a href="/quantri/cacsukien">Liệt kê sự kiện</a></li>
                     </ul>
                 </li>
  		</div>
@@ -180,7 +170,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     CKEDITOR.replace( 'desIns' );
     CKEDITOR.replace( 'desRes' );
     CKEDITOR.replace( 'desRate' );
-
+    CKEDITOR.replace( 'desContent' );
+    CKEDITOR.replace( 'desPlace' );
+    CKEDITOR.replace( 'desPrice' );
     //Lesson 
     CKEDITOR.replace( 'videoLesson',{
     });

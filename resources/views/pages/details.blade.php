@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-sm-8">
                                   <div class="num_comment">
-                                    <p>Số lượt bình luận</p>
+                                    <p>{{$comments_first->comment_id}} lượt bình luận</p>
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -160,9 +160,6 @@
                           @endif
                           @foreach ($comments as $comm)
                             <div class="comment_show d-flex">
-                              {{-- <div class="img_comment_show">
-                                <img src="/img/tải xuống.png" alt="...">
-                              </div> --}}
                               <div class="comment_content_show">
                                 <div class="comment_name_id">
                                   <p class="name_id">{{$comm->name}}</p>
@@ -189,7 +186,6 @@
                               </div>
                             </div>
                           @endforeach
-                          
                       </div>
                     </div>
                   </div>
@@ -198,7 +194,7 @@
                 <div class="card style-card" style="width: 100%;">
                     <p>{!!$allDescription->lesson_video!!}</p>
                     <div class="card-body">
-                      <a href="/video/{{$allDescription->lesson_slug}}" class="btn btn-right mb-3">Học ngay</a>
+                        <a href="/video/{{$allDescription->lesson_slug}}" class="btn btn-right mb-3">Học ngay</a>
                       <div class="list-txt">
                           <ul>
                             <li>{!! $allDescription->detail_des_rate !!}</li>

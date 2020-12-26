@@ -232,16 +232,21 @@ class CourseController extends Controller
         ->where('course_slug',$course_slug)
         ->get();
 
+        foreach ($comments as $key) {
+            $comment_id = $key->comment_id;
+        }
+        
+        $comments_first = DB::table('posts_comments')
+        ->join('users','users.id','=','posts_comments.user_id')
+        ->join('course','course.course_slug','=','posts_comments.course_id')
+        ->where('course_slug',$course_slug)
+        ->first();
 
-        return view('pages.details',compact('detail','lesson','allDescription','comments',));
+        return view('pages.details',compact('detail','lesson','allDescription','comments','comments_first'));
     }
 
 
-    //My course
-    public function myCourse()
-    {
-        return view('pages.myCourse');
-    }
+    
 
 
 }

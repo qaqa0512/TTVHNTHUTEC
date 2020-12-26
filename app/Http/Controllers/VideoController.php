@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Part_Content;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 
@@ -23,10 +24,21 @@ class VideoController extends Controller
        }
    }
     
-
+    // // Check login
+    // public function AuthLoginUser()
+    // {
+    //     $user_id = session()->get('id');
+    //     if($user_id)
+    //     {
+    //         return back();
+    //     }else{
+    //         return Redirect::to('dangnhap')->send();
+    //     }
+    // }
     // Display Client Page
     public function video_lesson($lesson_slug)
     {
+        // $this->AuthLoginUser();
         $course = DB::table('course')->get();
         $partContent = DB::table('part_content')
         ->join('course','course.id','=','part_content.course_id')
@@ -48,6 +60,17 @@ class VideoController extends Controller
         ->join('course','course.id','=','lesson.course_id')
         ->join('part_content','part_content.part_id','=','lesson.part_id')
         ->where('course.id',$course_id)->get();
+
+        if (Auth::check()) {
+            return view ('pages.listvideo')
+            ->with('video',$video)
+            ->with('partContent',$partContent)
+            ->with('videoName',$video_name)
+            ->with('relate',$related_video)
+            ->with('course',$course);
+        } else {
+            return redirect('/dangnhap');
+        }
 
         return view ('pages.listvideo')
         ->with('video',$video)

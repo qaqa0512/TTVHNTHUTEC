@@ -28,40 +28,28 @@ body {
 }
 
 .sticky {
-    top: -73px;
+    top: -88px;
 }
 
 .topbar_container {
-    max-width: 100%;
+    width: 100%;
 }
 
 .topbar {
-    width: 80%;
-    height: 35px;
-    margin: auto;
-    padding: 6px 0px;
+    padding-top: 30px;
     display: flex;
     position: relative;
     position: sticky;
 }
 
-.phone {
-    width: 30px;
-    margin-right: 590px;
-}
-
 .social {
-    width: 50px;
-    margin-left: 515px;
     display: flex;
+    margin-left: 77%;
 }
 
 .social .icons {
     list-style: none;
     display: flex;
-    position: absolute;
-    top: 43%;
-    right: -31px;
 }
 
 .fb {
@@ -77,7 +65,6 @@ body {
 }
 
 .lane {
-    margin: 25px 100px;
     border: 1px solid #ce9fba;
 }
 
@@ -85,11 +72,9 @@ body {
 /* head-container */
 
 .headcontainer {
-    width: 80%;
-    height: 75px;
-    margin: auto;
+    width: 100%;
+    height: 60px;
     display: flex;
-    padding-top: 0px;
 }
 
 .brand-name {
@@ -104,7 +89,7 @@ body {
 }
 
 .list-bar {
-    margin: 5px auto;
+    margin: 0 auto;
 }
 
 .list-tile {
@@ -135,63 +120,56 @@ body {
 /* search */
 
 .search-box {
-    width: 38px;
-    height: 38px;
+    /* width: 170px;
+    height: 38px; */
     position: relative;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    margin-top: 5px;
 }
 
-.active {
+
+/* .active {
     width: 170px;
-}
+} */
 
 .search-box input {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     border: none;
     outline: none;
     background: #fff;
     border-radius: 50px;
-    padding: 0 7px;
-    opacity: 0;
+    padding: 0 25px;
+    opacity: 1;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     color: #E1306C;
     font-size: 15px;
 }
 
+
+/*
 input.active-width {
     opacity: 1;
 }
+*/
 
 .search-btn {
     width: 38px;
     height: 37px;
-    background: #fff;
     color: #E1306C;
     position: absolute;
-    top: 50%;
-    right: -14px;
+    top: 18px;
+    right: 0;
     transform: translateY(-50%);
     line-height: 60px;
     text-align: center;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 0 15px 1px #b6bbcb;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .search-btn:hover {
     background: #E1306C;
     color: #fff;
-}
-
-.search-btn.back {
-    width: 38px;
-    height: 38px;
-    background: #E1306C;
-    color: #fff;
-    line-height: 50px;
 }
 
 .search-box .search-btn>i {
@@ -207,7 +185,6 @@ input.active-width {
     margin-right: -20px;
     position: relative;
     margin-left: 27px;
-    margin-top: 5px;
 }
 
 .background {
@@ -313,7 +290,7 @@ input.active-width {
     box-shadow: 0 0 15px 1px #f7d306;
 }
 
-.head-tilte img {
+.head-tilte>a>img {
     vertical-align: middle;
     max-height: 50px;
     max-width: 200px;
@@ -528,13 +505,13 @@ input.active-width {
 
 .event {
     width: 80%;
-    height: 480px;
+    height: auto;
     margin: 0 auto;
 }
 
 .event-title {
     margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 .event-title>h2 {
@@ -549,13 +526,26 @@ input.active-width {
     overflow: hidden;
 }
 
-.event-content {
-    display: inline-flex;
+
+/* .event-content {
+    display: flex;
     vertical-align: middle;
+} */
+
+.eve_top_list {
+    padding-bottom: 40px;
 }
 
 .card_eve {
     margin-bottom: 0 !important;
+}
+
+.link_eve .card_eve {
+    font-size: 20px !important;
+}
+
+.link_eve:hover {
+    text-decoration: none;
 }
 
 .btn_eve {
@@ -570,10 +560,37 @@ input.active-width {
     font-weight: 600;
 }
 
-.btn_eve:hover {
+.btn_eve_1 {
+    display: inline-block;
+    border: 1px solid #EBEBEB;
+    text-decoration: none !important;
+    padding: 3px 15px;
+    font-size: 17px;
+    border-radius: 15px;
+    color: #E1306C;
+    background-color: #EBEBEB;
+    font-weight: 600;
+}
+
+.btn_eve:hover,
+.btn_eve_1:hover {
     box-shadow: 0 0 15px 1px #b6bbcb;
     transition: all 0.3s linear;
     color: #000;
+}
+
+.btn_eve:focus {
+    outline: none;
+}
+
+.list_options {
+    display: inline-flex;
+    list-style: none;
+}
+
+.list_options>li {
+    margin-top: 20px;
+    margin-right: 18px;
 }
 
 .event-image {

@@ -25,14 +25,14 @@ window.addEventListener("scroll", function() {
 });
 
 // --------- search ----------//
-var searchBtn = document.querySelector(".search-btn");
-var searchBox = document.querySelector(".search-box");
-var searchInput = document.querySelector("input");
+// var searchBtn = document.querySelector(".search-btn");
+// var searchBox = document.querySelector(".search-box");
+// var searchInput = document.querySelector("input");
 
-searchBtn.onclick = () => {
-    searchBox.classList.add("active");
-    searchInput.classList.add("active-width");
-    searchBtn.classList.add("back");
-}
+// searchBtn.onclick = () => {
+//     searchBox.classList.add("active");
+//     searchInput.classList.add("active-width");
+//     searchBtn.classList.add("back");
+// }
 
 // --------- Jquery test ----------//

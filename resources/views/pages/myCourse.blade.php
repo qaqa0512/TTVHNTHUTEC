@@ -25,10 +25,10 @@
                                 </div>
                                 <div class="info_user_favouriteCourse">
                                     <div class="img_profilee">
-                                        <img src="img/29TI8147.jpg" alt="">
+                                        <img src="{{$profile_url->profile_avatar}}" alt="">
                                     </div>
                                     <div class="name_profilee">
-                                        <span>Nguyễn Quốc Anh</span>
+                                        <span>{{$profile_url->profile_name}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -63,40 +63,25 @@
                                       </form>
                                 </div>
                                 <div class="list_favourite_course">
+                                    <?php
+                                        $content = Cart::content();  
+                                        // echo '<pre>';
+                                        //     print_r($content);
+                                        // echo '</pre>'
+                                    ?>
                                     <div class="row">
+                                        @foreach ($content as $con)
                                         <div class="col-lg-4 mb-4">
                                             <div class="card favour_video">
-                                                <p class="video_favourite">
-                                                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </p>
-                                                <div class="card-body">
-                                                  <a href="#" class="id_favour"><h5 class="card-title">Nhiếp ảnh</h5></a>
-                                                  <p class="card-text">Tuyết Nhi</p>
+                                                <input name="course_hidden" type="hidden" value="{{$con->id}}">
+                                                <img src="/public/upload/course/{{$con->options->image}}" alt="" class="img_cou">
+                                                <div class="card-body d-flex">
+                                                  <a href="/khoahoc/{{$con->options->slug}}" class="id_favour"><h5 class="card-title">{{$con->name}}</h5></a>
+                                                  <a href="/xoakhoahoccuatoi/{{$con->rowId}}" class="delete_ic"><i class="fas fa-trash-alt"></i></a>
                                                 </div>
-                                            </div>
+                                            </div>                 
                                         </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="card favour_video">
-                                                <p class="video_favourite">
-                                                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </p>
-                                                <div class="card-body">
-                                                    <a href="#" class="id_favour"><h5 class="card-title">Nhiếp ảnh</h5></a>
-                                                  <p class="card-text">Tuyết Nhi</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="card favour_video">
-                                                <p class="video_favourite">
-                                                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z1zWvtRucn0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </p>
-                                                <div class="card-body">
-                                                    <a href="#" class="id_favour"><h5 class="card-title">Nhiếp ảnh</h5></a>
-                                                  <p class="card-text">Tuyết Nhi</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>               
                                 </div>
                             </div>
@@ -108,22 +93,22 @@
                                     <div class="row">
                                         <div class="col-sm-3 profile_left">
                                             <div class="img_pro_course">
-                                                <img src="img/29TI8147.jpg" alt="">
+                                                <img src="{{$profile_url->profile_avatar}}" alt="">
                                             </div>
                                         </div>
                                         <div class="col-sm-9 profile_right">
                                             <div class="form_user_profile">
                                                 <div class="user_info_course d-flex">
                                                     <div class="user_info_course_tilte"><h5>Họ tên:</h5></div>
-                                                    <div class="user_info_course_text"><span>Nguyễn Quốc Anh</span></div>
+                                                    <div class="user_info_course_text"><span>{{$profile_url->profile_name}}</span></div>
                                                 </div>
                                                 <div class="user_info_course d-flex">
                                                     <div class="user_info_course_tilte"><h5>Ngày sinh:</h5></div>
-                                                    <div class="user_info_course_text"><span>05/12/1999</span></div>
+                                                    <div class="user_info_course_text"><span>{{$profile_url->profile_date}}</span></div>
                                                 </div>
                                                 <div class="user_info_course d-flex">
                                                     <div class="user_info_course_tilte"><h5>Số điện thoại</h5></div>
-                                                    <div class="user_info_course_text"><span>0966853790</span></div>
+                                                    <div class="user_info_course_text"><span>{{$profile_url->profile_phone}}</span></div>
                                                 </div>
                                             </div>
                                         </div>

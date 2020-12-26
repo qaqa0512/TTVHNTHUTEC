@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +16,8 @@ class PagesController extends Controller
     public function homepage()
     {
         $course = DB::table('course')->limit(3)->get();
-        return view('pages.home')->with('showCourse',$course);
+        $event_hp = DB::table('event')->limit(3)->get();
+        return view('pages.home')->with('showCourse',$course)->with('showEvent',$event_hp);
     }
     // Liên hệ 
     public function contact()

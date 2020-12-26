@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.About {
+    width: 100%;
+    height: auto;
+}
+
+.about_slider {
+    width: 100%;
+}
+
+.about_con_1 {
+    width: 100%;
+    height: auto;
+    margin: 60px 0;
+}
+
+.about_left_text>p {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 50px;
+}
+
+.about-right {
+    width: 100%;
+}
+
+.about-right>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
