@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Event;
+use App\Models\EventStatus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -28,6 +29,12 @@ class EventController extends Controller
             return redirect('/dangnhap');
         }
         // return view('pages.event_detail')->with('event_detail',$event_detail);
+    }
+
+    public function event_status(Request $request)
+    {
+        
+        echo "Đã tham gia";
     }
 
     //Admin

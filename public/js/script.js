@@ -24,15 +24,20 @@ window.addEventListener("scroll", function() {
     header.classList.toggle("sticky", window.scrollY > 0);
 });
 
-// --------- search ----------//
-// var searchBtn = document.querySelector(".search-btn");
-// var searchBox = document.querySelector(".search-box");
-// var searchInput = document.querySelector("input");
+// --------- Jquery Test ------------- //
+// Jquery back on top
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 40) {
+            $("#topBtn").fadeIn();
+        } else {
+            $("#topBtn").fadeOut();
+        }
+    });
 
-// searchBtn.onclick = () => {
-//     searchBox.classList.add("active");
-//     searchInput.classList.add("active-width");
-//     searchBtn.classList.add("back");
-// }
+    $('#topBtn').click(function() {
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+});
 
-// --------- Jquery test ----------//
+// Jquery back on top

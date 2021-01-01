@@ -28,11 +28,12 @@
                         <span class="eve_txt">{!!$eve_page->event_name!!}</span>
                         <ul class="list_options">
                           <li><a href="/chitietsukien/{{$eve_page->event_id}}" class="btn_eve_1">Xem chi tiết</a></li>
-                          <li><form action="">
+                          <li><form action="/trangthaisk" method="POST">
                             {{ csrf_field() }}
-                            <button type="submit"class="btn_eve">
+                            <input name="event_hidden" type="hidden" value="{{$eve_page->event_id}}">
+                            <button type="submit" class="btn_eve">
                                 Tham gia
-                            </button>
+                            </button> 
                           </form></li>
                           <li><button class="btn_viewer"><span><i class="fas fa-user"></i>10</span></button></li>
                         </ul>

@@ -37,10 +37,13 @@ Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detai
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
+// Route::post('/load-comment','App\Http\Controllers\CourseController@load_comment');
+
 
 //Event
 Route::get('/sukien','App\Http\Controllers\EventController@event');
-
+//Event - Status
+Route::post('/trangthaisk','App\Http\Controllers\EventController@event_status');
 // Event - details
 Route::get('/chitietsukien/{event_id}','App\Http\Controllers\EventController@detail_event');
 
@@ -53,7 +56,12 @@ Route::get('/xoakhoahoccuatoi/{rowId}','App\Http\Controllers\MyCourseController@
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
 
+//Blog
+Route::get('/blog','App\Http\Controllers\BLogController@blog');
+Route::post('/blog/themblog','App\Http\Controllers\BLogController@addBlog');
 
+
+Route::get('/chitietblog/{blog_id}','App\Http\Controllers\BLogController@detailBlog');
 
 // Authentication - get
 Route::get('/dangnhap','App\Http\Controllers\Authentication@getLogin');

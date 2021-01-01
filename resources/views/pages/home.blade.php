@@ -107,10 +107,10 @@
             <div class="col-lg-6">
                 <div class="blogLeft">
                     <div class="blog-title">
-                        <h2>Blog có những thú vị ??</h2>
+                        <h2><a href="/blog" class="_blog_ttt"> Blog có những thú vị ?? </a></h2>
                     </div>
                     <div class="blog-text">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis fringilla tortor.</span>
+                        <span>Tôi có một tình yêu lớn dành cho âm nhạc. Phải có âm nhạc để cuộc sống bớt đi sự căng thẳng, để mình thêm yêu đời hơn. Tôi tìm thấy ở âm nhạc những thanh âm tuyệt vời của cuộc sống.</span>
                     </div>
                     <div class="container blog-show">
                         <div class="row">
@@ -156,11 +156,11 @@
                     <div class="blog-image"></div>
                     <div class="blog-title-container">
                         <div class="blog-right-text"><a href="" class="bloggg">Âm nhạc</a></div>
-                        <div class="blog-right-title"><a href="" class="bloggg-tit">Làm thế nào để có thể hát hay???</a></div>
+                        <div class="blog-right-title"><a href="/chitietblog" class="bloggg-tit">Làm thế nào để có thể hát hay???</a></div>
                         <div class="blog-right-content">
                             <p>Tôi có một tình yêu lớn dành cho âm nhạc. Phải có âm nhạc để cuộc sống bớt đi sự căng thẳng, để mình thêm yêu đời hơn. Tôi tìm thấy ở âm nhạc những thanh âm tuyệt vời của cuộc sống.</p>
                         </div>
-                        <div class="blog-right-details"><a href="" class="bloggg-detail">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
+                        <div class="blog-right-details"><a href="/chitietblog" class="bloggg-detail">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
                     </div>
                 </div>
             </div>

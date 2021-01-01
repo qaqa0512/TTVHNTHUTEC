@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-sm-8">
                                   <div class="num_comment">
-                                    <p>{{$comments_first->comment_id}} lượt bình luận</p>
+                                    <p>Số lượt bình luận</p>
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -141,9 +141,9 @@
                                   <input type="hidden" value="{{$allDescription->course_slug}}" class="course_slug" name="course_slug">
                                   <form action="/khoahoc/{{$allDescription->course_slug}}" method="post" id="hello">
                                     {{csrf_field()}}
-                                    <input type="text" class="form-control" name="comment_content" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <input type="text" class="form-control comment_content" name="comment_content" id="comment-btn" placeholder="Viết lời bình luận ở đây...." aria-label="Recipient's username" aria-describedby="button-addon2">
                                     <div class="input-group-append ml-1">
-                                      <button type="submit"class="btn btn-outline-secondary" id="button-addon2">Bình Luận</button>
+                                      <button type="submit"class="btn btn-outline-secondary sent_comment" id="button-addon2">Bình Luận</button>
                                     </div>
                                   </form>
                                 </div>
@@ -159,7 +159,12 @@
                           ?>
                           @endif
                           @foreach ($comments as $comm)
+                          <form>
+                            @csrf
+                            <input type="hidden" name="course_id" class="comment_course_id" value="{{$comm->course_id}}">
+                            <div id="commentDisplay"></div>
                             <div class="comment_show d-flex">
+                              <input type="hidden" name="course_id" class="comment_course_id" value="{{$comm->course_id}}">
                               <div class="comment_content_show">
                                 <div class="comment_name_id">
                                   <p class="name_id">{{$comm->name}}</p>
@@ -171,7 +176,6 @@
                                 </div>
                               </div>
                               <div class="comment_status_show">
-                                <!-- Default dropright button -->
                                 <div class="btn-group dropright">
                                   <button type="button" class="btn_comment_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     ...
@@ -185,6 +189,7 @@
                                 </div>
                               </div>
                             </div>
+                          </form>
                           @endforeach
                       </div>
                     </div>

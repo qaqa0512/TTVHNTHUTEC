@@ -782,7 +782,7 @@ input.active-width {
     width: 470px;
 }
 
-.blog-right-content>p {
+s .blog-right-content>p {
     font-size: 17px;
     line-height: 35px;
     color: #fff;
@@ -863,5 +863,38 @@ footer>p .foo {
 }
 
 footer>p .foo:hover {
+    color: #AE4CA4;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 75px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: #E1306C;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 50%;
+    border: none;
+    display: none;
+}
+
+#topBtn:hover {
+    box-shadow: 0 0 10px 1px #aeb1bb;
+}
+
+#topBtn:focus {
+    border-radius: 50%;
+    outline: 0;
+    box-shadow: 0 0 10px 1px #aeb1bb;
+}
+
+._blog_ttt {
+    color: #E1306C;
+}
+
+._blog_ttt:hover {
+    text-decoration: none;
     color: #AE4CA4;
 }
