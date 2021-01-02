@@ -47,8 +47,9 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <form action="" method="post">
-                                                <textarea type="text" name="lesson_video" class="form-control" style="resize: none" rows="8" id="blogComm" placeholder="Viết bình luận ở đây..."></textarea>
+                                            <form action="/binhluanblog/{{$blog_de->blog_id}}" method="POST">
+                                                {{ csrf_field() }}
+                                                <textarea type="text" name="blog_comment_content" class="form-control" style="resize: none" rows="8" id="blogComm" placeholder="Viết bình luận ở đây..."></textarea>
                                                 <button class="btn_blog_comm" type="submit">Gửi bình luận</button>
                                             </form>
                                         </div>
@@ -56,31 +57,28 @@
                                 </div>
                             </div>
                             <hr id="blog_lanee">
-                            <div class="blog_detail_comment_display d-flex">
-                                <div class="blog_detail_comment_display_name">
-                                    <div class="blog_comment_name_id d-flex">
-                                        <p class="blog_name_id">Quoc Anh</p>
-                                        <span id="link__">&nbsp-</span>
-                                        <span class="blog_time_id_post">&nbsp 30/12/2020</span>
-                                      </div>
-                                      <div class="blog_comment_name_text">
-                                        <span class="text_id">Mỗi khi cất lên câu hát dường như mọi phiền muộn trong tôi đều với đi hết</span>
-                                      </div>
+                            <div class="blog_comment_display">
+                                @foreach ($blog_comment as $blog_com)
+                                    <div class="blog_comment_content_show">
+                                        <div class="blog_comment_content_name d-flex">
+                                            <p class="blog_name_id">{{$blog_com->name}}</p>
+                                            <span id="link__">&nbsp-</span>
+                                            <span class="blog_time_id_post">&nbsp {{date('d/m/Y H:i')}}</span>
+                                        </div>
+                                        <div class="blog_comment__content">
+                                            <span class="text_id">{!!$blog_com->blog_comment_content!!}</span>
+                                        </div>
                                     </div>
                                     <div class="blog_comment_status_show">
-                                      <div class="btn-group dropright">
-                                        <button type="button" class="btn_comment_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          ...
-                                        </button>
-                                        <div class="dropdown-menu">
-                                          <a class="dropdown-item" href="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">Xóa bình luận</a>
+                                        <div class="blog_comment_reply">
+                                            <span id="blog_id_replay">Trả lời</span>
                                         </div>
-                                      </div>
-                                      <div class="comment_reply">
-                                          <span id="id_replay">Trả lời</span>
-                                      </div>
+                                        <div class="blog_comment_delete">
+                                            <a href="/chitietblog/xoabinhluan/{{$blog_com->blog_id}}/{{$blog_com->blog_comment_id}}" id="click_dele" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">Xóa bình luận</a>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
+                                
                             </div>
                         </div>
                     </div>
@@ -91,3 +89,9 @@
 </div>
 @endforeach
 @endsection
+
+{{-- <form action="/binhluanblog/{{$blog_de->blog_id}}" method="POST">
+    {{ csrf_field() }}
+    <textarea type="text" name="blog_comment_content" class="form-control" style="resize: none" rows="8" id="blogComm" placeholder="Viết bình luận ở đây..."></textarea>
+    <button class="btn_blog_comm" type="submit">Gửi bình luận</button>
+</form> --}}

@@ -110,7 +110,7 @@
                         <h2><a href="/blog" class="_blog_ttt"> Blog có những thú vị ?? </a></h2>
                     </div>
                     <div class="blog-text">
-                        <span>Tôi có một tình yêu lớn dành cho âm nhạc. Phải có âm nhạc để cuộc sống bớt đi sự căng thẳng, để mình thêm yêu đời hơn. Tôi tìm thấy ở âm nhạc những thanh âm tuyệt vời của cuộc sống.</span>
+                        <span>Nơi các bạn có thể sẻ chia những tâm tư, bài học cũng như các sản phẩm do chính mình tạo nên.</span>
                     </div>
                     <div class="container blog-show">
                         <div class="row">
@@ -151,19 +151,23 @@
                     </div>         
                 </div>
             </div>
+            @foreach ($blogggg as $blo)
             <div class="col-lg-6">
-                <div class="blogRight">
-                    <div class="blog-image"></div>
-                    <div class="blog-title-container">
-                        <div class="blog-right-text"><a href="" class="bloggg">Âm nhạc</a></div>
-                        <div class="blog-right-title"><a href="/chitietblog" class="bloggg-tit">Làm thế nào để có thể hát hay???</a></div>
-                        <div class="blog-right-content">
-                            <p>Tôi có một tình yêu lớn dành cho âm nhạc. Phải có âm nhạc để cuộc sống bớt đi sự căng thẳng, để mình thêm yêu đời hơn. Tôi tìm thấy ở âm nhạc những thanh âm tuyệt vời của cuộc sống.</p>
+                <div class="blog_content_left">
+                    <div class="blog_content_left_image">
+                        <img src="/public/upload/course/{{$blo->blog_image}}" alt="">
+                    </div>
+                    <div class="blog_content_box">
+                        <div class="blog_content_text"><a href="#" class="bloggg">{{$blo->blog_cate}}</a></div>
+                        <div class="blog_content_title"><a href="/chitietblog/{{$blo->blog_id}}" class="bloggg-tit">{!!$blo->blog_title!!}</a></div>
+                        <div class="blog_des">
+                            <p>{!!$blo->blog_sum!!}</p>
                         </div>
-                        <div class="blog-right-details"><a href="/chitietblog" class="bloggg-detail">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
+                        <div class="blog-right-details"><a href="/chitietblog/{{$blo->blog_id}}" class="bloggg-detail">Chi tiết hơn <i class="fa fa-arrow-right"></i></a></div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>

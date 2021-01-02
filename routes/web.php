@@ -59,9 +59,11 @@ Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_le
 //Blog
 Route::get('/blog','App\Http\Controllers\BLogController@blog');
 Route::post('/blog/themblog','App\Http\Controllers\BLogController@addBlog');
+Route::post('/binhluanblog/{blog_id}','App\Http\Controllers\BLogController@blogComment');
 
 
 Route::get('/chitietblog/{blog_id}','App\Http\Controllers\BLogController@detailBlog');
+Route::get('/chitietblog/xoabinhluan/{blog_id}/{blog_comment_id}','App\Http\Controllers\BLogController@blogDeleteComment');
 
 // Authentication - get
 Route::get('/dangnhap','App\Http\Controllers\Authentication@getLogin');

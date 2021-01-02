@@ -8,6 +8,7 @@ use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Brian2694\Toastr\Facades\Toastr;
 use Session;
 
 class PagesController extends Controller
@@ -17,7 +18,8 @@ class PagesController extends Controller
     {
         $course = DB::table('course')->limit(3)->get();
         $event_hp = DB::table('event')->limit(3)->get();
-        return view('pages.home')->with('showCourse',$course)->with('showEvent',$event_hp);
+        $blogggg = DB::table('blog')->limit(1)->get();
+        return view('pages.home')->with('showCourse',$course)->with('showEvent',$event_hp)->with('blogggg',$blogggg);
     }
     // Liên hệ 
     public function contact()

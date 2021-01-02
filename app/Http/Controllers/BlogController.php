@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blog;
+use App\Models\BlogComment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Redirect;
+use Yoeunes\Toastr\Facades\Toastr;
 use Session;
 
 class BlogController extends Controller
@@ -50,6 +52,7 @@ class BlogController extends Controller
             }
             $data['blog_image'] = '';
             $request->session()->put('mes', 'Thêm bài blog thành công!');
+            
             return Redirect::to('/blog');
 
         //     }else{
@@ -57,15 +60,51 @@ class BlogController extends Controller
         // }
     }
 
+    // Blog Comment
+    public function blogComment(Request $request,$blog_id)
+    {
+        $this->validate($request,[
+            'blog_comment_content'=>'required'
+        ]);
+        $comment_blog = new BlogComment();
+        $comment_blog->user_id = Auth::user()->id;
+        $comment_blog->blog_id = $blog_id;
+        $comment_blog->blog_comment_content = $request->input('blog_comment_content');
+        $comment_blog->save();
+
+        $request->session()->put('mes', 'Đăng bình luận thành công!');
+        return back();
+        // echo "Thêm bình luận thành công";
+    }
+
+    public function blogDeleteComment($blog_id,$blog_comment_id)
+    {
+        $blog_comment_delete = DB::table('blog_comment')
+        ->join('users','users.id','=','blog_comment.user_id')
+        ->join('blog','blog.blog_id','=','blog_comment.blog_id')
+        ->where('blog_comment.blog_id',$blog_id)->where('blog_comment_id',$blog_comment_id)
+        ->delete();
+
+        session()->put('mes', 'Đăng bình luận thành công!');
+        return back();
+    }
 
     public function detailBlog($blog_id)
     {
         $blog_detail = DB::table('blog')
         ->join('users','users.id','=','blog.user_id')
+        // ->join('blog_comment','blog_comment.blog_id','=','blog.blog_id')
         ->where('blog_id',$blog_id)
         ->get();
+
+        $blog_comment = DB::table('blog_comment')
+        ->join('users','users.id','=','blog_comment.user_id')
+        ->join('blog','blog.blog_id','=','blog_comment.blog_id')
+        ->where('blog_comment.blog_id',$blog_id)
+        ->get();
+
         if(Auth::check()){
-            return view('pages.blog_detail')->with('blog_detail',$blog_detail);
+            return view('pages.blog_detail')->with('blog_detail',$blog_detail)->with('blog_comment',$blog_comment);
         } else {
             return redirect('/dangnhap');
         }
