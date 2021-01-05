@@ -18,14 +18,14 @@ class EventController extends Controller
     public function event()
     {
         $event = DB::table('event')->get();
-        return view('pages.event')->with('event',$event);
+        return view('pages.event_client.event')->with('event',$event);
     }
 
     public function detail_event($event_id)
     {
         $event_detail = DB::table('event')->where('event_id',$event_id)->get();
         if (Auth::check()) {
-            return view('pages.event_detail')->with('event_detail',$event_detail);
+            return view('pages.event_client.event_detail')->with('event_detail',$event_detail);
         } else {
             return redirect('/dangnhap');
         }

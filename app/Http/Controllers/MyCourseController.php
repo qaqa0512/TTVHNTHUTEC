@@ -21,7 +21,7 @@ class MyCourseController extends Controller
         $user_id = Auth::user()->id;
         $profile_url = DB::table('users')->join('profile','profile.user_id','=','users.id')->where('profile.user_id',$user_id)->first();
         
-        return view('pages.myCourse')->with('profile_url',$profile_url);
+        return view('pages.profile_client.myCourse')->with('profile_url',$profile_url);
     }
     public function addFavouriteCourse(Request $request)
     {

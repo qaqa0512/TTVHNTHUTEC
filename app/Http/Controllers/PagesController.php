@@ -24,7 +24,7 @@ class PagesController extends Controller
     // Liên hệ 
     public function contact()
     {
-        return view('pages.contact');
+        return view('pages.contact_client.contact');
     }
     public function about()
     {

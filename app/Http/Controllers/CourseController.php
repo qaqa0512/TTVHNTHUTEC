@@ -183,7 +183,7 @@ class CourseController extends Controller
     {
         // $this->AuthLoginUser();
         $course = DB::table('course')->get();
-        return view('pages.courses')->with('displayCourse',$course);
+        return view('pages.course_client.courses')->with('displayCourse',$course);
     }
 
     //Post Comment
@@ -242,46 +242,8 @@ class CourseController extends Controller
         ->where('course_slug',$course_slug)
         ->first();
 
-        return view('pages.details',compact('detail','lesson','allDescription','comments','comments_first'));
+        return view('pages.course_client.details',compact('detail','lesson','allDescription','comments','comments_first'));
     }
-
-    // public function load_comment(Request $request)
-    // {
-    //    $course_id = $request->course_id;
-    //    $comments = DB::table('posts_comments')
-    //     ->join('users','users.id','=','posts_comments.user_id')
-    //     ->join('course','course.course_slug','=','posts_comments.course_id')
-    //     ->where('course_slug',$course_id)
-    //     ->get();
-    //    $output ='';
-    //    foreach ($comments as $key => $com) {
-    //        $output.= '
-    //        <div class="comment_show d-flex">
-    //                           <div class="comment_content_show">
-    //                             <div class="comment_name_id">
-    //                               <p class="name_id">'.$com->name.'</p>
-    //                               <span id="link__">&nbsp-</span>
-    //                               <span class="time_id_post">&nbsp'.date('d/m/Y H:i').'</span>
-    //                             </div>
-    //                             <div class="comment_name_text">
-    //                               <span class="text_id">'.$com->comment_content.'</span>
-    //                             </div>
-    //                           </div>
-    //                           <div class="comment_status_show">
-    //                             <div class="btn-group dropright">
-    //                               <button type="button" class="btn_comment_more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    //                                 ...
-    //                               </button>
-    //                             </div>
-    //                             <div class="comment_reply">
-    //                                 <span id="id_replay">Trả lời</span>
-    //                             </div>
-    //                           </div>
-    //                         </div>
-    //        ';
-    //    }
-    //    echo $output;
-    // }
 }
 
 

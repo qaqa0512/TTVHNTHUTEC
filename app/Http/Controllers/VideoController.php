@@ -23,18 +23,6 @@ class VideoController extends Controller
            return Redirect::to('/quantri/dangnhapad')->send();
        }
    }
-    
-    // // Check login
-    // public function AuthLoginUser()
-    // {
-    //     $user_id = session()->get('id');
-    //     if($user_id)
-    //     {
-    //         return back();
-    //     }else{
-    //         return Redirect::to('dangnhap')->send();
-    //     }
-    // }
     // Display Client Page
     public function video_lesson($lesson_slug)
     {
@@ -62,7 +50,7 @@ class VideoController extends Controller
         ->where('course.id',$course_id)->get();
 
         if (Auth::check()) {
-            return view ('pages.listvideo')
+            return view ('pages.course_client.listvideo')
             ->with('video',$video)
             ->with('partContent',$partContent)
             ->with('videoName',$video_name)
@@ -72,7 +60,7 @@ class VideoController extends Controller
             return redirect('/dangnhap');
         }
 
-        return view ('pages.listvideo')
+        return view ('pages.course_client.listvideo')
         ->with('video',$video)
         ->with('partContent',$partContent)
         ->with('videoName',$video_name)

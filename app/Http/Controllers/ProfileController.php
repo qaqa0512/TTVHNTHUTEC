@@ -22,14 +22,14 @@ class ProfileController extends Controller
     {
         $user_id = Auth::user()->id;
         $profile_url = DB::table('users')->join('profile','profile.user_id','=','users.id')->where('profile.user_id',$user_id)->first();
-        return view('pages.profile')->with('profile_url',$profile_url);
+        return view('pages.profile_client.profile')->with('profile_url',$profile_url);
     }
 
     public function displayProfile()
     {
         $user_id = Auth::user()->id;
         $profile = DB::table('users')->join('profile','profile.user_id','=','users.id')->where('profile.user_id',$user_id)->first();
-        return view('pages.displayprofile')->with('profile',$profile);
+        return view('pages.profile_client.displayprofile')->with('profile',$profile);
     }
 
     public function addProfile(Request $request)

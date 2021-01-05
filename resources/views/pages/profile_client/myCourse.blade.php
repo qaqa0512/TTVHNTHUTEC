@@ -20,8 +20,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <div class="img_log">
-                                    <img src="img/your-logo.png" alt="">
+                                <div class="img_log" style="background: #c4bfbf;border-radius:15px;">
+                                    <img src="img/logohutech.png" alt="">
                                 </div>
                                 <div class="info_user_favouriteCourse">
                                     <div class="img_profilee">

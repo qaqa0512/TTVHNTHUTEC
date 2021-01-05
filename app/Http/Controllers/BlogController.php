@@ -19,7 +19,7 @@ class BlogController extends Controller
         $blog_display = DB::table('blog')
         ->join('users','users.id','=','blog.user_id')
         ->get();
-        return view('pages.blog')->with('blog_display',$blog_display);
+        return view('pages.blog_client.blog')->with('blog_display',$blog_display);
     }
 
     public function addBlog(Request $request)
@@ -108,7 +108,7 @@ class BlogController extends Controller
         ->get();
 
         if(Auth::check()){
-            return view('pages.blog_detail')->with('blog_detail',$blog_detail)->with('blog_comment',$blog_comment);
+            return view('pages.blog_client.blog_detail')->with('blog_detail',$blog_detail)->with('blog_comment',$blog_comment);
         } else {
             return redirect('/dangnhap');
         }
