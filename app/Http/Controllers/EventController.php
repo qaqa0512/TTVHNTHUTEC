@@ -10,6 +10,7 @@ use App\Models\EventStatus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Yoeunes\Toastr\Facades\Toastr;
 use Session;
 class EventController extends Controller
 {
@@ -40,7 +41,7 @@ class EventController extends Controller
     //Admin
     public function add_event()
     {
-        return view('admin.addEvent');
+        return view('admin.event.addEvent');
     }
 
     public function addEvent(Request $request)
@@ -61,13 +62,13 @@ class EventController extends Controller
             $get_img->move('public/upload/course',$new_img);
             $data['event_image'] = $new_img;
             DB::table('event')->insert($data);
-            $request->session()->put('mes', 'Thêm sự kiện thành công!');
+            Toastr::success('Thêm sự kiện thành công','Thông báo');
             return Redirect::to('/quantri/cacsukien');
         }
         $data['event_image'] = '';
 
         DB::table('event')->insert($data);
-        $request->session()->put('mes', 'Thêm sự kiện thành công!');
+        Toastr::success('Thêm sự kiện thành công','Thông báo');
         return Redirect::to('/quantri/cacsukien');
     }
 
@@ -75,7 +76,7 @@ class EventController extends Controller
     {
         // $this->AuthLogin();
         $edit_event = DB::table('event')->where('event_id',$event_id)->get();
-        return view('admin.editEvent')->with('edit_event',$edit_event);
+        return view('admin.event.editEvent')->with('edit_event',$edit_event);
     }
     public function ediEvent(Request $request, $event_id)
     {
@@ -95,11 +96,11 @@ class EventController extends Controller
             $get_img->move('public/upload/course',$new_img);
             $data['event_image'] = $new_img;
             DB::table('event')->where('event_id',$event_id)->update($data);
-            $request->session()->put('mes', 'Cập nhật sự kiện thành công!');
+            Toastr::success('Cập nhật sự kiện thành công','Thông báo');
             return Redirect::to('/quantri/cacsukien');
         }
         DB::table('event')->where('event_id',$event_id)->update($data);
-        $request->session()->put('mes', 'Cập nhật sự kiện thành công!');
+        Toastr::success('Cập nhật sự kiện thành công','Thông báo');
         return Redirect::to('/quantri/cacsukien');
     }
 
@@ -108,12 +109,12 @@ class EventController extends Controller
         // echo "Đã xóa thành công";
         // $this->AuthLogin();
         DB::table('event')->where('event_id',$event_id)->delete();
-        session()->put('mes', 'Xoá sự kiện thành công!');
+        Toastr::error('Xóa sự kiện thành công','Thông báo');
         return Redirect::to('/quantri/cacsukien');
     }
     public function all_event()
     {
         $event = DB::table('event')->get();
-        return view('admin.allEvent')->with('event',$event);
+        return view('admin.event.allEvent')->with('event',$event);
     }
 }

@@ -5,11 +5,12 @@
 <div class="home">
     <div class="home-content">
         <div class="home-title">
-            <h2>Được Sống Với Đam Mê Của Chính Bạn</h2>
+            <h2>Trung tâm văn hóa - nghệ thuật</h2>
+            <span>Nơi kiến tạo những ước mơ nghệ thuật dành cho sinh viên</span>
         </div>
-        <div class="home-btn">
-            <a href="#" class="bt">Bắt Đầu Thôi</a>
-        </div>
+        {{-- <div class="home-btn">
+            <a href="#" class="bt">Tham quan thôi</a>
+        </div> --}}
     </div>
 </div>
 {{--  <!-- Course --> --}}

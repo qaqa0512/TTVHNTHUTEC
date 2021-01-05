@@ -56,6 +56,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $mess = Session::get('mes');
+                            if($mess){
+                                echo '<p class="error">'.'<i class="fa fa-info-circle"></i>'.' '.$mess.'</p>';
+                                Session::put('mes',null);
+                            }
+                            ?>
                             <hr id="blog_lanee">
                             <div class="blog_comment_display">
                                 @foreach ($blog_comment as $blog_com)
@@ -89,9 +96,3 @@
 </div>
 @endforeach
 @endsection
-
-{{-- <form action="/binhluanblog/{{$blog_de->blog_id}}" method="POST">
-    {{ csrf_field() }}
-    <textarea type="text" name="blog_comment_content" class="form-control" style="resize: none" rows="8" id="blogComm" placeholder="Viết bình luận ở đây..."></textarea>
-    <button class="btn_blog_comm" type="submit">Gửi bình luận</button>
-</form> --}}

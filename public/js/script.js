@@ -40,4 +40,4 @@ $(document).ready(function() {
     });
 });
 
-// Jquery back on top
+// Jquery

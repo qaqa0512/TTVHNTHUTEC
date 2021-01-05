@@ -51,7 +51,7 @@ class BlogController extends Controller
                 return Redirect::to('/blog');
             }
             $data['blog_image'] = '';
-            $request->session()->put('mes', 'Thêm bài blog thành công!');
+            Toastr::success('Đăng bài blog thành công','Thông báo');
             
             return Redirect::to('/blog');
 
@@ -72,9 +72,13 @@ class BlogController extends Controller
         $comment_blog->blog_comment_content = $request->input('blog_comment_content');
         $comment_blog->save();
 
-        $request->session()->put('mes', 'Đăng bình luận thành công!');
+        // $request->session()->put('mes', 'Đăng bình luận thành công!');
+        Toastr::success('Đăng bình luận thành công','Thông báo');
+        // $notification = array(
+        //     'message' => 'Đăng bình luận thành công!',
+        //     'alert-type' => 'Thông báo'
+        // );
         return back();
-        // echo "Thêm bình luận thành công";
     }
 
     public function blogDeleteComment($blog_id,$blog_comment_id)
@@ -84,8 +88,8 @@ class BlogController extends Controller
         ->join('blog','blog.blog_id','=','blog_comment.blog_id')
         ->where('blog_comment.blog_id',$blog_id)->where('blog_comment_id',$blog_comment_id)
         ->delete();
-
-        session()->put('mes', 'Đăng bình luận thành công!');
+        
+        Toastr::error('Xóa bình luận thành công','Thông báo');
         return back();
     }
 

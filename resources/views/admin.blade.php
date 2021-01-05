@@ -21,6 +21,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/admin/css/style-responsive.css" rel="stylesheet"/>
 <!-- font CSS -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;469;500;600;700&display=swap" rel="stylesheet">
+<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="/admin/css/font.css" type="text/css"/>
 <link href="/admin/css/font-awesome.css" rel="stylesheet"> 
@@ -32,6 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/admin/js/jquery2.0.3.min.js"></script>
 <script src="/admin/js/raphael-min.js"></script>
 <script src="/admin/js/morris.js"></script>
+
 </head>
 <body>
 <section id="container">
@@ -40,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--logo start-->
 <div class="brand">
     <a href="/quantri" class="logo">
-        <img src="/img/your-logo.png" alt="">
+        <img src="/img/logohutech.png" alt="">
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -116,16 +119,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="/quantri/cacbaihoc">Danh sách bài học</a></li>
                     </ul>
                 </li>
-                {{-- <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Câu lạc bộ</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="">Thêm câu lạc bộ</a></li>
-                        <li><a href="">Liệt kê câu lạc bộ</a></li>
-                    </ul>
-                </li> --}}
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -134,6 +127,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="/quantri/themsukien">Thêm sự kiện</a></li>
                         <li><a href="/quantri/cacsukien">Liệt kê sự kiện</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Liên hệ</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/quantri/thongtinlienhe">Danh sách liên hệ</a></li>
                     </ul>
                 </li>
  		</div>
@@ -164,6 +166,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="/admin/js/jquery.scrollTo.js"></script>
 <script src="/admin/ckeditor/ckeditor.js"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+</script>
 <script type="text/javascript">
     //Description
     CKEDITOR.replace( 'desCourse' );
@@ -177,5 +185,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     CKEDITOR.replace( 'videoLesson',{
     });
 </script>
+
 </body>
 </html>

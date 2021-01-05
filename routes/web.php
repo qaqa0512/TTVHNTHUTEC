@@ -24,7 +24,7 @@ Route::get('/thongtincanhan','App\Http\Controllers\ProfileController@displayProf
 
 // Contact
 Route::get('/lienhe','App\Http\Controllers\PagesController@contact');
-
+Route::post('/guilienhe','App\Http\Controllers\ContactController@addContact');
 //About
 Route::get('/gioithieu','App\Http\Controllers\PagesController@about');
 
@@ -53,6 +53,7 @@ Route::get('/khoahoccuatoi','App\Http\Controllers\MyCourseController@myCourse');
 Route::post('/themvaokhoahoccuatoi','App\Http\Controllers\MyCourseController@addFavouriteCourse');
 
 Route::get('/xoakhoahoccuatoi/{rowId}','App\Http\Controllers\MyCourseController@deleteFavouriteCourse');
+
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
 
@@ -119,6 +120,10 @@ Route::get('/quantri/capnhatphanhoc/{part_id}','App\Http\Controllers\VideoContro
 Route::post('/capnhatph/{part_id}','App\Http\Controllers\VideoController@editPart');
 // Part_Content - Delete
 Route::get('/quantri/xoaphanhoc/{part_id}','App\Http\Controllers\VideoController@delete_part');
+
+
+//Contact
+Route::get('/quantri/thongtinlienhe','App\Http\Controllers\ContactController@displayContact');
 
 
 // Event

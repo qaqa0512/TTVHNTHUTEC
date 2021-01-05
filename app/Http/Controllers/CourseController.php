@@ -8,6 +8,7 @@ use App\Models\Comments;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Yoeunes\Toastr\Facades\Toastr;
 use Session;
 
 class CourseController extends Controller
@@ -28,7 +29,7 @@ class CourseController extends Controller
     public function add_course()
     {
         $this->AuthLogin();
-        return view('admin.addcourse');
+        return view('admin.course.addcourse');
     }
     // Create Admin Course - post
     public function saveCourse(Request $request)
@@ -62,8 +63,8 @@ class CourseController extends Controller
     {
         $this->AuthLogin();
         $edit_course = DB::table('course')->where('id',$id)->get();
-        $manger_course = view('admin.editcourse')->with('edit_course',$edit_course);
-        return view('admin')->with('admin.editcourse', $manger_course);
+        $manger_course = view('admin.course.editcourse')->with('edit_course',$edit_course);
+        return view('admin')->with('admin.course.editcourse', $manger_course);
     }
     public function editCourse(Request $request, $id)
     {
@@ -101,8 +102,8 @@ class CourseController extends Controller
     public function all_courses()
     {
         $course = DB::table('course')->get();
-        $manger_course = view('admin.allcourse')->with('course',$course);
-        return view('admin')->with('admin.allcourse', $manger_course);
+        $manger_course = view('admin.course.allcourse')->with('course',$course);
+        return view('admin')->with('admin.course.allcourse', $manger_course);
     }
 
 
@@ -112,7 +113,7 @@ class CourseController extends Controller
     {
         $course = DB::table('course')->get();
         $lesson = DB::table('lesson')->get();
-        return view('admin.addDescription')->with('course',$course)->with('lesson',$lesson);
+        return view('admin.course.addDescription')->with('course',$course)->with('lesson',$lesson);
     }
 
     // Create Admin detail Course - post
@@ -138,8 +139,8 @@ class CourseController extends Controller
         $course = DB::table('course')->get();
         $edit_des = DB::table('detail_course')->where('detail_id',$detail_id)->get();
         $lesson = DB::table('lesson')->get();
-        $manger_course = view('admin.editDescription')->with('edit_description',$edit_des)->with('course',$course)->with('lesson',$lesson);
-        return view('admin')->with('admin.editDescription', $manger_course);
+        $manger_course = view('admin.course.editDescription')->with('edit_description',$edit_des)->with('course',$course)->with('lesson',$lesson);
+        return view('admin')->with('admin.course.editDescription', $manger_course);
     }
     public function editDescription(Request $request, $detail_id)
     {
@@ -170,8 +171,8 @@ class CourseController extends Controller
     {
 
         $alldetail = DB::table('detail_course')->join('course','course.id','=','detail_course.course_id')->get();
-        $manger_course = view('admin.allDescription')->with('detailCourse',$alldetail);
-        return view('admin')->with('admin.allDescription', $manger_course);
+        $manger_course = view('admin.course.allDescription')->with('detailCourse',$alldetail);
+        return view('admin')->with('admin.course.allDescription', $manger_course);
     }
 
     // End Admin Page
@@ -197,7 +198,7 @@ class CourseController extends Controller
         $comment->comment_content = $request->input('comment_content');
         $comment->save();
 
-        $request->session()->put('mes', 'Đăng bình luận thành công!');
+        Toastr::success('Đăng bình luận thành công','Thông báo');
         return back();
     }
     public function deleteComment($course_slug, $comment_id)
@@ -208,7 +209,7 @@ class CourseController extends Controller
         ->where('course_slug',$course_slug)
         ->where('comment_id',$comment_id)->delete();
 
-        session()->put('mes', 'Xóa bình luận thành công!');
+        Toastr::error('Xóa bình luận thành công','Thông báo');
         return back();
     }
     // Detail Course

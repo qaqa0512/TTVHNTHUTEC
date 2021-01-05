@@ -25,18 +25,22 @@
                     <div class="contact_form_title">
                         <h5>Liên hệ</h5>
                     </div>
-                    <div class="contact__form_info">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-6 mb-3"><input class="form-control" type="text" placeholder="Nhập vào họ tên...." id="nameForm"></div>
-                                <div class="col-sm-6 mb-3"><input class="form-control" type="text" placeholder="Nhập vào email.... " id="emailForm"></div>
-                                <div class="col-sm-12 mb-3"><textarea rows="6" cols="78" placeholder="Nội dung" id="contentForm"></textarea></div>
-                                <div class="col">
-                                    <button type="submit" class="contact_btn">Gửi đi</button>
+                    <form action="/guilienhe" method="POST">
+                        {{ csrf_field() }}
+                        <div class="contact__form_info">
+                            <div class="container">
+                                <div class="row">
+                                    <input type="hidden" name="user_id">
+                                    <div class="col-sm-6 mb-3"><input class="form-control" name="contact_name" type="text" placeholder="Nhập vào họ tên...." id="nameForm" required></div>
+                                    <div class="col-sm-6 mb-3"><input class="form-control" name="contact_email" type="text" placeholder="Nhập vào email.... " id="emailForm" required></div>
+                                    <div class="col-sm-12 mb-3"><textarea rows="6" cols="78" name="contact_content" placeholder="Nội dung" id="contentForm"></textarea></div>
+                                    <div class="col">
+                                        <button type="submit" class="contact_btn">Gửi đi</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

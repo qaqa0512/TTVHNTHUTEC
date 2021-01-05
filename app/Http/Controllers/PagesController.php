@@ -28,6 +28,7 @@ class PagesController extends Controller
     }
     public function about()
     {
+        // Toastr::success('Hello','Thông báo');
         return view('pages.about');
     }
 }

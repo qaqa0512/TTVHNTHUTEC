@@ -1,10 +1,10 @@
 @extends('admin')
-@section('title','Danh sách khóa học')
+@section('title','Danh sách phần học')
 @section('admin_content')
 <div class="table-agile-info">
     <div class="panel panel-default">
     <div class="panel-heading">
-        Danh sách các bài học
+        Phần bài học
     </div>
     <?php
     $mess = Session::get('mes');
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="table-responsive">
-        <table class="table table-striped b-t b-light">
+        <table class="table table-striped b-t b-light" id="myTable">
           <thead>
             <tr>
               <th style="width:20px;">
@@ -44,26 +44,24 @@
                 </label>
               </th>
               <th>Mã khóa học</th>
-              <th>Tiêu đề bài học</th>
-              <th>Video bài học</th>
-              <th>Mã phần học</th>
-              <th style="width:30px;"></th>
+              <th>Tiêu đề học phần</th>
+              {{-- <th>Mã mô tả</th> --}}
+              <th style="width:30px;"></>
             </tr>
           </thead>
           <tbody>
-            @foreach ($allLesson as $lesson)
+            @foreach ($allPartContent as $part)
             <tr>
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td><span class="text-ellipsis">{{$lesson->course_title}}</span></td>
-              <td><span class="text-ellipsis">{{$lesson->lesson_title}}</span></td>
-              <td><span class="text-ellipsis">{{$lesson->lesson_video}}</span></td>
-              <td><span class="text-ellipsis">{{$lesson->part_title}}</span></td>
+              <td><span class="text-ellipsis">{{$part->course_title}}</span></td>
+              <td><span class="text-ellipsis">{{$part->part_title}}</span></td>
+              {{-- <td><span class="text-ellipsis">{{$part->detail_id}}</span></td> --}}
               <td></td>
               <td>
-                <a href="/quantri/capnhatbaihoc/{{$lesson->lesson_id}}" class="active" ui-toggle-class="">
+                <a href="/quantri/capnhatphanhoc/{{$part->part_id}}" class="active" ui-toggle-class="">
                   <i class="fa fa-edit text-success text-active"></i>
                 </a>
-                <a href="/quantri/xoabaihoc/{{$lesson->lesson_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
+                <a href="/quantri/xoaphanhoc/{{$part->part_id}}" class="active" ui-toggle-class="" onclick="return confirm('Bạn chắc chắn muốn xóa nó?')">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

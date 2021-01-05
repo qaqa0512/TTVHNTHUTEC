@@ -11,6 +11,7 @@
 
     {{--  Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;469;500;600;700&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> --}}
     
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/main.css">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="/css/blog.css">
     <link rel="stylesheet" href="/css/sweetalert.css">
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -52,7 +53,7 @@
             <hr class="lane">
             <div class="headcontainer">
                 <div class="head-tilte">
-                    <a href="/" class="brand-name"><img src="/img/your-logo.png" alt="brand"></a>
+                    <a href="/" class="brand-name"><img src="/img/logohutech.png" alt="brand"></a>
                 </div>
                 <div class="list-bar">
                     <ul class="list-tile">
@@ -61,7 +62,7 @@
                         <li><a href="/khoahoc">Khoá Học Online</a></li>
                         <li><a href="/sukien">Sự kiện</a></li>
     
-                        <li><a href="#">Tin Tức</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="/lienhe">Liên hệ</a></li>
                     </ul>
                 </div>
@@ -101,11 +102,10 @@
     <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
     {{-- Footer --}}
     <footer>
-        <p>© <a href="#" class="foo">Nguyễn Quốc Anh</a> 2020</p>
+        <p>© 2020</p>
     </footer>
     {{-- Javascript --}}
 
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -119,7 +119,7 @@
         CKEDITOR.replace( 'blogComm' );
         CKEDITOR.replace( 'blogg_title' );
         CKEDITOR.replace( 'blogg_content' );
-        CKEDITOR.replace( 'blogg_sum' );
+        CKEDITOR.replace( 'blogg_sum' );    
     </script>
     {!! Toastr::render() !!}
 </body>

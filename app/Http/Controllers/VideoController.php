@@ -87,7 +87,7 @@ class VideoController extends Controller
         $course = DB::table('course')->get();
         $partContent = DB::table('part_content')->get();
         
-        return view ('admin.addLesson')->with('Course',$course)->with('part_Content',$partContent);
+        return view ('admin.course.addLesson')->with('Course',$course)->with('part_Content',$partContent);
     }
 
     //Lesson add -post
@@ -114,8 +114,8 @@ class VideoController extends Controller
         $partContent = DB::table('part_content')->get();
 
         $edit_lesson = DB::table('lesson')->where('lesson_id',$lesson_id)->get();
-        $manger_course = view('admin.editLesson')->with('editLesson',$edit_lesson)->with('Course',$course)->with('partContent',$partContent);
-        return view('admin')->with('admin.editLesson', $manger_course);
+        $manger_course = view('admin.course.editLesson')->with('editLesson',$edit_lesson)->with('Course',$course)->with('partContent',$partContent);
+        return view('admin')->with('admin.course.editLesson', $manger_course);
     }
 
     //Lesson edit - post 
@@ -148,7 +148,7 @@ class VideoController extends Controller
         $parent = DB::table('part_content')->get();
         $course = DB::table('course')->get();
         $detail = DB::table('detail_course')->get();
-        return view ('admin.addPartLesson')->with('Course',$course)->with('Detail',$detail)->with('parent',$parent);
+        return view ('admin.course.addPartLesson')->with('Course',$course)->with('Detail',$detail)->with('parent',$parent);
     }
 
     //Part_Content Add - post
@@ -173,8 +173,8 @@ class VideoController extends Controller
         $detail = DB::table('detail_course')->get();
 
         $edit_part = DB::table('part_content')->where('part_id',$part_id)->get();
-        $manger_course = view('admin.editPartLesson')->with('editPart',$edit_part)->with('Course',$course)->with('Detail',$detail);
-        return view('admin')->with('admin.editPartLesson', $manger_course);
+        $manger_course = view('admin.course.editPartLesson')->with('editPart',$edit_part)->with('Course',$course)->with('Detail',$detail);
+        return view('admin')->with('admin.course.editPartLesson', $manger_course);
     }
 
     // Part_Content Edit - post
@@ -207,9 +207,9 @@ class VideoController extends Controller
         $detail = DB::table('detail_course')->get();
         $allPartContent = DB::table('part_content')
         ->join('course','course.id','=','part_content.course_id')->get();
-        $manger_course = view('admin.allPartContent')->with('allPartContent',$allPartContent);
+        $manger_course = view('admin.course.allPartContent')->with('allPartContent',$allPartContent);
 
-        return view('admin')->with('admin.allPartContent',$manger_course);
+        return view('admin')->with('admin.course.allPartContent',$manger_course);
     }
 
     public function all_lesson()
@@ -221,7 +221,7 @@ class VideoController extends Controller
         $allLesson = DB::table('lesson')
         ->join('course','course.id','=','lesson.course_id')
         ->join('part_content','part_content.part_id','=','lesson.part_id')->get();
-        $manger_course = view('admin.allLesson')->with('allLesson',$allLesson);
-        return view('admin')->with('admin.allLesson', $manger_course);
+        $manger_course = view('admin.course.allLesson')->with('allLesson',$allLesson);
+        return view('admin')->with('admin.course.allLesson', $manger_course);
     }
 }

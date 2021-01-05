@@ -7,6 +7,7 @@ Use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use Yoeunes\Toastr\Facades\Toastr;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -42,6 +43,7 @@ class Authentication extends Controller
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
                 // Authentication passed...
+                Toastr::success('Đăng nhập thành công','Thông báo');
                 return redirect()->intended('/');
             }
         return redirect('/dangnhap')->with('message','Tài khoản hoặc mật khẩu không chính xác!');
