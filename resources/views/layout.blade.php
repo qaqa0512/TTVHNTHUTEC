@@ -58,22 +58,37 @@
                 <div class="list-bar">
                     <ul class="list-tile">
                         <li><a href="/gioithieu">Giới Thiệu</a></li>
-                        <li><a href="#">Câu Lạc Bộ</a></li>
+                        <li><a href="/caulacbo">Câu Lạc Bộ</a></li>
                         <li><a href="/khoahoc">Khoá Học Online</a></li>
                         <li><a href="/sukien">Sự kiện</a></li>
     
                         <li><a href="/blog">Blog</a></li>
+                        <li><a href="#">Tin tức</a></li>
                         <li><a href="/lienhe">Liên hệ</a></li>
                     </ul>
                 </div>
-                <form class="search-box" method="POST" action="">
-                    <input class="form-control" type="text" name="" placeholder="Search....">
-                    <div class="search-btn">
+                <form class="search-box" method="POST" action="/timkiem">
+                    {{ csrf_field() }}
+                    <input class="form-control" type="text" name="keyword_submit" placeholder="Tìm kiếm....">
+                    <button type="submit" name="search_item" class="search-btn">
                         <i class="fa fa-search"></i>
-                    </div>
+                    </button>
                 </form>
                 <div class="account">
                     @if (Auth::check())
+                    <!-- Example single danger button -->
+                        <div class="btn-group ">
+                            <button type="button" class="btn_notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Thông báo 1</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Thông báo 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Thông báo 3</a>
+                            </div>
+                        </div>
                         <div class="btn-group">
                             <div class="img_userr"><img src="" alt=""></div>
                             <button type="button" class="btn_user">{{Auth::user()->name}}</button>

@@ -203,11 +203,13 @@ class CourseController extends Controller
     }
     public function deleteComment($course_slug, $comment_id)
     {
+        $user_id = Auth::user()->id;
         $comments = DB::table('posts_comments')
         ->join('users','users.id','=','posts_comments.user_id')
         ->join('course','course.course_slug','=','posts_comments.course_id')
         ->where('course_slug',$course_slug)
-        ->where('comment_id',$comment_id)->delete();
+        ->where('comment_id',$comment_id)
+        ->where('user_id',$user_id)->delete();
 
         Toastr::error('Xóa bình luận thành công','Thông báo');
         return back();
@@ -216,6 +218,8 @@ class CourseController extends Controller
     public function detailcourses($course_slug)
     {
         $detail = DB::table('course')->where('course_slug',$course_slug)->first();
+        DB::table('course')->where('course_slug',$course_slug)->update(['view_count'=>$detail->view_count + 1]);
+
 
         $lesson = DB::table('lesson')->join('course','course.id','=','lesson.course_id')
         ->join('part_content','part_content.part_id','=','lesson.part_id')->where('course_slug',$course_slug)->get();
@@ -241,7 +245,7 @@ class CourseController extends Controller
         ->join('course','course.course_slug','=','posts_comments.course_id')
         ->where('course_slug',$course_slug)
         ->first();
-
+        $detail->total_comment = sizeof($comments);
         return view('pages.course_client.details',compact('detail','lesson','allDescription','comments','comments_first'));
     }
 }

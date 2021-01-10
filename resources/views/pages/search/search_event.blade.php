@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Khóa học')
+@section('title','Tìm kiếm')
 @section('content')
 <div class="Home">
     <div class="Home-container">
@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="/">Trang chủ</a></li>
                 <li><i class="fa fa-caret-right icon-lane"></i></li>
-                <li><a href="/khoahoc">Khóa học</a></li>
+                <li><span>Tìm kiếm</span></li>
             </ul>
         </div>
      </div>
@@ -16,10 +16,10 @@
 <div class="background-course">
     <div class="container">
         <div class="music-title">
-            <h2>Với niềm đam mê và sự cố gắng sẽ giúp bạn vượt qua tất cả</h2>
+            <h2>Tìm kiếm những điều bạn cần</h2>
         </div>
         <div class="row course_row">
-            @foreach ($displayCourse as $key => $display)
+            @foreach ($search as $key => $display)
             <div class="col-lg-4 course_col mb-4">
                 <div class="card course_box">
                     <img src="/public/upload/course/{{$display->course_image}}" class="card-img-top" alt="...">
@@ -35,7 +35,7 @@
                       <p class="card-text mb-4">{{$display->course_description}}</p>
                       <div class="music-footer">
                         <ul>
-                            <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;"></span>{{$display->view_count}}</li>
+                            <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">10</span></li>
                             <li><a href="/khoahoc/{{$display->course_slug}}" class="btn course_btn">Học ngay</a></li>
                             <li><form action="/themvaokhoahoccuatoi" method="POST">
                                 {{ csrf_field() }}
@@ -50,9 +50,6 @@
                 </div>
             </div>
             @endforeach
-        </div>
-        <div class="load-more">
-            <a href="" class="loadd">Tải thêm</a>
         </div>
     </div>
 </div>

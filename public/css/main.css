@@ -167,6 +167,11 @@ input.active-width {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 0;
+}
+
+.search-btn:focus {
+    outline: none;
 }
 
 .search-btn:hover {
@@ -179,6 +184,11 @@ input.active-width {
     top: 10px;
     left: 12px;
 }
+
+
+/* .search-box .search-btn>i:focus {
+    outline: none;
+} */
 
 
 /* user */
@@ -933,4 +943,26 @@ footer>p .foo:hover {
 
 .toast-warning {
     background-color: #f89406;
+}
+
+.btn_notification {
+    border: 0;
+    padding: 7px 10px;
+    background: transparent;
+    color: rgb(56, 56, 56);
+}
+
+.btn_notification:hover {
+    border-radius: 50%;
+    background: #E1306C;
+    box-shadow: 0 0 10px 1px #aeb1bb;
+    color: #fff;
+}
+
+.btn_notification:focus {
+    border-radius: 50%;
+    background: #E1306C;
+    box-shadow: 0 0 10px 1px #aeb1bb;
+    color: #fff;
+    outline: 0;
 }

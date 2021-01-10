@@ -38,7 +38,7 @@
                           <p class="card-text mb-4">{{$show->course_description}}</p>
                           <div class="music-footer">
                             <ul>
-                                <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">10</span></li>
+                                <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">{{$show->view_count}}</span></li>
                                 <li><a href="/khoahoc/{{$show->course_slug}}" class="btn course_btn">Học ngay</a></li>
                                 <li>
                                     <form action="">

@@ -47,7 +47,7 @@ class BlogController extends Controller
                 $get_img->move('public/upload/course',$new_img);
                 $data['blog_image'] = $new_img;
                 DB::table('blog')->insert($data);
-                $request->session()->put('mes', 'Thêm bài blog thành công!');
+                Toastr::success('Đăng bài blog thành công','Thông báo');
                 return Redirect::to('/blog');
             }
             $data['blog_image'] = '';

@@ -113,7 +113,7 @@
                             <div class="row">
                                 <div class="col-sm-8">
                                   <div class="num_comment">
-                                    <p>Số lượt bình luận</p>
+                                    <p>{{$detail->total_comment}} lượt bình luận</p>
                                   </div>
                                 </div>
                                 <div class="col-sm-4">

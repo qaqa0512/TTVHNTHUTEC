@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 // Client
 Route::get('/','App\Http\Controllers\PagesController@homepage');
+
+//Search
+Route::post('/timkiem','App\Http\Controllers\PagesController@search');
+
+//Club
+Route::get('/caulacbo','App\Http\Controllers\ClubController@club');
+
 // Profile
 Route::get('/capnhatthongtin','App\Http\Controllers\ProfileController@profile');
 Route::post('/themthongtin','App\Http\Controllers\ProfileController@addProfile');
