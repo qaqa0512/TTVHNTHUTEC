@@ -218,6 +218,153 @@
     text-align: center;
 }
 
+.detail_club_member_title,
+.detail_club_activity_title {
+    padding-top: 25px;
+    padding-left: 30px;
+}
+
+.detail_club_member_title>h5,
+.detail_club_activity_title>h5 {
+    color: #E1306C;
+    text-transform: capitalize;
+    font-size: 25px !important;
+}
+
 .detail_club_member_img {
-    text-align: center;
+    width: 750px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.detail_club_member_img>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+
+/* Club Activity */
+
+.detail_club_activity {
+    padding: 20px;
+    width: 100%;
+}
+
+
+/* club_activity_left */
+
+.btnClubActivity {
+    padding: 7px 20px;
+    border-radius: 15px;
+    width: 100%;
+    border: 1px solid #E1306C;
+    background: #E1306C;
+    color: #fff;
+}
+
+.btnClubActivity:hover {
+    box-shadow: 0 0 15px 1px #b6bbcb;
+}
+
+.btnClubActivity:focus {
+    outline: none;
+}
+
+#staticBackdropLabel {
+    color: #E1306C;
+    text-transform: capitalize;
+}
+
+.club_activity_right {
+    border: 1px solid #E1306C;
+}
+
+.club_activity_right_top_info {
+    padding: 10px 0;
+}
+
+.club_activity_right_name {
+    font-style: italic;
+}
+
+.club_activity_right_top_option {
+    margin-left: 420px;
+}
+
+.btnClubActivityOption {
+    background: transparent;
+    font-weight: bold;
+    padding: 10px;
+    border: 0;
+}
+
+.btnClubActivityOption:focus {
+    outline: 0;
+}
+
+
+/*club_activity_right_bottom*/
+
+.club_activity_right_bottom_img {
+    width: 100%;
+    height: 100%;
+}
+
+.club_activity_right_bottom_img>img {
+    width: 100%;
+    height: 100%;
+}
+
+.club_activity_right_bottom_comment {
+    width: 100%;
+}
+
+.club_activity_right_bottom_comment>ul {
+    list-style: none;
+}
+
+.club_activity_right_bottom_comment>ul>li {
+    margin-right: 50px;
+}
+
+.club_activity_right_bottom_comment>ul>li>a {
+    text-decoration: none;
+    color: #E1306C;
+}
+
+.club_activity_right_bottom_comment>ul>li>a:hover {
+    text-decoration: none;
+    display: block;
+    color: #AE4CA4;
+}
+
+.btnClubComment {
+    margin-top: 10px;
+    padding: 5px;
+    background: #E1306C;
+    color: #fff;
+    border: 0;
+}
+
+.btnClubComment:focus {
+    outline: 0;
+}
+
+#formClubComment:focus {
+    box-shadow: none;
+}
+
+.club_comment_name {
+    font-style: italic;
+}
+
+.club_comment_content {
+    max-width: 250px;
+    border: 1px solid transparent;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 15px;
 }

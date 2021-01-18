@@ -103,7 +103,7 @@
                               <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Quản lý tài khoản</a>
+                              <a class="dropdown-item" href="/capnhatthongtin"><i class="fas fa-cog"></i> Thông tin tài khoản</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/khoahoccuatoi"><i class="fas fa-bookmark"></i> Khóa học của tôi</a>
                               <div class="dropdown-divider"></div>

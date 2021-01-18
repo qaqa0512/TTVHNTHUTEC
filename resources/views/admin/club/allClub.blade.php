@@ -35,7 +35,7 @@
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td><span class="text-ellipsis">{{$club_cate->club_category_title}}</span></td>
                 <td><span class="text-ellipsis">{{$club_cate->club_category_slug}}</span></td>
-                <td><img src="/public/upload/course/{{$club_cate->club_category_image}}" alt="" width="50px" height="50px" style="object-fit: cover"></td>
+                <td><img src="/public/upload/course/{{$club_info_cate->club_category_image}}" alt="" width="50px" height="50px" style="object-fit: cover"></td>
                 <td>
                   <a href="" class="active" ui-toggle-class="">
                     <i class="fa fa-edit text-success text-active"></i>

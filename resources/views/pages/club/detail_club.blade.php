@@ -28,9 +28,6 @@
                     <li class="nav-item nav_club" role="presentation">
                       <a class="nav-link active_club" id="pills-schedule-tab" data-toggle="pill" href="#pills-schedule" role="tab" aria-controls="pills-contact" aria-selected="false">Hoạt động của CLB <i class="far fa-calendar-alt"></i></a>
                     </li>
-                    {{-- <li class="nav-item nav_club" role="presentation">
-                        <a class="nav-link active_club" id="pills-manage-tab" data-toggle="pill" href="#pills-manage" role="tab" aria-controls="pills-contact" aria-selected="false">Quản lý thành viên <i class="fas fa-users"></i></a>
-                      </li> --}}
                   </ul>
                   <div class="tab-content detail_club_content" id="pills-tabContent">
                     <div class="tab-pane detail_club_content_info fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
@@ -45,7 +42,13 @@
                     </div>
                     <div class="tab-pane fade" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab">
                         <div class="detail_club_member">
-                            <table class="table table-striped mt-3">
+                            <div class="detail_club_member_title">
+                              <h5>Danh sách thành viên - CLB {{$club_info_cate->club_category_title}} </h5>
+                            </div>
+                            <div class="detail_club_member_img">
+                              <img src="/public/upload/course/{{$club_info_cate->club_category_image}}" alt="">
+                            </div>
+                            <table class="table table-striped">
                                 <thead>
                                   <tr>
                                     <th scope="col">Họ tên</th>
@@ -68,7 +71,90 @@
                               </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-schedule" role="tabpanel" aria-labelledby="pills-schedule-tab"></div>
+                    <div class="tab-pane fade" id="pills-schedule" role="tabpanel" aria-labelledby="pills-schedule-tab">
+                        <div class="detail_club_activity">
+                            <div class="row">
+                              <div class="col-sm-4 club_activity_left">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btnClubActivity" data-toggle="modal" data-target="#staticBackdrop">
+                                  <i class="fas fa-plus mr-2"></i> Hôm nay có gì mới????
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Tạo bài viết</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        ...
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Đăng</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-8 club_activity_right">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="club_activity_right_top d-flex">
+                                        <div class="club_activity_right_top_info">
+                                          <div class="club_activity_right_name"><span>Quốc Anh - Thành Viên - 18/01/2021</span></div>
+                                        </div>
+                                        <div class="club_activity_right_top_option">
+                                          <div class="dropdown">
+                                            <button class="btnClubActivityOption" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                              <button class="dropdown-item" type="button">Chỉnh sửa bài viết</button>
+                                              <button class="dropdown-item" type="button">Xóa bài viết</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="club_activity_right_bottom">
+                                        <div class="club_activity_right_bottom_status">
+                                          <span>Hôm nay buồn quá...</span>
+                                        </div>
+                                        <div class="club_activity_right_bottom_img">
+                                          <img src="/img/119469758_2462420790718075_3741060378152167569_o.jpg" alt="">
+                                        </div>
+                                        <hr>
+                                        <div class="club_activity_right_bottom_comment">
+                                          <ul class="d-flex">
+                                            <li><a href="#" class="club_like"><i class="fas fa-heart"></i> Thích</a></li>
+                                            <li><a href="#" class="club_dislike"><i class="fas fa-heart-broken"></i> Không thích</a></li>
+                                            <li>
+                                              <a href="#"><i class="fas fa-comment-alt"></i> Bình luận</a>
+                                            </li>
+                                          </ul>
+                                          <div class="form-group">
+                                            <textarea type="text" name="blog_comment_content" class="form-control" id="formClubComment"style="resize: none">Viết bình luận ở đây...</textarea>
+                                            <button class="btnClubComment" type="submit">Đăng bình luận</button>
+                                          </div>
+                                          <hr>
+                                          <div class="club_comment_content">
+                                            <div class="club_comment_name">Quốc Anh - 18/01/2021</div>
+                                            <div class="club_comment_text">Hi Everyone</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
             </div>
         </div>
