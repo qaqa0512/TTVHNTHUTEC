@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Event;
-use App\Models\EventStatus;
+use App\Models\Join;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -18,24 +18,46 @@ class EventController extends Controller
     public function event()
     {
         $event = DB::table('event')->get();
+        // $join = DB::table('joined')->get();
         return view('pages.event_client.event')->with('event',$event);
     }
 
+    
+
     public function detail_event($event_id)
     {
-        $event_detail = DB::table('event')->where('event_id',$event_id)->get();
-        if (Auth::check()) {
-            return view('pages.event_client.event_detail')->with('event_detail',$event_detail);
-        } else {
-            return redirect('/dangnhap');
-        }
-        // return view('pages.event_detail')->with('event_detail',$event_detail);
+        
+        $event_detail = DB::table('event')->where('event_id',$event_id)->first();
+        DB::table('event')->where('event_id',$event_id)->update(['view_event_count'=>$event_detail->view_event_count + 1]);
+        
+        $join = DB::table('event')->join('joined','joined.event_id','=','event.event_id')->where('joined.event_id',$event_id)->count();
+        
+        return view('pages.event_client.event_detail')->with('event_detail',$event_detail)->with('join',$join);
     }
 
-    public function event_status(Request $request)
+    public function active($event_id)
     {
-        
-        echo "Đã tham gia";
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            $join_user = Join::where(['user_id'=>$user,'event_id' => $event_id])->first();
+            if(empty($join_user->user_id)){
+                $user_id = Auth::user()->id;
+                $event_join_id = $event_id;
+                $joined = new Join;
+                $joined->user_id = $user_id;
+                $joined->event_id = $event_join_id;
+                $joined->save();
+                
+                Toastr::success('Tham gia sự kiện thành công','Thông báo');
+                return back();            
+            }
+            else{
+                Toastr::error('Bạn đã tham gia sự kiện rồi :(','Thông báo');
+                return back(); 
+            }
+        }else{
+            return redirect('/dangnhap');
+        }
     }
 
     //Admin

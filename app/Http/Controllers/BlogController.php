@@ -54,10 +54,6 @@ class BlogController extends Controller
             Toastr::success('Đăng bài blog thành công','Thông báo');
             
             return Redirect::to('/blog');
-
-        //     }else{
-        //         echo "Thêm bài blog không thành công";
-        // }
     }
 
     // Blog Comment
@@ -72,32 +68,32 @@ class BlogController extends Controller
         $comment_blog->blog_comment_content = $request->input('blog_comment_content');
         $comment_blog->save();
 
-        // $request->session()->put('mes', 'Đăng bình luận thành công!');
         Toastr::success('Đăng bình luận thành công','Thông báo');
-        // $notification = array(
-        //     'message' => 'Đăng bình luận thành công!',
-        //     'alert-type' => 'Thông báo'
-        // );
+        
         return back();
     }
 
     public function blogDeleteComment($blog_id,$blog_comment_id)
     {
+        $user_id = Auth::user()->id;
+        if($user_id){}
         $blog_comment_delete = DB::table('blog_comment')
         ->join('users','users.id','=','blog_comment.user_id')
         ->join('blog','blog.blog_id','=','blog_comment.blog_id')
-        ->where('blog_comment.blog_id',$blog_id)->where('blog_comment_id',$blog_comment_id)
+        ->where('blog_comment.blog_id',$blog_id)
+        ->where('blog_comment_id',$blog_comment_id)
+        ->where('blog_comment.user_id',$user_id)
         ->delete();
-        
-        Toastr::error('Xóa bình luận thành công','Thông báo');
+
+        Toastr::success('Xóa bình luận thành công','Thông báo');
         return back();
     }
 
     public function detailBlog($blog_id)
     {
+
         $blog_detail = DB::table('blog')
         ->join('users','users.id','=','blog.user_id')
-        // ->join('blog_comment','blog_comment.blog_id','=','blog.blog_id')
         ->where('blog_id',$blog_id)
         ->get();
 

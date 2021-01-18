@@ -132,6 +132,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
+                        <span>Câu Lạc Bộ</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="/quantri/themcaulacbo">Thêm câu lạc bộ</a></li>
+                        <li><a href="/quantri/caccaulacbo">Danh sách câu lạc bộ</a></li>
+                        <li><a href="/quantri/themthongtinclb">Thêm thông tin câu lạc bộ</a></li>
+                        <li><a href="/quantri/thongtincaulacbo">Thông tin câu lạc bộ</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
                         <span>Liên hệ</span>
                     </a>
                     <ul class="sub">
@@ -163,7 +175,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/admin/js/scripts.js"></script>
 <script src="/admin/js/jquery.slimscroll.js"></script>
 <script src="/admin/js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="/admin/js/jquery.scrollTo.js"></script>
 <script src="/admin/ckeditor/ckeditor.js"></script>
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -183,6 +194,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     CKEDITOR.replace( 'desPrice' );
     //Lesson 
     CKEDITOR.replace( 'videoLesson',{
+    });
+    //Club 
+    CKEDITOR.replace( 'clubInfo',{
     });
 </script>
 

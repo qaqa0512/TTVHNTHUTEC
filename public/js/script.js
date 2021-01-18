@@ -38,6 +38,21 @@ $(document).ready(function() {
     $('#topBtn').click(function() {
         $("html, body").animate({ scrollTop: 0 }, 1000);
     });
+
+    $('.carousel_club').flickity({
+        // options
+        cellAlign: 'left',
+        freeScroll: true,
+        wrapAround: true,
+        autoPlay: 1500,
+        pageDots: false
+    });
 });
 
 // Jquery
+$(function() {
+    $('[data-toggle="popover-hover"]').popover({
+        trigger: 'hover',
+    })
+});
+// Carousel

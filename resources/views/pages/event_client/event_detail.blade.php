@@ -15,7 +15,7 @@
 <div class="evetDetail">
     <div class="container">
         <div class="row mt-3 mb-3">
-            @foreach ($event_detail as $eve_de)
+            {{-- @foreach ($event_detail as $eve_de) --}}
             <div class="col-sm-7 event_left">
                 <div class="eve_detail_content-top">
                     <div class="eve_detail_title">
@@ -25,22 +25,25 @@
                         <ul>
                             <li><span>Tên sự kiện: </span>
                                 <p class="eve_text">
-                                {!!$eve_de->event_title!!}
+                                {!!$event_detail->event_title!!}
                                 </p>
                             </li>
                             <li>
                                 <span>Địa điểm: </span>
-                                <p class="eve_text">{!!$eve_de->event_place!!}</p>
+                                <p class="eve_text">{!!$event_detail->event_place!!}</p>
                             </li>
                             <li>
                                 <span>Thời gian: </span>
-                                <p class="eve_text">{!!$eve_de->event_date_time!!}</p>
+                                <p class="eve_text">{!!$event_detail->event_date_time!!}</p>
                             </li>
                             <li><span>Giá: </span>
-                                <p class="eve_text">{{$eve_de->event_price}}</p>
+                                <p class="eve_text">{{$event_detail->event_price}}</p>
                             </li>
                             <li><span>Nội dung: </span></li>
-                            <li><p>{!!$eve_de->event_content!!}</p></li>
+                            <li><p>{!!$event_detail->event_content!!}</p></li>
+                            <li>
+                                <a href="/thamgia/{{$event_detail->event_id}}" class="btn_eve" onclick="myFunction(this)">Tham gia ({{$join}})</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -49,8 +52,9 @@
                         <h5>Người tổ chức</h5>
                     </div>
                     <div class="eve_detail_name">
-                        <span>{!!$eve_de->event_name!!}</span>
+                        <span>{!!$event_detail->event_name!!}</span>
                     </div>
+                    
                 </div>
             </div>
             <div class="col-sm-5 event_right">
@@ -59,7 +63,7 @@
                         <h5>Ảnh sự kiện</h5>
                     </div>
                     <div class="gg_img">
-                        <img src="/public/upload/course/{{$eve_de->event_image}}" alt="ảnh">
+                        <img src="/public/upload/course/{{$event_detail->event_image}}" alt="ảnh">
                     </div>
                 </div>
                 <div class="gg_content">
@@ -67,11 +71,11 @@
                         <h5>Bản đồ</h5>
                     </div>
                     <div class="gg_map">
-                        {!!$eve_de->event_map!!}
+                        {!!$event_detail->event_map!!}
                     </div>
                 </div>
             </div>          
-            @endforeach
+            {{-- @endforeach --}}
         </div>
     </div>
 </div>

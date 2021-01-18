@@ -35,16 +35,19 @@
                       <p class="card-text mb-4">{{$display->course_description}}</p>
                       <div class="music-footer">
                         <ul>
-                            <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">10</span></li>
+                            <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">{{$display->view_count}}</span></li>
                             <li><a href="/khoahoc/{{$display->course_slug}}" class="btn course_btn">Học ngay</a></li>
-                            <li><form action="/themvaokhoahoccuatoi" method="POST">
+                            <li>
+                                <form action="/themvaokhoahoccuatoi" method="POST">
                                 {{ csrf_field() }}
                                 <input name="course_id_hidden" type="hidden" value="{{$display->id}}">
                                 <button type="submit" id="btn_add_favour">
                                     <i class="fas fa-heart" style="font-size:17px;color: #ac029b;"></i>
                                 </button>
-                            </form></li>
+                            </form>
+                        </li>
                         </ul>
+                        
                     </div>
                     </div>
                 </div>

@@ -41,14 +41,10 @@
                                 <li><i class="fa fa-user" style="color: #AE4CA4;"></i><span style="margin-left:10px;">{{$show->view_count}}</span></li>
                                 <li><a href="/khoahoc/{{$show->course_slug}}" class="btn course_btn">Học ngay</a></li>
                                 <li>
-                                    <form action="">
+                                    <form action="/themvaokhoahoccuatoi" method="POST">
                                         {{ csrf_field() }}
-                                        {{-- <input class="course_id_{{$show->id}}" type="hidden" value="{{$show->id}}">
-                                        <input class="course_title_{{$show->course_title}}" type="hidden" value="{{$show->course_title}}">
-                                        <input class="course_name_{{$show->course_name}}" type="hidden" value="{{$show->course_name}}">
-                                        <input class="course_image_{{$show->course_image}}" type="hidden" value="{{$show->course_image}}"> --}}
-
-                                        <button type="submit" id="btn_add_favour">
+                                        <input name="course_id_hidden" type="hidden" value="{{$show->id}}">
+                                        <button type="submit" id="btn_add_favour" data-toggle="popover-hover" data-content="Yêu thích">
                                             <i class="fas fa-heart" style="font-size:17px;color: #ac029b;"></i>
                                         </button>
                                     </form>
@@ -73,6 +69,7 @@
                 <div class="event-title"><h2>Những Sự Kiện Sắp Diễn Ra</h2></div>
                 <div class="row eve_top_list">
                     @foreach ($showEvent as $show_eve)
+
                     <div class="col-sm-4">
                         <div class="card card-event" style="width: 100%;">
                             <img src="/public/upload/course/{{$show_eve->event_image}}" class="card-img-top" alt="...">
@@ -82,13 +79,7 @@
                                 <span class="eve_txt">{!!$show_eve->event_name!!}</span>
                                 <ul class="list_options">
                                   <li><a href="/chitietsukien/{{$show_eve->event_id}}" class="btn_eve_1">Xem chi tiết</a></li>
-                                  <li><form action="">
-                                    {{ csrf_field() }}
-                                    <button type="submit"class="btn_eve">
-                                        Tham gia
-                                    </button>
-                                  </form></li>
-                                  <li><button class="btn_viewer"><span><i class="fas fa-user"></i>10</span></button></li>
+                                  <li><span><i class="fas fa-user" style="color: #E1306C;"></i><span style="margin-left:10px;"></i>{{$show_eve->view_event_count}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -116,37 +107,44 @@
                     <div class="container blog-show">
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="blog-category">
-                                    <div class="layer-blog"></div>
-                                    <div class="blog-list-img">
-                                        <img src="./img/pexels-photo-1173651.jpeg" alt="">
+                                <a href="/blog">
+                                    <div class="blog-category">
+                                        <div class="layer-blog"></div>
+                                        <div class="blog-list-img">
+                                            <img src="./img/pexels-photo-1173651.jpeg" alt="">
+                                        </div>
+                                        <div class="blog-category-title">
+                                            <h5>Âm nhạc</h5>
+                                        </div>
                                     </div>
-                                    <div class="blog-category-title">
-                                        <h5>Âm nhạc</h5>
+                                </a>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <a href="/blog">
+                                    <div class="blog-category">
+                                        <div class="layer-blog"></div>
+                                        <div class="blog-list-img">
+                                            <img src="./img/pexels-photo-1192043.jpeg" alt="">
+                                        </div>
+                                        <div class="blog-category-title">
+                                            <h5>Thể thao</h5>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-lg-4">
-                                <div class="blog-category">
-                                    <div class="layer-blog"></div>
-                                    <div class="blog-list-img">
-                                        <img src="./img/pexels-photo-1192043.jpeg" alt="">
+                                <a href="/blog">
+                                    <div class="blog-category">
+                                        <div class="layer-blog"></div>
+                                        <div class="blog-list-img">
+                                            <img src="./img/pexels-photo-1266741.jpeg" alt="">
+                                        </div>
+                                        <div class="blog-category-title">
+                                            <h5>Ẩm thực</h5>
+                                        </div>
                                     </div>
-                                    <div class="blog-category-title">
-                                        <h5>Thể thao</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="blog-category">
-                                    <div class="layer-blog"></div>
-                                    <div class="blog-list-img">
-                                        <img src="./img/pexels-photo-1266741.jpeg" alt="">
-                                    </div>
-                                    <div class="blog-category-title">
-                                        <h5>Ẩm thực</h5>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>         

@@ -575,8 +575,8 @@ input.active-width {
     border: 1px solid #EBEBEB;
     text-decoration: none !important;
     padding: 3px 15px;
-    font-size: 17px;
-    border-radius: 15px;
+    font-size: 25px;
+    border-radius: 7px;
     color: #E1306C;
     background-color: #EBEBEB;
     font-weight: 600;
@@ -918,7 +918,7 @@ footer>p .foo:hover {
 
 ._blog_ttt:hover {
     text-decoration: none;
-    color: #AE4CA4;
+    color: #7a7079;
 }
 
 .toast {

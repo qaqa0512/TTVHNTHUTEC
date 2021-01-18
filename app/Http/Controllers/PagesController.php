@@ -17,7 +17,6 @@ class PagesController extends Controller
     public function homepage()
     {
         $course = DB::table('course')->limit(3)->get();
-        
         $event_hp = DB::table('event')->limit(3)->get();
         $blogggg = DB::table('blog')->limit(1)->get();
         return view('pages.home')->with('showCourse',$course)->with('showEvent',$event_hp)->with('blogggg',$blogggg);

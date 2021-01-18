@@ -40,7 +40,7 @@
                             <li><form action="/themvaokhoahoccuatoi" method="POST">
                                 {{ csrf_field() }}
                                 <input name="course_id_hidden" type="hidden" value="{{$display->id}}">
-                                <button type="submit" id="btn_add_favour">
+                                <button type="submit" id="btn_add_favour"  data-toggle="popover-hover" data-content="Yêu thích">
                                     <i class="fas fa-heart" style="font-size:17px;color: #ac029b;"></i>
                                 </button>
                             </form></li>

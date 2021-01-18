@@ -21,6 +21,8 @@ Route::post('/timkiem','App\Http\Controllers\PagesController@search');
 
 //Club
 Route::get('/caulacbo','App\Http\Controllers\ClubController@club');
+Route::get('/chitietcaulacbo/{club_category_slug}','App\Http\Controllers\ClubController@detailClub');
+Route::post('/themthanhvien','App\Http\Controllers\ClubController@addClubMember');
 
 // Profile
 Route::get('/capnhatthongtin','App\Http\Controllers\ProfileController@profile');
@@ -44,14 +46,18 @@ Route::get('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@detai
 // Comment
 Route::post('/khoahoc/{course_slug}','App\Http\Controllers\CourseController@postComment');
 Route::get('/khoahoc/{course_slug}/{comment_id}','App\Http\Controllers\CourseController@deleteComment');
-// Route::post('/load-comment','App\Http\Controllers\CourseController@load_comment');
 
 
 //Event
 Route::get('/sukien','App\Http\Controllers\EventController@event');
-//Event - Status
-Route::post('/trangthaisk','App\Http\Controllers\EventController@event_status');
+
+Route::get('/thamgia/{event_id}','App\Http\Controllers\EventController@active');
+Route::get('/khongthamgia/{event_id}','App\Http\Controllers\EventController@unactive');
+
+// //Event - Status
+Route::post('/trangthaisk/{event_id}','App\Http\Controllers\EventController@event_status');
 // Event - details
+
 Route::get('/chitietsukien/{event_id}','App\Http\Controllers\EventController@detail_event');
 
 // My course
@@ -89,6 +95,22 @@ Route::post('/quantri/admin-dashboard','App\Http\Controllers\AdminController@das
 
 Route::get('/quantri/dangkiad','App\Http\Controllers\AdminController@registerAdmin');
 Route::get('/quantri/dangxuatad','App\Http\Controllers\AdminController@dashboard_logout');
+
+// Club 
+Route::get('/quantri/themcaulacbo','App\Http\Controllers\ClubController@add_club');
+
+Route::post('/themclb','App\Http\Controllers\ClubController@saveClub');
+Route::get('/quantri/caccaulacbo','App\Http\Controllers\ClubController@allClub');
+
+Route::get('/quantri/themthongtinclb','App\Http\Controllers\ClubController@add_club_info');
+Route::post('/themthongtinclb','App\Http\Controllers\ClubController@saveClubInfo');
+
+Route::get('/quantri/capnhatthongtinclb/{club_id}','App\Http\Controllers\ClubController@edit_club_info');
+Route::post('/capnhatthongtinclb/{club_id}','App\Http\Controllers\ClubController@editClubInfo');
+
+
+Route::get('/quantri/thongtincaulacbo','App\Http\Controllers\ClubController@allClubInfo');
+
 
 //Course - Create
 Route::get('/quantri/themkhoahoc','App\Http\Controllers\CourseController@add_course');

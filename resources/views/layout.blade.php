@@ -11,8 +11,10 @@
 
     {{--  Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;469;500;600;700&display=swap" rel="stylesheet">
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> --}}
-    
+
+    {{-- Flickity Carousel --}}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/courses.css">
@@ -24,12 +26,17 @@
     <link rel="stylesheet" href="/css/about.css">
     <link rel="stylesheet" href="/css/event.css">
     <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/club.css">
     <link rel="stylesheet" href="/css/sweetalert.css">
+
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
     {{-- Boostrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
     <title>@yield('title')</title>
 </head>
 <body>
@@ -77,7 +84,7 @@
                 <div class="account">
                     @if (Auth::check())
                     <!-- Example single danger button -->
-                        <div class="btn-group ">
+                        <div class="btn-group">
                             <button type="button" class="btn_notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
                             </button>
@@ -128,6 +135,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     
     <script src="/ckeditor/ckeditor.js"></script>
     <script>
