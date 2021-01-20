@@ -30,6 +30,7 @@
 
 .vid-tit {
     padding: 10px !important;
+    margin-left: 10px;
 }
 
 .listVideo-title {
@@ -47,4 +48,46 @@
 #accordionExample {
     padding: 10px;
     margin: 0;
+}
+
+.video_lesson_like {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.video_lesson_like>ul {
+    list-style: none;
+    display: flex;
+}
+
+.video_lesson_like>ul>li {
+    margin-right: 30px;
+}
+
+.video_lesson_like>ul>li>a {
+    text-decoration: none;
+    color: #E1306C;
+}
+
+.video_lesson_like>ul>li>a:hover {
+    display: block;
+    color: #AE4CA4;
+}
+
+.video_lesson_comment {
+    margin: 0 20px;
+}
+
+.video_lesson_comment_content {
+    margin: 10px 20px;
+    border: 1px solid #f7f7f7;
+    background: #f7f7f7;
+    width: 250px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#formLessonComment:focus {
+    border: 1px solid #E1306C;
+    box-shadow: none;
 }

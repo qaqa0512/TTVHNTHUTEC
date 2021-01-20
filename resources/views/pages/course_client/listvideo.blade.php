@@ -33,6 +33,29 @@
                         <div class="vid-tit">
                         <h5>{{$name->lesson_title}}</h5>
                         </div>
+
+                        <hr style="margin:0 20px">
+                        <div class="video_lesson_like">
+                            <ul>
+                                <li><a href="/thichvideo/{{$name->lesson_slug}}"><i class="fas fa-heart"></i> Yêu Thích ({{$video_lesson_like}})</a></li>
+                                <li><a href="/khongthichvideo/{{$name->lesson_slug}}"><i class="fas fa-heart-broken"></i> Không Thích ({{$video_lesson_dislike}})</a></li>
+                                <li><span style="color: #E1306C"><i class="fas fa-comment-alt"></i> Bình luận</span></li>
+                            </ul>
+                        </div>
+                        <form action="/thembinhluanbaihoc/{{$name->lesson_slug}}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="form-group video_lesson_comment">
+                                <textarea type="text" name="comment_lesson_content" class="form-control" rows="5" id="formLessonComment"style="resize: none">Viết bình luận ở đây...</textarea>
+                                <button class="btnClubComment" type="submit">Đăng bình luận</button>
+                            </div>
+                        </form>
+                        <hr style="margin:0 20px">
+                        @foreach ($video_lesson_comment as $lesson_comment)
+                        <div class="form-group video_lesson_comment_content">
+                            <div class="video_lesson_comment_name">{{$lesson_comment->name}} - {{date('d/m/Y H:i')}}</div>
+                            <div class="video_lesson_comment_txt">{{$lesson_comment->comment_lesson_content}}</div>
+                        </div>
+                        @endforeach
                     @endforeach
                 </div>
             </div>
@@ -97,37 +120,6 @@
                         @endforeach             
                         </div>
                     </div>
-                    {{-- <div class="accordion" id="accordionExample">
-                        <?php
-                            $partal_ids = []; //1, 2, 3
-                        ?>
-                        @foreach ($relate as $key=>$rela)
-                            <?php if (!in_array($rela->part_id, $partal_ids)) {
-
-                                if(!empty($partal_ids)) {
-                                    echo "</ul></div></div></div>";
-                                }
-                                $partal_ids[] = $rela->part_id;
-                            ?>
-                            <div class="card-header" id="headingOne{{$key}}">
-                                <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left accor-btn" type="button" data-toggle="collapse" data-target="#collapseOne{{$key}}" aria-expanded="true" aria-controls="collapseOne{{$key}}">
-                                    {{$rela->part_title}}
-                                </button>
-                                </h2>
-                            </div>
-
-                            <div id="collapseOne{{$key}}" class="collapse" aria-labelledby="headingOne{{$key}}" data-parent="#accordionExample">
-                                <div class="card-body">
-                                <div class="list-video">
-                                    <ul>
-                                    <li><i class="fas fa-video"></i> <a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
-
-                            <?php } else { ?>
-                                <li><i class="fas fa-video"></i> <a href="/video/{{$rela->lesson_slug}}">{{$rela->lesson_title}}</a></li>
-                            <?php } ?>
-                        @endforeach
-                    </div> --}}
                 </div>
             </div>
         </div>

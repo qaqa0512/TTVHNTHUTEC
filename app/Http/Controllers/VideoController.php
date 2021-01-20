@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\LessonDisLike;
+use App\Models\LessonLike;
+use App\Models\LessonComment;
 use App\Models\Part_Content;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Yoeunes\Toastr\Facades\Toastr;
 use Session;
 
 class VideoController extends Controller
@@ -49,23 +53,37 @@ class VideoController extends Controller
         ->join('part_content','part_content.part_id','=','lesson.part_id')
         ->where('course.id',$course_id)->get();
 
+        //Like video
+        $video_lesson_like = DB::table('like_lesson')
+        ->join('lesson','lesson.lesson_slug','=','like_lesson.lesson_slug')
+        ->join('users','users.id','=','like_lesson.user_id')
+        ->where('like_lesson.lesson_slug',$lesson_slug)->count();
+
+        //Dislike video
+        $video_lesson_dislike = DB::table('dislike_lesson')
+        ->join('lesson','lesson.lesson_slug','=','dislike_lesson.lesson_slug')
+        ->join('users','users.id','=','dislike_lesson.user_id')
+        ->where('dislike_lesson.lesson_slug',$lesson_slug)->count();
+
+        //Lesson comment
+        $video_lesson_comment = DB::table('comment_lesson')
+        ->join('lesson','lesson.lesson_slug','=','comment_lesson.lesson_slug')
+        ->join('users','users.id','=','comment_lesson.user_id')
+        ->where('comment_lesson.lesson_slug',$lesson_slug)->get();
+
         if (Auth::check()) {
             return view ('pages.course_client.listvideo')
             ->with('video',$video)
             ->with('partContent',$partContent)
             ->with('videoName',$video_name)
             ->with('relate',$related_video)
+            ->with('video_lesson_like',$video_lesson_like)
+            ->with('video_lesson_dislike',$video_lesson_dislike)
+            ->with('video_lesson_comment',$video_lesson_comment)
             ->with('course',$course);
         } else {
             return redirect('/dangnhap');
         }
-
-        return view ('pages.course_client.listvideo')
-        ->with('video',$video)
-        ->with('partContent',$partContent)
-        ->with('videoName',$video_name)
-        ->with('relate',$related_video)
-        ->with('course',$course);
     }
 
     //Lesson add -get 
@@ -211,5 +229,70 @@ class VideoController extends Controller
         ->join('part_content','part_content.part_id','=','lesson.part_id')->get();
         $manger_course = view('admin.course.allLesson')->with('allLesson',$allLesson);
         return view('admin')->with('admin.course.allLesson', $manger_course);
+    }
+
+    // Like lesson video
+    public function video_lesson_like($lesson_slug)
+    {
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            $user_like = LessonLike::where(['user_id'=>$user,'lesson_slug' => $lesson_slug])->first();
+            if(empty($user_like->user_id)){
+                $user_id = Auth::user()->id;
+                $lesson_like_id = $lesson_slug;
+                $lessonLike = new LessonLike;
+                $lessonLike->user_id = $user_id;
+                $lessonLike->lesson_slug = $lesson_like_id;
+                $lessonLike->save();
+                
+                Toastr::success('Tôi thích video này','Thông báo');
+                return back();            
+            }
+            else{
+                Toastr::error('Bạn đã thích video này rồi :(','Thông báo');
+                return back(); 
+            }
+        }else{
+            return redirect('/dangnhap');
+        }
+    }
+
+    public function video_lesson_dislike($lesson_slug)
+    {
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            $user_dislike = LessonDisLike::where(['user_id'=>$user,'lesson_slug' => $lesson_slug])->first();
+            if(empty($user_dislike->user_id)){
+                $user_id = Auth::user()->id;
+                $lesson_dislike_id = $lesson_slug;
+                $lessonLike = new LessonDisLike;
+                $lessonLike->user_id = $user_id;
+                $lessonLike->lesson_slug = $lesson_dislike_id;
+                $lessonLike->save();
+                
+                Toastr::success('Tôi không thích video này','Thông báo');
+                return back();            
+            }
+            else{
+                Toastr::error('Chỉ được 1 lần :(','Thông báo');
+                return back(); 
+            }
+        }else{
+            return redirect('/dangnhap');
+        }
+    }
+
+    //Lesson Comment
+    public function addLessonComment(Request $request,$lesson_slug)
+    {
+        $comment_lesson = new LessonComment();
+        $comment_lesson->user_id = Auth::user()->id;
+        $comment_lesson->lesson_slug = $lesson_slug;
+        $comment_lesson->comment_lesson_content = $request->input('comment_lesson_content');
+        $comment_lesson->save();
+
+        Toastr::success('Đăng bình luận thành công','Thông báo');
+        
+        return back();
     }
 }

@@ -74,7 +74,7 @@
                     <div class="tab-pane fade" id="pills-schedule" role="tabpanel" aria-labelledby="pills-schedule-tab">
                         <div class="detail_club_activity">
                             <div class="row">
-                              <div class="col-sm-4 club_activity_left">
+                              <div class="col-sm-3 club_activity_left">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btnClubActivity" data-toggle="modal" data-target="#staticBackdrop">
                                   <i class="fas fa-plus mr-2"></i> Hôm nay có gì mới????
@@ -91,23 +91,33 @@
                                         </button>
                                       </div>
                                       <div class="modal-body">
-                                        ...
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Đăng</button>
+                                        <form role="form" action="/thembaiviet" method="POST" enctype="multipart/form-data">
+                                          {{ csrf_field() }}
+                                          <div class="modal-body">
+                                              <input type="hidden" name="user_id">
+                                              <input type="hidden" name="club_category_id" value="{{$club_info_cate->club_category_id}}">
+                                              <div class="form-group">
+                                                  <label for="message-text" class="col-form-label" id="blogg_cate">Nội dung bài viết</label>
+                                                  <textarea class="form-control" name="club_activity_content" id="blogg_sum"></textarea>
+                                              </div>
+                                              <div class="modal-footer">
+                                                  <button type="submit" name="addPost" class="btn_blogg_createnew">Đăng</button>
+                                              </div>
+                                          </div>
+                                      </form>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-sm-8 club_activity_right">
+                              <div class="col-sm-9 club_activity_right">
                                 <div class="container">
                                   <div class="row">
                                     <div class="col">
+                                      @foreach ($club_activity as $clubAct)
                                       <div class="club_activity_right_top d-flex">
                                         <div class="club_activity_right_top_info">
-                                          <div class="club_activity_right_name"><span>Quốc Anh - Thành Viên - 18/01/2021</span></div>
+                                          <div class="club_activity_right_name"><span>{{$clubAct->name}}</span></div>
                                         </div>
                                         <div class="club_activity_right_top_option">
                                           <div class="dropdown">
@@ -123,16 +133,13 @@
                                       </div>
                                       <div class="club_activity_right_bottom">
                                         <div class="club_activity_right_bottom_status">
-                                          <span>Hôm nay buồn quá...</span>
-                                        </div>
-                                        <div class="club_activity_right_bottom_img">
-                                          <img src="/img/119469758_2462420790718075_3741060378152167569_o.jpg" alt="">
+                                          {!!$clubAct->club_activity_content!!}
                                         </div>
                                         <hr>
                                         <div class="club_activity_right_bottom_comment">
                                           <ul class="d-flex">
-                                            <li><a href="#" class="club_like"><i class="fas fa-heart"></i> Thích</a></li>
-                                            <li><a href="#" class="club_dislike"><i class="fas fa-heart-broken"></i> Không thích</a></li>
+                                            <li><a href="/thich/{{$clubAct->club_category_slug}}/{{$clubAct->club_activity_id}}" class="club_like"><i class="fas fa-heart"></i> Thích ({{$clubLike}})</a></li>
+                                            <li><a href="/khongthich/{{$clubAct->club_category_slug}}/{{$clubAct->club_activity_id}}" class="club_dislike"><i class="fas fa-heart-broken"></i> Không thích</a></li>
                                             <li>
                                               <a href="#"><i class="fas fa-comment-alt"></i> Bình luận</a>
                                             </li>
@@ -147,6 +154,7 @@
                                             <div class="club_comment_text">Hi Everyone</div>
                                           </div>
                                         </div>
+                                        @endforeach  
                                       </div>
                                     </div>
                                   </div>

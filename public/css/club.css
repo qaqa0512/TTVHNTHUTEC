@@ -169,7 +169,8 @@
 #pills-info-tab,
 #pills-list-tab,
 #pills-manage-tab,
-#pills-schedule-tab {
+#pills-schedule-tab,
+#pills-statistic-tab {
     font-size: 20px;
     text-transform: capitalize;
     color: #E1306C;
@@ -178,7 +179,8 @@
 #pills-info-tab:hover,
 #pills-list-tab:hover,
 #pills-manage-tab:hover,
-#pills-schedule-tab:hover {
+#pills-schedule-tab:hover,
+#pills-statistic-tab:hover {
     color: #E1306C;
     background: #f7f7f7 !important;
 }
@@ -186,7 +188,8 @@
 #pills-info-tab:focus,
 #pills-list-tab:focus,
 #pills-manage-tab:focus,
-#pills-schedule-tab:focus {
+#pills-schedule-tab:focus,
+#pills-statistic-tab:hover {
     background: transparent;
     transition: 0.3s linear;
     background: #f7f7f7 !important;
@@ -229,6 +232,11 @@
     color: #E1306C;
     text-transform: capitalize;
     font-size: 25px !important;
+}
+
+.club_activity_right_bottom_status {
+    width: 100%;
+    height: 100%;
 }
 
 .detail_club_member_img {
@@ -279,6 +287,7 @@
 
 .club_activity_right {
     border: 1px solid #E1306C;
+    border-radius: 15px;
 }
 
 .club_activity_right_top_info {
@@ -290,7 +299,7 @@
 }
 
 .club_activity_right_top_option {
-    margin-left: 420px;
+    margin-left: 672px;
 }
 
 .btnClubActivityOption {

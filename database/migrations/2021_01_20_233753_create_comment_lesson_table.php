@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClubActivityTable extends Migration
+class CreateCommentLessonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateClubActivityTable extends Migration
      */
     public function up()
     {
-        Schema::create('club_activity', function (Blueprint $table) {
-            $table->increments('club_activity_id');
-            $table->longText('club_activity_content');
-            $table->integer('club_member_id');
-            $table->integer('club_category_id');
+        Schema::create('comment_lesson', function (Blueprint $table) {
+            $table->increments('comment_lesson_id');
+            $table->string('lesson_slug');
             $table->integer('user_id');
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ class CreateClubActivityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('club_activity');
+        Schema::dropIfExists('comment_lesson');
     }
 }

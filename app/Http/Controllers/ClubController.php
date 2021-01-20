@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\ClubCategory;
 use App\Models\Club;
 use App\Models\ClubMember;
+use App\Models\club_activity_like;
+use App\Models\club_activity_dislike;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +47,105 @@ class ClubController extends Controller
         $club_info_page = DB::table('club')->join('club_category','club_category.club_category_id','=','club.club_category_id')->where('club_category_slug',$club_category_slug)->get();
         $club_info_cate= DB::table('club_category')->where('club_category_slug',$club_category_slug)->first();
         $club_member = DB::table('club_member')->join('club_category','club_category.club_category_id','=','club_member.club_category_id')->where('club_category_slug',$club_category_slug)->get();
-        return view('pages.club.detail_club')->with('club_info_page',$club_info_page)->with('club_info_cate',$club_info_cate)->with('club_member',$club_member);
+        $club_activity = DB::table('club_activity')
+        ->join('club_category','club_category.club_category_id','=','club_activity.club_category_id')
+        ->join('users','club_activity.user_id','=','users.id')->where('club_category_slug',$club_category_slug)->get();
+
+        $clubLike = DB::table('club_activity_like')
+        ->join('club_category','club_category.club_category_id','=','club_activity_like.club_category_id')
+        ->join('club_activity','club_activity.club_activity_id','=','club_activity_like.club_category_id')
+        ->join('users','club_activity.user_id','=','users.id')->where('club_category_slug',$club_category_slug)->count();
+        
+        return view('pages.club.detail_club')->with('club_info_page',$club_info_page)
+        ->with('club_info_cate',$club_info_cate)
+        ->with('club_member',$club_member)
+        ->with('club_activity',$club_activity)
+        ->with('clubLike',$clubLike);
+    }
+    public function detailClubActivity($club_category_slug,$club_activity_id)
+    {   
+        $club_activity = DB::table('club_activity')
+        ->join('club_category','club_category.club_category_id','=','club_activity.club_category_id')
+        ->join('users','club_activity.user_id','=','users.id')->where('club_category_slug',$club_category_slug)->get();
+
+        $clubLike = DB::table('club_activity_like')
+        ->join('club_category','club_category.club_category_id','=','club_activity_like.club_category_id')
+        ->join('club_activity','club_activity.club_activity_id','=','club_activity_like.club_category_id')
+        ->join('users','club_activity.user_id','=','users.id')->where('club_category_slug',$club_category_slug)->count();
+        
+        return view('pages.club.detail_club')
+        ->with('club_activity',$club_activity)
+        ->with('clubLike',$clubLike);
+    }
+
+    // Club Activity
+    public function addClubActivity(Request $request)
+    {
+        $data = array();
+            $data['user_id'] = Auth::user()->id;
+            $data['club_category_id'] = $request->club_category_id;
+            $data['club_activity_content'] = $request->club_activity_content;
+
+            DB::table('club_activity')->insert($data);
+            Toastr::success('Đăng bài viết thành công','Thông báo');
+            
+            return back();
+    }
+
+    public function clubLike($club_category_id,$club_activity_id)
+    {
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            
+            $activity_like = club_activity_like::where(['user_id'=>$user,'club_category_id' => $club_category_id,'club_activity_id' => $club_activity_id])->first();
+            if(empty($activity_like->user_id)){
+                $user_id = Auth::user()->id;
+                $club_cate_like_id = $club_category_id;
+                $club_activity_like_id = $club_activity_id;
+                $clubLike = new club_activity_like;
+                $clubLike->user_id = $user_id;
+                $clubLike->club_category_id = $club_cate_like_id;
+                $clubLike->club_activity_id = $club_activity_like_id;
+                $clubLike->save();
+                
+                Toastr::success('Bạn thích bài viết này','Thông báo');
+                return back();            
+            }
+            else{
+                Toastr::error('Bạn đã thích bài viết này rồi :(','Thông báo');
+                return back(); 
+            }
+        }else{
+            return redirect('/dangnhap');
+        }
+    }
+
+    public function clubDisLike($club_category_id,$club_activity_id)
+    {
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            
+            $activity_dislike = club_activity_dislike::where(['user_id'=>$user,'club_category_id' => $club_category_id,'club_activity_id' => $club_activity_id])->first();
+            if(empty($activity_dislike->user_id)){
+                $user_id = Auth::user()->id;
+                $club_cate_dislike_id = $club_category_id;
+                $club_activity_dislike_id = $club_activity_id;
+                $clubLike = new club_activity_dislike;
+                $clubLike->user_id = $user_id;
+                $clubLike->club_category_id = $club_cate_dislike_id;
+                $clubLike->club_activity_id = $club_activity_dislike_id;
+                $clubLike->save();
+                
+                Toastr::success('Bạn không thích bài viết này','Thông báo');
+                return back();            
+            }
+            else{
+                Toastr::error('Chỉ được 1 lần :(','Thông báo');
+                return back(); 
+            }
+        }else{
+            return redirect('/dangnhap');
+        }
     }
 
     // Admin
@@ -126,6 +226,4 @@ class ClubController extends Controller
         $club_info = DB::table('club')->get();
         return view('admin.club.allDetailClub')->with('club_info',$club_info);
     }
-
-    
 }

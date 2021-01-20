@@ -22,7 +22,11 @@ Route::post('/timkiem','App\Http\Controllers\PagesController@search');
 //Club
 Route::get('/caulacbo','App\Http\Controllers\ClubController@club');
 Route::get('/chitietcaulacbo/{club_category_slug}','App\Http\Controllers\ClubController@detailClub');
+Route::get('/chitietcaulacbo/{club_category_slug}/{club_activity_id}','App\Http\Controllers\ClubController@detailClubActivity');
 Route::post('/themthanhvien','App\Http\Controllers\ClubController@addClubMember');
+Route::post('/thembaiviet','App\Http\Controllers\ClubController@addClubActivity');
+Route::get('/thich/{club_category_slug}/{club_activity_id}','App\Http\Controllers\ClubController@clubLike');
+Route::get('/khongthich/{club_category_slug}/{club_activity_id}','App\Http\Controllers\ClubController@clubDisLike');
 
 // Profile
 Route::get('/capnhatthongtin','App\Http\Controllers\ProfileController@profile');
@@ -69,6 +73,9 @@ Route::get('/xoakhoahoccuatoi/{rowId}','App\Http\Controllers\MyCourseController@
 
 // Video
 Route::get('/video/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson');
+Route::post('/thembinhluanbaihoc/{lesson_slug}','App\Http\Controllers\VideoController@addLessonComment');
+Route::get('/thichvideo/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson_like');
+Route::get('/khongthichvideo/{lesson_slug}','App\Http\Controllers\VideoController@video_lesson_dislike');
 
 //Blog
 Route::get('/blog','App\Http\Controllers\BLogController@blog');
